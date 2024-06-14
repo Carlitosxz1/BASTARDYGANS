@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #1e1e1e;
+            background-color: #0000ff; /* Fondo azul */
             color: #ffffff;
             margin: 0;
             padding: 0;
@@ -40,6 +40,7 @@
                 margin: 0 15px;
                 text-decoration: none;
                 font-weight: bold;
+                cursor: pointer;
             }
 
             nav .menu {
@@ -65,25 +66,15 @@
             }
 
         .cover {
-            position: relative;
+            background-image: url('https://drive.google.com/file/d/1WpQ1LRlKpLDfl-PjxKZKkNkXw5OqFLFu/view?usp=drive_link'); /* Reemplaza con la URL de la imagen de GTA que prefieras */
+            background-size: cover;
+            background-position: center;
             height: 60vh;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
-            overflow: hidden;
         }
-
-            .cover video {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                transform: translate(-50%, -50%);
-                z-index: -1;
-            }
 
             .cover h1 {
                 font-size: 3em;
@@ -93,6 +84,7 @@
 
         section {
             padding: 20px;
+            display: none; /* Ocultar secciones por defecto */
         }
 
         footer {
@@ -118,6 +110,14 @@
                 background-color: #5a6cae;
             }
     </style>
+    <script>
+        function showSection(id) {
+            document.querySelectorAll('section').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(id).style.display = 'block';
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -128,17 +128,13 @@
         <div class="menu">
             <span>Menú</span>
             <div class="menu-content">
-                <a href="#sobre-nosotros">Sobre Nosotros</a>
-                <a href="#reglas">Reglas</a>
-                <a href="#contacto">Contacto</a>
+                <a onclick="showSection('sobre-nosotros')">Sobre Nosotros</a>
+                <a onclick="showSection('reglas')">Reglas</a>
+                <a onclick="showSection('contacto')">Contacto</a>
             </div>
         </div>
     </nav>
     <div class="cover">
-        <video autoplay muted loop>
-            <source src="https://drive.google.com/file/d/1yFIPZUZVcIjxdoMcPrO8zIubqveiRJiY/view?usp=drive_link" type="video/mp4">
-            Tu navegador no soporta la etiqueta de video.
-        </video>
         <h1>BastardyGans</h1>
     </div>
     <section id="sobre-nosotros">
