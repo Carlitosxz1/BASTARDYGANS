@@ -65,15 +65,25 @@
             }
 
         .cover {
-            background-image: url('https://i.imgur.com/e1KBgKY.jpg'); /* Reemplaza con la URL de la imagen de GTA que prefieras */
-            background-size: cover;
-            background-position: center;
+            position: relative;
             height: 60vh;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
+            overflow: hidden;
         }
+
+            .cover video {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transform: translate(-50%, -50%);
+                z-index: -1;
+            }
 
             .cover h1 {
                 font-size: 3em;
@@ -125,6 +135,10 @@
         </div>
     </nav>
     <div class="cover">
+        <video autoplay muted loop>
+            <source src="https://drive.google.com/file/d/1yFIPZUZVcIjxdoMcPrO8zIubqveiRJiY/view?usp=drive_link" type="video/mp4">
+            Tu navegador no soporta la etiqueta de video.
+        </video>
         <h1>BastardyGans</h1>
     </div>
     <section id="sobre-nosotros">
