@@ -25,30 +25,30 @@
             top: 0;
             z-index: 1000; /* Asegurarse de que esté sobre otros elementos */
         }
-        nav a {
+        nav .menu {
             color: #ffffff;
             margin: 0 15px;
             text-decoration: none;
             font-weight: bold;
             cursor: pointer;
-        }
-        nav .menu {
             display: inline-block;
-            cursor: pointer;
         }
         nav .menu-content {
             display: none;
             position: absolute;
-            right: 15px;
+            left: 15px;
             background-color: #444444;
             box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1001;
         }
         nav .menu-content a {
             display: block;
             padding: 10px 15px;
+            color: #ffffff;
+            text-decoration: none;
         }
-        nav .menu:hover .menu-content {
-            display: block;
+        nav .menu-content a:hover {
+            background-color: #555555;
         }
         header {
             padding: 100px 20px;
@@ -69,11 +69,18 @@
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
             margin-top: 10px;
         }
-        section {
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.8); /* Fondo semi-transparente para secciones */
-            margin: 20px;
-            border-radius: 10px;
+        .discord-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #0000ff; /* Color azul */
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-size: 1em;
+        }
+        .discord-button:hover {
+            background-color: #0000cc; /* Color azul oscuro al pasar el cursor */
         }
         footer {
             background-color: #333333;
@@ -84,30 +91,41 @@
             bottom: 0;
             z-index: 1;
         }
-        .discord-link {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #7289da;
-            color: #ffffff;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 20px;
-        }
-        .discord-link:hover {
-            background-color: #5a6cae;
-        }
     </style>
+    <script>
+        function toggleMenu() {
+            var menuContent = document.getElementById('menu-content');
+            if (menuContent.style.display === 'block') {
+                menuContent.style.display = 'none';
+            } else {
+                menuContent.style.display = 'block';
+            }
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.menu')) {
+                var menuContent = document.getElementById('menu-content');
+                if (menuContent.style.display === 'block') {
+                    menuContent.style.display = 'none';
+                }
+            }
+        }
+    </script>
 </head>
 <body>
     <nav>
-        <a href="sobre-nosotros.html">Sobre Nosotros</a>
-        <a href="reglas.html">Reglas</a>
-        <a href="contacto.html">Contacto</a>
-        <a href="https://discord.gg/4m9Du4VMgr" target="_blank">Discord</a>
+        <span class="menu" onclick="toggleMenu()">Menú</span>
+        <div id="menu-content" class="menu-content">
+            <a href="sobre-nosotros.html">Sobre Nosotros</a>
+            <a href="reglas.html">Reglas</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="https://discord.gg/F7AqYQPKZD" target="_blank">Discord</a>
+        </div>
     </nav>
     <header>
         <h1>BastardyGans</h1>
         <h2>Servidor de GTA Roleplay PVP</h2>
+        <a href="https://discord.gg/F7AqYQPKZD" class="discord-button" target="_blank">Discord</a>
     </header>
     <footer>
         <p>&copy; 2024 BastardyGans. Todos los derechos reservados.</p>
