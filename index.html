@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -7,19 +7,40 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+<<<<<<< HEAD
+=======
+            background-image: url('/mnt/data/gta-v-trucos-120938.jpg'); /* Fondo con la imagen proporcionada */
+            background-size: cover;
+            background-position: center;
+>>>>>>> 9cf0b228051242ea117b69d498e5f446762227e2
             color: #ffffff;
             margin: 0;
             padding: 0;
             background-color: #000; /* Fondo negro */
         }
-
         header {
+<<<<<<< HEAD
             background-image: url('/mnt/data/gta-v-trucos-120938.jpg'); /* Imagen de fondo de portada */
             background-size: cover;
             background-position: center;
             padding: 100px 20px;
+=======
+            background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente para el header */
+            padding: 20px;
+>>>>>>> 9cf0b228051242ea117b69d498e5f446762227e2
             text-align: center;
+            position: relative;
+            z-index: 1;
         }
+        header h1 {
+            color: #ff4500;
+            margin: 0;
+        }
+        header h2 {
+            color: #ffffff;
+            margin-top: 10px;
+        }
+<<<<<<< HEAD
 
             header h1 {
                 font-size: 3em;
@@ -34,12 +55,41 @@
                 margin-top: 10px;
             }
 
+=======
+>>>>>>> 9cf0b228051242ea117b69d498e5f446762227e2
         nav {
             background-color: #444444;
             padding: 15px;
             text-align: right;
             position: relative;
+            z-index: 1;
         }
+        nav a {
+            color: #ffffff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        nav .menu {
+            display: inline-block;
+            cursor: pointer;
+        }
+        nav .menu-content {
+            display: none;
+            position: absolute;
+            right: 15px;
+            background-color: #444444;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        nav .menu-content a {
+            display: block;
+            padding: 10px 15px;
+        }
+        nav .menu:hover .menu-content {
+            display: block;
+        }
+<<<<<<< HEAD
 
             nav a {
                 color: #ffffff;
@@ -52,13 +102,34 @@
                     text-decoration: underline;
                 }
 
+=======
+        .cover {
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 0;
+        }
+        .cover h1 {
+            font-size: 3em;
+            color: #ffffff;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+>>>>>>> 9cf0b228051242ea117b69d498e5f446762227e2
         section {
             padding: 20px;
             background-color: rgba(0, 0, 0, 0.8); /* Fondo semi-transparente para secciones */
             margin: 20px;
             border-radius: 10px;
+<<<<<<< HEAD
+=======
+            display: none; /* Ocultar secciones por defecto */
+>>>>>>> 9cf0b228051242ea117b69d498e5f446762227e2
         }
-
         footer {
             background-color: #333333;
             text-align: center;
@@ -66,8 +137,8 @@
             position: fixed;
             width: 100%;
             bottom: 0;
+            z-index: 1;
         }
-
         .discord-link {
             display: inline-block;
             padding: 10px 20px;
@@ -77,10 +148,9 @@
             border-radius: 5px;
             margin-top: 20px;
         }
-
-            .discord-link:hover {
-                background-color: #5a6cae;
-            }
+        .discord-link:hover {
+            background-color: #5a6cae;
+        }
     </style>
 </head>
 <body>
@@ -99,3 +169,4 @@
     </footer>
 </body>
 </html>
+
