@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -10,14 +10,19 @@
             color: #ffffff;
             margin: 0;
             padding: 0;
-            background-color: #000; /* Fondo negro */
+            background-image: url('https://cdna.artstation.com/p/assets/images/images/037/645/986/large/astbrusher-gta-5-rp.jpg?1620923884');
+            background-size: cover;
+            background-position: center;
         }
 
         nav {
-            background-color: #444444;
-            padding: 15px;
-            text-align: right;
-            position: relative;
+            background-color: transparent; /* Eliminamos el color de fondo */
+            padding: 30px;
+            text-align: left;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
         }
 
             nav a {
@@ -34,17 +39,32 @@
         section {
             padding: 20px;
             background-color: rgba(0, 0, 0, 0.8); /* Fondo semi-transparente para secciones */
-            margin: 20px;
+            margin: 80px 20px 20px; /* Modificamos el margen */
             border-radius: 10px;
         }
 
         footer {
-            background-color: #333333;
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente para el footer */
             text-align: center;
             padding: 10px;
             position: fixed;
             width: 100%;
             bottom: 0;
+        }
+
+        .discord-link {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #0000ff;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-top: 30px;
+            font-size: 1.2em;
+        }
+
+        .discord-link:hover {
+            background-color: #0000cc;
         }
     </style>
 </head>
