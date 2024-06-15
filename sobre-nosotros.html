@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre Nosotros - BastardyGans</title>
     <style>
-        body {
-          height: 100%;
+        html, body {
+            height: 100%;
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
@@ -17,29 +17,32 @@
             color: #ffffff;
             overflow: hidden;
             width: 100%;
+        }
 
         nav {
             background-color: rgba(0, 0, 0, 0.5);
-            padding: 30px;
+            padding: 20px 10px;
             text-align: center;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            display: flex; /* Usamos flexbox */
-            overflow-x: auto; /* Permitimos el desplazamiento horizontal */
-            justify-content: center; /* Centramos horizontalmente */
+            display: flex;
+            justify-content: center;
+            overflow-x: auto;
+            white-space: nowrap;
         }
 
         nav a {
             color: #ffffff;
-            margin: 0 15px;
+            margin: 0 10px;
             text-decoration: none;
             font-weight: bold;
-            border: 2px solid #ffffff;
+            border: 1px solid #ffffff;
             padding: 10px 15px;
             border-radius: 5px;
-            font-size: 0.8em;
+            font-size: 1em;
+            display: inline-block;
         }
 
         nav a:hover {
@@ -47,23 +50,14 @@
         }
 
         section {
-            padding: 40px;
+            padding: 20px;
             background-color: rgba(0, 0, 0, 0.8);
-            margin: 120px auto 20px;
-            border-radius: 15px;
+            margin: 150px auto 20px;
+            border-radius: 10px;
             max-width: 800px;
             text-align: justify;
             line-height: 1.6;
-            font-size: 0.8em;
-        }
-
-        footer {
-            background-color: transparent;
-            text-align: left;
-            padding: 10px;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
+            font-size: 1em;
         }
 
         .discord-link {
@@ -80,6 +74,42 @@
         .discord-link:hover {
             background-color: #0000cc;
         }
+
+        footer {
+            background-color: transparent;
+            text-align: left;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .footer-content {
+            margin-left: 20px;
+            color: #ffffff;
+        }
+
+        @media only screen and (max-width: 600px) {
+            nav a {
+                font-size: 0.9em;
+                padding: 8px 12px;
+                margin: 0 10px;
+            }
+
+            section {
+                padding: 15px;
+                margin: 130px auto 20px;
+            }
+
+            .discord-link {
+                padding: 10px 20px;
+                font-size: 1em;
+            }
+
+            footer {
+                text-align: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -91,22 +121,20 @@
     </nav>
     <section>
         <h2 style="color: #2E86C1; font-family: 'Roboto', sans-serif;">Sobre Nosotros</h2>
-        <p>El servidor PvP de BastardyGans fue fundado a principios de 2024 por un grupo de jugadores apasionados que querían crear una comunidad PvP próspera. 
-
-El reclutamiento inicial se centró en amigos y pequeñas comunidades de jugadores. 
-
-Se estableció un equipo dedicado de moderadores para garantizar un ambiente comunitario positivo y respetuoso. 
-
-Las asociaciones con otros servidores y comunidades de juegos ayudaron a impulsar la participación.  
-
-Hoy en día, BastardyGans PVP cuenta con una comunidad activa, con eventos regulares y una comunidad de apoyo. 
-
-El servidor continúa creciendo, enfocándose en mejorar la experiencia de juego y mantener un ambiente acogedor para todos los jugadores.
+        <p>
+            El servidor PvP de BastardyGans fue fundado a principios de 2024 por un grupo de jugadores apasionados que querían crear una comunidad PvP próspera.
+            El reclutamiento inicial se centró en amigos y pequeñas comunidades de jugadores.
+            Se estableció un equipo dedicado de moderadores para garantizar un ambiente comunitario positivo y respetuoso.
+            Las asociaciones con otros servidores y comunidades de juegos ayudaron a impulsar la participación.
+            Hoy en día, BastardyGans PVP cuenta con una comunidad activa, con eventos regulares y una comunidad de apoyo.
+            El servidor continúa creciendo, enfocándose en mejorar la experiencia de juego y mantener un ambiente acogedor para todos los jugadores.
         </p>
         <a class="discord-link" href="https://discord.gg/4m9Du4VMgr" target="_blank">Únete a nuestro Discord</a>
     </section>
     <footer>
-        <p>&copy; 2024 BastardyGans. Todos los derechos reservados.</p>
+        <div class="footer-content">
+            <p>&copy; 2024 BastardyGans. Todos los derechos reservados.</p>
+        </div>
     </footer>
 </body>
 </html>
