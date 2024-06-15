@@ -17,7 +17,7 @@
             color: #ffffff;
         }
         nav {
-            background-color: #444444;
+            background-color: rgba(68, 68, 68, 0.7); /* Fondo semi-transparente */
             padding: 15px;
             text-align: left; /* Alinear los enlaces a la izquierda */
             position: fixed; /* Mantener la barra fija en la parte superior */
@@ -37,9 +37,10 @@
             display: none;
             position: absolute;
             left: 15px;
-            background-color: #444444;
+            background-color: rgba(68, 68, 68, 0.9); /* Fondo más transparente */
             box-shadow: 0 8px 16px rgba(0,0,0,0.2);
             z-index: 1001;
+            width: 200px; /* Hacer que el menú desplegable sea más amplio */
         }
         nav .menu-content a {
             display: block;
@@ -48,7 +49,7 @@
             text-decoration: none;
         }
         nav .menu-content a:hover {
-            background-color: #555555;
+            background-color: rgba(85, 85, 85, 0.7); /* Color de fondo al pasar el cursor, más transparente */
         }
         header {
             padding: 100px 20px;
@@ -83,7 +84,7 @@
             background-color: #0000cc; /* Color azul oscuro al pasar el cursor */
         }
         footer {
-            background-color: #333333;
+            background-color: rgba(51, 51, 51, 0.7); /* Fondo semi-transparente */
             text-align: center;
             padding: 10px;
             position: fixed;
