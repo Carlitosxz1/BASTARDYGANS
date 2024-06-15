@@ -15,8 +15,6 @@
             background-position: center;
             background-repeat: no-repeat;
             color: #ffffff;
-            position: fixed;
-            overflow: hidden;
             width: 100%;
         }
 
@@ -37,10 +35,10 @@
             margin: 0 15px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.5em; /* Tamaño de la letra aumentado */
-            border: 2px solid #ffffff; /* Borde blanco */
-            padding: 10px 15px; /* Ajustamos el padding del enlace */
-            border-radius: 5px; /* Borde redondeado */
+            font-size: 1.5em;
+            border: 2px solid #ffffff;
+            padding: 10px 15px;
+            border-radius: 5px;
         }
 
         nav a:hover {
@@ -56,14 +54,14 @@
         }
 
         header h1 {
-            font-size: 4em; /* Tamaño de la letra aumentado */
+            font-size: 4em;
             color: #ff0000;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
             margin: 0;
         }
 
         header h2 {
-            font-size: 2.5em; /* Tamaño de la letra aumentado */
+            font-size: 2.5em;
             color: #0000ff;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
             margin-top: 10px;
@@ -76,8 +74,8 @@
             color: #ffffff;
             text-decoration: none;
             border-radius: 10px;
-            font-size: 1.8em; /* Tamaño de la letra aumentado */
-            max-width: calc(100% - 40px); /* Ajuste del ancho máximo */
+            font-size: 1.8em;
+            max-width: calc(100% - 40px);
             margin-top: 30px;
         }
 
@@ -86,8 +84,8 @@
         }
 
         footer {
-           background-color: transparent; /* Eliminamos el color de fondo */
-            text-align: left; /* Alineamos el texto a la izquierda */
+            background-color: transparent;
+            text-align: left;
             padding: 10px;
             position: fixed;
             width: 100%;
@@ -97,6 +95,39 @@
         .footer-content {
             margin-left: 20px;
             color: #ffffff;
+        }
+
+        @media only screen and (max-width: 600px) {
+            nav {
+                flex-direction: column;
+                padding: 15px;
+            }
+
+            nav a {
+                margin: 10px 0;
+                font-size: 1.2em;
+            }
+
+            header {
+                padding: 100px 10px 30px;
+            }
+
+            header h1 {
+                font-size: 2.5em;
+            }
+
+            header h2 {
+                font-size: 1.5em;
+            }
+
+            .discord-button {
+                padding: 15px 30px;
+                font-size: 1.2em;
+            }
+
+            .footer-content {
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -119,3 +150,4 @@
     </footer>
 </body>
 </html>
+
