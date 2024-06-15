@@ -112,6 +112,7 @@
         <a href="sobre-nosotros.html">Sobre Nosotros</a>
         <a href="Donaciones.html">Donaciones</a>
         <a href="https://discord.gg/4m9Du4VMgr" target="_blank">Discord</a>
+        <a href="#" id="contacto-btn" style="margin-left: auto;">Contacto</a> <!-- Mueve este enlace a la derecha -->
     </nav>
     <section>
         <h2 style="text-align: center;">Reglas</h2>
@@ -315,6 +316,27 @@
     <footer>
         <p class="footer-content">© 2024 BastardyGans. Todos los derechos reservados.</p>
     </footer>
+
+    <div id="contacto-menu" style="display: none; position: fixed; top: 100px; right: 10px; background-color: #0000ff; padding: 10px; border-radius: 5px;">
+    <p><strong>Correo:</strong> Contacto.bastardygans@gmail.com</p>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const contactoBtn = document.getElementById('contacto-btn');
+        const contactoMenu = document.getElementById('contacto-menu');
+
+        contactoBtn.addEventListener('click', function () {
+            if (contactoMenu.style.display === 'none' || contactoMenu.style.display === '') {
+                contactoMenu.style.display = 'block';
+            } else {
+                contactoMenu.style.display = 'none';
+            }
+        });
+    });
+</script>
+
+    
 </body>
 </html>
 
