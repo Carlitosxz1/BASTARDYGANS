@@ -45,36 +45,37 @@
         }
 
         header {
-            padding: 150px 20px 50px; /* Ajustado el padding del header */
+            padding: 150px 20px 50px;
             text-align: center;
             position: relative;
             z-index: 1;
-            margin-top: 20px; /* Ajustado el margen superior del header */
+            margin-top: 20px;
         }
 
         header h1 {
-            font-size: 3.5em; /* Ajustado el tamaño del h1 */
+            font-size: 3.5em;
             color: #ff0000;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
             margin: 0;
         }
 
         header h2 {
-            font-size: 2em; /* Ajustado el tamaño del h2 */
+            font-size: 2em;
             color: #0000ff;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
             margin-top: 10px;
         }
 
         .discord-button {
-            display: block; /* Cambiado a block para centrar */
-            margin: 30px auto; /* Centrado horizontal */
-            padding: 20px 40px; /* Ajustado el padding del botón */
+            display: inline-block;
+            padding: 20px 40px;
             background-color: #0000ff;
             color: #ffffff;
             text-decoration: none;
             border-radius: 10px;
-            font-size: 1.5em; /* Ajustado el tamaño del texto del botón */
+            font-size: 1.5em;
+            max-width: calc(100% - 40px); /* Ajuste del ancho máximo */
+            margin-top: 30px;
         }
 
         .discord-button:hover {
