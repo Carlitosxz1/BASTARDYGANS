@@ -45,10 +45,12 @@
             padding: 10px 15px;
             border-radius: 5px;
             display: inline-block;
+            transition: transform 0.3s;
         }
 
         nav a:hover {
             text-decoration: underline;
+            transform: scale(1.1);
         }
 
         header {
@@ -57,6 +59,12 @@
             position: relative;
             z-index: 1;
             margin-top: 50px;
+        }
+
+        header h1, header h2 {
+            opacity: 0;
+            transform: translateX(-100%);
+            animation: slideIn 1s forwards;
         }
 
         header h1 {
@@ -71,6 +79,7 @@
             color: #0000ff;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
             margin-top: 10px;
+            animation-delay: 0.5s;
         }
 
         .discord-button {
@@ -83,10 +92,13 @@
             font-size: 1.5em; /* Tamaño de letra ajustado */
             max-width: 90%;
             margin-top: 30px;
+            transition: transform 0.3s;
+            animation: pulse 1s infinite;
         }
 
         .discord-button:hover {
             background-color: #0000cc;
+            transform: scale(1.05);
         }
 
         footer {
@@ -102,10 +114,68 @@
             margin-left: 20px;
             color: #ffffff;
         }
+
+        #contacto-menu {
+            display: none;
+            position: fixed;
+            top: 100px;
+            right: 10px;
+            background-color: #0000ff;
+            padding: 10px;
+            border-radius: 5px;
+            transform: translateY(-20px);
+            opacity: 0;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+        #contacto-menu.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        #menu-options {
+            display: none;
+            position: fixed;
+            top: 60px;
+            left: 10px;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            color: #ffffff;
+        }
+
+        #menu-options a {
+            display: block;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 5px 0;
+            transition: transform 0.3s;
+        }
+
+        #menu-options a:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
     </style>
 </head>
 <body>
     <nav>
+        <a href="#" id="menu-btn">Menú</a>
         <a href="reglas.html">Reglas</a>
         <a href="sobre-nosotros.html">Sobre Nosotros</a>
         <a href="Donaciones.html">Donaciones</a>
@@ -123,25 +193,45 @@
         </div>
     </footer>
 
-    <div id="contacto-menu" style="display: none; position: fixed; top: 100px; right: 10px; background-color: #0000ff; padding: 10px; border-radius: 5px;">
-    <p><strong>Correo:</strong> Contacto.bastardygans@gmail.com</p>
-</div>
+    <div id="contacto-menu">
+        <p><strong>Correo:</strong> Contacto.bastardygans@gmail.com</p>
+    </div>
 
+    <div id="menu-options">
+        <a href="#">Valóranos</a>
+        <a href="https://discord.gg/F7AqYQPKZD" target="_blank">Discord</a>
+    </div>
 
     <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const contactoBtn = document.getElementById('contacto-btn');
-        const contactoMenu = document.getElementById('contacto-menu');
+        document.addEventListener('DOMContentLoaded', function () {
+            const contactoBtn = document.getElementById('contacto-btn');
+            const contactoMenu = document.getElementById('contacto-menu');
+            const menuBtn = document.getElementById('menu-btn');
+            const menuOptions = document.getElementById('menu-options');
 
-        contactoBtn.addEventListener('click', function () {
-            if (contactoMenu.style.display === 'none' || contactoMenu.style.display === '') {
-                contactoMenu.style.display = 'block';
-            } else {
-                contactoMenu.style.display = 'none';
-            }
+            contactoBtn.addEventListener('click', function () {
+                if (contactoMenu.style.display === 'none' || contactoMenu.style.display === '') {
+                    contactoMenu.style.display = 'block';
+                    setTimeout(() => {
+                        contactoMenu.classList.add('visible');
+                    }, 10);
+                } else {
+                    contactoMenu.classList.remove('visible');
+                    setTimeout(() => {
+                        contactoMenu.style.display = 'none';
+                    }, 300);
+                }
+            });
+
+            menuBtn.addEventListener('click', function () {
+                if (menuOptions.style.display === 'none' || menuOptions.style.display === '') {
+                    menuOptions.style.display = 'block';
+                } else {
+                    menuOptions.style.display = 'none';
+                }
+            });
         });
-    });
-</script>
+    </script>
 
 </body>
 </html>
