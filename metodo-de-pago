@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nosotros - BastardyGans</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://cdna.artstation.com/p/assets/images/images/037/645/986/large/astbrusher-gta-5-rp.jpg?1620923884');
+            background-size: cover;
+            background-position: center;
+        }
+
+        nav {
+            background-color: transparent; /* Eliminamos el color de fondo */
+            padding: 30px;
+            text-align: left;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+            nav a {
+                color: #ffffff;
+                margin: 0 15px;
+                text-decoration: none;
+                font-weight: bold;
+            }
+
+                nav a:hover {
+                    text-decoration: underline;
+                }
+
+        section {
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8); /* Fondo semi-transparente para secciones */
+            margin: 80px 20px 20px; /* Modificamos el margen */
+            border-radius: 10px;
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente para el footer */
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .discord-link {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #0000ff;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-top: 30px;
+            font-size: 1.2em;
+        }
+
+        .discord-link:hover {
+            background-color: #0000cc;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="reglas.html">Reglas</a>
+        <a href="https://discord.gg/4m9Du4VMgr" target="_blank">Discord</a>
+    </nav>
+    <section>
+        <h2>Sobre Nosotros</h2>
+        <p>Bienvenido a BastardyGans, un servidor de GTA Roleplay dedicado a ofrecer la mejor experiencia de juego. Únete a nuestra comunidad y forma parte de emocionantes aventuras en Los Santos.</p>
+        <a class="discord-link" href="https://discord.gg/4m9Du4VMgr" target="_blank">Únete a nuestro Discord</a>
+    </section>
+    <footer>
+        <p>&copy; 2024 BastardyGans. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
