@@ -64,6 +64,15 @@
             font-style: italic;
             margin-top: 20px;
         }
+
+        .definition {
+            display: none;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #ffffff;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -78,27 +87,30 @@
             <p>IMPORTANTE: El uso de hacks o archivos externos está estrictamente prohibido. Cualquier persona que no cumpla las normativas será expulsada inmediatamente.</p>
         </div>
         <ol>
-            <li>Respeto a los demás jugadores.</li>
-            <li>Respeto a las reglas del servidor.</li>
-            <li>Coordinación y comunicación.</li>
-            <li>No abusar de glitches o exploits.</li>
-            <li>Participación activa.</li>
-            <li>Uniformidad y símbolos de la banda.</li>
-            <li>Inventario de banda.</li>
-            <li>Respeto a las decisiones del liderazgo.</li>
-            <li>Entrenamiento y mejora continua.</li>
-            <li>Resolución pacífica de conflictos internos.</li>
-            <li>Respeto a las reglas del servidor y de la comunidad.</li>
-            <li>Solidaridad.</li>
-            <li>Mantener el poder de la mafia.</li>
-            <li>Reconocimiento y recompensa.</li>
-            <li>Integración de nuevos reclutas.</li>
-            <li>Participación en la economía del servidor.</li>
+            <li>
+                <strong>Respeto a los demás jugadores.</strong>
+                <button onclick="toggleDefinition('definition1')">Mostrar</button>
+                <div id="definition1" class="definition">
+                    <p>Los miembros de la banda deben tratar a otros jugadores con respeto, incluso en situaciones de conflicto. Evita el acoso, los insultos y el comportamiento tóxico.</p>
+                </div>
+            </li>
+            <!-- Repite esta estructura para las demás normativas -->
         </ol>
         <p class="signature">ATT: FUNDADOR BASTARDYGANS</p>
     </section>
     <footer>
         <p>&copy; 2024 BastardyGans. Todos los derechos reservados.</p>
     </footer>
+
+    <script>
+        function toggleDefinition(id) {
+            var definition = document.getElementById(id);
+            if (definition.style.display === 'block') {
+                definition.style.display = 'none';
+            } else {
+                definition.style.display = 'block';
+            }
+        }
+    </script>
 </body>
 </html>
