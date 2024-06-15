@@ -15,6 +15,9 @@
             background-position: center;
             background-repeat: no-repeat;
             color: #ffffff;
+            position: fixed;
+            overflow: hidden;
+            width: 100%;
         }
 
         nav {
@@ -95,12 +98,17 @@
 
         footer {
             background-color: rgba(51, 51, 51, 0.7);
-            text-align: center;
+            text-align: left;
             padding: 10px;
             position: fixed;
             width: 100%;
             bottom: 0;
             z-index: 1;
+        }
+
+        .footer-content {
+            margin-left: 20px;
+            color: #ffffff;
         }
     </style>
     <script>
@@ -138,7 +146,9 @@
         <a href="https://discord.gg/F7AqYQPKZD" class="discord-button" target="_blank">Discord</a>
     </header>
     <footer>
-        <p>&copy; 2024 BastardyGans. Todos los derechos reservados.</p>
+        <div class="footer-content">
+            <p>&copy; 2024 BastardyGans. Todos los derechos reservados.</p>
+        </div>
     </footer>
 </body>
 </html>
