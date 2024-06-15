@@ -29,6 +29,8 @@
             top: 0;
             z-index: 1000;
             background-color: rgba(0, 0, 0, 0.5);
+            overflow-x: auto;
+            white-space: nowrap;
         }
 
         nav a {
@@ -40,6 +42,7 @@
             border: 1px solid #ffffff;
             padding: 5px 10px;
             border-radius: 5px;
+            display: inline-block;
         }
 
         nav a:hover {
@@ -99,14 +102,10 @@
         }
 
         @media only screen and (max-width: 600px) {
-            nav {
-                flex-direction: column;
-                padding: 15px;
-            }
-
             nav a {
-                margin: 5px 0;
                 font-size: 1em;
+                padding: 5px;
+                margin: 0 5px;
             }
 
             header {
@@ -151,4 +150,3 @@
     </footer>
 </body>
 </html>
-
