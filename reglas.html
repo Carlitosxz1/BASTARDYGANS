@@ -25,16 +25,16 @@
             z-index: 1000;
         }
 
-            nav a {
-                color: #ffffff;
-                margin: 0 15px;
-                text-decoration: none;
-                font-weight: bold;
-            }
+        nav a {
+            color: #ffffff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
-                nav a:hover {
-                    text-decoration: underline;
-                }
+        nav a:hover {
+            text-decoration: underline;
+        }
 
         section {
             padding: 20px;
@@ -73,6 +73,11 @@
             margin-top: 10px;
             border-radius: 5px;
         }
+
+        .scrollable {
+            max-height: 400px; /* Altura máxima para permitir el scroll */
+            overflow-y: auto; /* Permitir scroll vertical si es necesario */
+        }
     </style>
 </head>
 <body>
@@ -86,21 +91,23 @@
         <div class="important-note">
             <p>IMPORTANTE: El uso de hacks o archivos externos está estrictamente prohibido. Cualquier persona que no cumpla las normativas será expulsada inmediatamente.</p>
         </div>
-        <ol>
-            <li style="text-align: center;">
-                <strong>Respeto a los demás jugadores</strong>
-                <div class="definition">
-                    <p>Los miembros de la banda deben tratar a otros jugadores con respeto, incluso en situaciones de conflicto. Evita el acoso, los insultos y el comportamiento tóxico.</p>
-                </div>
-            </li>
-            <li style="text-align: center;">
-                <strong>Respeto a las reglas del servidor</strong>
-                <div class="definition">
-                    <p>Cumple con todas las reglas establecidas por los administradores del servidor. Esto incluye restricciones de zona de combate, límites de armamento, y cualquier otra normativa específica del servidor.</p>
-                </div>
-            </li>
-            <!-- Repite esta estructura para las demás normativas -->
-        </ol>
+        <div class="scrollable"> <!-- Nuevo div para hacer scroll solo en esta sección -->
+            <ol>
+                <li style="text-align: center;">
+                    <strong>Respeto a los demás jugadores</strong>
+                    <div class="definition">
+                        <p>Los miembros de la banda deben tratar a otros jugadores con respeto, incluso en situaciones de conflicto. Evita el acoso, los insultos y el comportamiento tóxico.</p>
+                    </div>
+                </li>
+                <!-- Repite esta estructura para las demás normativas -->
+                <li style="text-align: center;">
+                    <strong>Respeto a las reglas del servidor</strong>
+                    <div class="definition">
+                        <p>Cumple con todas las reglas establecidas por los administradores del servidor. Esto incluye restricciones de zona de combate, límites de armamento, y cualquier otra normativa específica del servidor.</p>
+                    </div>
+                </li>
+            </ol>
+        </div>
         <p class="signature">ATT: FUNDADOR BASTARDYGANS</p>
     </section>
     <footer>
@@ -108,4 +115,3 @@
     </footer>
 </body>
 </html>
-
