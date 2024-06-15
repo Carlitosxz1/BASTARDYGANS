@@ -16,13 +16,15 @@
         }
 
         nav {
-            background-color: rgba(0, 0, 0, 0.5); /* Fondo negro semi-transparente */
-            padding: 25px 15px; /* Ajustamos el padding vertical */
-            text-align: center; /* Centramos el texto en el menú */
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 25px 15px;
+            text-align: center;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            display: flex; /* Usamos flexbox */
+            overflow-x: auto; /* Permitimos el desplazamiento horizontal */
         }
 
         nav a {
@@ -30,10 +32,10 @@
             margin: 0 15px;
             text-decoration: none;
             font-weight: bold;
-            border: 1px solid #ffffff; /* Borde blanco con líneas finas */
+            border: 1px solid #ffffff;
             padding: 10px 15px;
             border-radius: 5px;
-            font-size: 1em; /* Tamaño de la letra aumentado */
+            font-size: 1em;
         }
 
         nav a:hover {
@@ -42,16 +44,16 @@
 
         section {
             padding: 20px;
-            background-color: rgba(0, 0, 0, 0.8); /* Fondo semi-transparente para secciones */
-            margin: 100px auto; /* Centramos el contenido horizontalmente */
+            background-color: rgba(0, 0, 0, 0.8);
+            margin: 100px auto;
             border-radius: 10px;
-            max-width: 800px; /* Establecemos un ancho máximo para el contenido */
-            font-size: 1em; /* Tamaño de la letra aumentado */
+            max-width: 800px;
+            font-size: 1em;
         }
 
         footer {
-            background-color: transparent; /* Eliminamos el color de fondo */
-            text-align: left; /* Alineamos el texto a la izquierda */
+            background-color: transparent;
+            text-align: left;
             padding: 10px;
             position: fixed;
             width: 100%;
@@ -64,13 +66,13 @@
             padding: 10px;
             margin-bottom: 20px;
             border-radius: 5px;
-            font-size: 1.2em; /* Tamaño de la letra aumentado */
+            font-size: 1.2em;
         }
 
         .signature {
             font-style: italic;
             margin-top: 20px;
-            font-size: 1.2em; /* Tamaño de la letra aumentado */
+            font-size: 1.2em;
         }
 
         .definition {
@@ -79,12 +81,12 @@
             padding: 10px;
             margin-top: 10px;
             border-radius: 5px;
-            font-size: 1.2em; /* Tamaño de la letra aumentado */
+            font-size: 1.2em;
         }
 
         .scrollable {
-            max-height: 450px; /* Ajustamos la altura máxima del contenedor */
-            overflow-y: auto; /* Permitir scroll vertical si es necesario */
+            max-height: 450px;
+            overflow-y: auto;
         }
     </style>
 </head>
@@ -100,9 +102,9 @@
         <div class="important-note">
             <p>IMPORTANTE: El uso de hacks o archivos externos está estrictamente prohibido. Cualquier persona que no cumpla las normativas será expulsada inmediatamente.</p>
         </div>
-        <div class="scrollable"> <!-- Nuevo div para hacer scroll solo en esta sección -->
+        <div class="scrollable">
             <ol>
-              <li style="text-align: center;">  
+                <li style="text-align: center;">  
 
                     <strong>Respeto a los demás jugadores</strong>  
 
