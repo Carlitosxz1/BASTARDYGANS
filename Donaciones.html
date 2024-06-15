@@ -16,13 +16,17 @@
         }
 
         nav {
-            background-color: transparent; /* Eliminamos el color de fondo */
-            padding: 25px 15px; /* Ajustamos el padding vertical */
-            text-align: center; /* Centramos el texto en el menú */
+            background-color: transparent;
+            padding: 25px 15px;
+            text-align: center;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            display: flex;
+            justify-content: center;
+            overflow-x: auto;
+            white-space: nowrap;
         }
 
         nav a {
@@ -30,10 +34,11 @@
             margin: 0 15px;
             text-decoration: none;
             font-weight: bold;
-            border: 1px solid #ffffff; /* Borde blanco con líneas finas */
+            border: 1px solid #ffffff;
             padding: 10px 15px;
             border-radius: 5px;
-            font-size: 1em; /* Tamaño de la letra aumentado */
+            font-size: 1em;
+            display: inline-block;
         }
 
         nav a:hover {
@@ -42,16 +47,16 @@
 
         section {
             padding: 20px;
-            background-color: rgba(0, 0, 0, 0.8); /* Fondo semi-transparente para secciones */
-            margin: 180px auto 0; /* Centramos el contenido horizontalmente */
+            background-color: rgba(0, 0, 0, 0.8);
+            margin: 180px auto 0;
             border-radius: 10px;
-            max-width: 800px; /* Establecemos un ancho máximo para el contenido */
-            font-size: 1em; /* Tamaño de la letra aumentado */
-            text-align: center; /* Centramos el texto en el centro */
+            max-width: 800px;
+            font-size: 1em;
+            text-align: center;
         }
 
         .payment-method {
-            margin-bottom: 20px; /* Espacio entre cada método de pago */
+            margin-bottom: 20px;
         }
 
         .payment-method img {
@@ -79,12 +84,38 @@
         }
 
         footer {
-            background-color: transparent; /* Eliminamos el color de fondo */
-            text-align: left; /* Alineamos el texto a la izquierda */
+            background-color: transparent;
+            text-align: left;
             padding: 10px;
             position: fixed;
             width: 100%;
             bottom: 0;
+        }
+
+        @media only screen and (max-width: 600px) {
+            nav a {
+                font-size: 0.9em;
+                padding: 8px 12px;
+                margin: 0 10px;
+            }
+
+            section {
+                padding: 15px;
+                margin: 150px auto 0;
+            }
+
+            .donation-button {
+                padding: 8px 16px;
+                font-size: 1em;
+            }
+
+            .bottom-image {
+                margin-top: 15px;
+            }
+
+            footer {
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -98,9 +129,7 @@
     <section>
         <h2>Métodos de Donación</h2>
         <div class="payment-method">
-            <!-- Botón de Donación -->
             <a href="https://www.webpay.cl/form-pay/182649?utm_source=transbank&utm_medium=app&utm_campaign=link_apptransbank" class="donation-button" target="_blank">DONACIÓN</a>
-            <!-- Imagen debajo del botón -->
             <img src="https://centrodeayuda.kastorsoftware.cl/wp-content/uploads/2022/04/%C2%BFCo%CC%81mo-activar-el-servicio-de-pago-Webpay_.png" alt="Webpay" class="bottom-image">
         </div>
     </section>
