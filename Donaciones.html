@@ -47,6 +47,7 @@
             border-radius: 10px;
             max-width: 800px; /* Establecemos un ancho máximo para el contenido */
             font-size: 1em; /* Tamaño de la letra aumentado */
+            text-align: center; /* Centramos el texto en el centro */
         }
 
         .payment-method {
@@ -56,6 +57,25 @@
         .payment-method img {
             max-width: 100%;
             height: auto;
+        }
+
+        .donation-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ff0000;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+
+        .donation-button:hover {
+            background-color: #cc0000;
+        }
+
+        .bottom-image {
+            margin-top: 20px;
         }
 
         footer {
@@ -71,15 +91,17 @@
 <body>
     <nav>
         <a href="index.html">Inicio</a>
-        <a href="reglas.html">reglas</a>
+        <a href="reglas.html">Reglas</a>
         <a href="sobre-nosotros.html">Sobre Nosotros</a>
         <a href="https://discord.gg/4m9Du4VMgr" target="_blank">Discord</a>
     </nav>
     <section>
-        <h2 style="text-align: center;">Métodos de Donacion</h2>
+        <h2>Métodos de Donación</h2>
         <div class="payment-method">
-            <img url="https://centrodeayuda.kastorsoftware.cl/wp-content/uploads/2022/04/%C2%BFCo%CC%81mo-activar-el-servicio-de-pago-Webpay_.png" alt="WEBPAY">
-            <p>https://www.webpay.cl/form-pay/182649?utm_source=transbank&utm_medium=app&utm_campaign=link_apptransbank</p>
+            <!-- Botón de Donación -->
+            <a href="https://www.webpay.cl/form-pay/182649?utm_source=transbank&utm_medium=app&utm_campaign=link_apptransbank" class="donation-button" target="_blank">DONACIÓN</a>
+            <!-- Imagen debajo del botón -->
+            <img src="https://centrodeayuda.kastorsoftware.cl/wp-content/uploads/2022/04/%C2%BFCo%CC%81mo-activar-el-servicio-de-pago-Webpay_.png" alt="Webpay" class="bottom-image">
         </div>
     </section>
     <footer>
