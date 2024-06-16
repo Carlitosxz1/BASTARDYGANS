@@ -2,7 +2,6 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <meta name="viewport" content="width=1024">
     <title>BastardyGans - Servidor de GTA Roleplay</title>
     <style>
@@ -85,13 +84,12 @@
 
         .discord-button {
             display: inline-block;
-            padding: 15px 30px;
+            padding: 10px 20px;
             background-color: #0000ff;
             color: #ffffff;
             text-decoration: none;
             border-radius: 10px;
-            font-size: 1.5em; /* Tamaño de letra ajustado */
-            max-width: 90%;
+            font-size: 1.2em; /* Tamaño de letra ajustado */
             margin-top: 30px;
             transition: transform 0.3s;
             animation: pulse 1s infinite;
@@ -146,6 +144,7 @@
             transform: translateY(-20px);
             opacity: 0;
             transition: transform 0.3s, opacity 0.3s;
+            z-index: 1000;
         }
 
         #menu-options.visible {
@@ -190,12 +189,12 @@
         <a href="reglas.html">Reglas</a>
         <a href="sobre-nosotros.html">Sobre Nosotros</a>
         <a href="Donaciones.html">Donaciones</a>
-        <a href="https://discord.gg/xhDpvFbwrR" target="_blank" class="discord-button">Discord</a> <!-- Botón principal de Discord -->
         <a href="#" id="contacto-btn" style="margin-left: auto;">Contacto</a> <!-- Mueve este enlace a la derecha -->
     </nav>
     <header>
         <h1>BastardyGans</h1>
         <h2>Servidor de GTA Roleplay PVP</h2>
+        <a href="https://discord.gg/xhDpvFbwrR" class="discord-button" target="_blank">Discord</a>
     </header>
     <footer>
         <div class="footer-content">
