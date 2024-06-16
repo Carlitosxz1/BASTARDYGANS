@@ -137,8 +137,9 @@
 
         #menu-options {
             display: none;
-            position: fixed;
-            left: calc(50% - 150px);
+            position: absolute;
+            left: 0;  /* Será ajustado por el JavaScript */
+            top: 100%;  /* Justo debajo del botón */
             background-color: rgba(0, 0, 0, 0.8);
             padding: 20px;
             border-radius: 10px;
@@ -224,41 +225,44 @@
             const menuBtn = document.getElementById('menu-btn');
             const menuOptions = document.getElementById('menu-options');
 
-            contactoBtn.addEventListener('click', function () {
-                toggleMenu(contactoMenu);
-            });
+    menuBtn.addEventListener('mouseenter', function () {
+        // Colocar el menú justo debajo del botón
+        const rect = menuBtn.getBoundingClientRect();
+        menuOptions.style.left = `${rect.left}px`;
+        menuOptions.style.top = `${rect.bottom}px`;
+        
+        toggleMenu(menuOptions);
+    });
 
-            menuBtn.addEventListener('click', function () {
-                toggleMenu(menuOptions);
-            });
+    menuBtn.addEventListener('mouseleave', function () {
+        toggleMenu(menuOptions);
+    });
 
-            // Función para mostrar/ocultar menús
-            function toggleMenu(menu) {
-                if (menu.style.display === 'none' || menu.style.display === '') {
-                    menu.style.display = 'block';
-                    setTimeout(() => {
-                        menu.classList.add('visible');
-                    }, 10);
-                } else {
-                    menu.classList.remove('visible');
-                    setTimeout(() => {
-                        menu.style.display = 'none';
-                    }, 300);
-                }
-            }
+    // Asegurar que el menú no desaparezca cuando se pasa el ratón sobre él
+    menuOptions.addEventListener('mouseenter', function () {
+        menuOptions.classList.add('visible');
+    });
 
-            // Cerrar el menú-options si se hace clic fuera de él
-            document.addEventListener('click', function (event) {
-                if (!menuOptions.contains(event.target) && !contactoMenu.contains(event.target) && event.target !== menuBtn && event.target !== contactoBtn) {
-                    if (menuOptions.classList.contains('visible')) {
-                        toggleMenu(menuOptions);
-                    }
-                    if (contactoMenu.classList.contains('visible')) {
-                        toggleMenu(contactoMenu);
-                    }
-                }
-            });
-        });
+    menuOptions.addEventListener('mouseleave', function () {
+        toggleMenu(menuOptions);
+    });
+
+    // Función para mostrar/ocultar menús
+    function toggleMenu(menu) {
+        if (menu.style.display === 'none' || menu.style.display === '') {
+            menu.style.display = 'block';
+            setTimeout(() => {
+                menu.classList.add('visible');
+            }, 10);
+        } else {
+            menu.classList.remove('visible');
+            setTimeout(() => {
+                menu.style.display = 'none';
+            }, 300);
+        }
+    }
+});
+
     </script>
 </body>
 
