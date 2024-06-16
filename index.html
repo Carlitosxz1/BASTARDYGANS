@@ -225,7 +225,10 @@
             const menuBtn = document.getElementById('menu-btn');
             const menuOptions = document.getElementById('menu-options');
 
-            menuBtn.addEventListener('mouseenter', function () {
+            contactoBtn.addEventListener('click', function () {
+        contactoMenu.classList.toggle('visible');
+                
+     menuBtn.addEventListener('mouseenter', function () {
                 // Colocar el menú justo debajo del botón
                 const rect = menuBtn.getBoundingClientRect();
                 menuOptions.style.left = `${rect.left}px`;
