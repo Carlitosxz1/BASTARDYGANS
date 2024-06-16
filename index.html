@@ -142,6 +142,14 @@
             padding: 10px;
             border-radius: 5px;
             color: #ffffff;
+            transform: translateY(-20px);
+            opacity: 0;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+        #menu-options.visible {
+            transform: translateY(0);
+            opacity: 1;
         }
 
         #menu-options a {
@@ -179,7 +187,6 @@
         <a href="reglas.html">Reglas</a>
         <a href="sobre-nosotros.html">Sobre Nosotros</a>
         <a href="Donaciones.html">Donaciones</a>
-        <a href="https://discord.gg/F7AqYQPKZD" target="_blank">Discord</a>
         <a href="#" id="contacto-btn" style="margin-left: auto;">Contacto</a> <!-- Mueve este enlace a la derecha -->
     </nav>
     <header>
@@ -198,7 +205,8 @@
     </div>
 
     <div id="menu-options">
-        <a href="#">Valóranos</a>
+        <a href="Mienbros">Mienbros Bastardygans</a>
+        <a href="Valoracion y sugenrencias">Valóracion y Sugerencias</a>
         <a href="https://discord.gg/F7AqYQPKZD" target="_blank">Discord</a>
     </div>
 
@@ -226,8 +234,14 @@
             menuBtn.addEventListener('click', function () {
                 if (menuOptions.style.display === 'none' || menuOptions.style.display === '') {
                     menuOptions.style.display = 'block';
+                    setTimeout(() => {
+                        menuOptions.classList.add('visible');
+                    }, 10);
                 } else {
-                    menuOptions.style.display = 'none';
+                    menuOptions.classList.remove('visible');
+                    setTimeout(() => {
+                        menuOptions.style.display = 'none';
+                    }, 300);
                 }
             });
         });
