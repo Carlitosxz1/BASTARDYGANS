@@ -140,19 +140,18 @@
             display: none;
             position: fixed;
             top: calc(100% + 10px);
-            left: calc(50% - 75px);
+            left: 50%;
+            transform: translateX(-50%);
             background-color: rgba(0, 0, 0, 0.8);
             padding: 10px;
             border-radius: 10px;
             color: #ffffff;
-            transform: translateY(-20px);
             opacity: 0;
-            transition: transform 0.3s, opacity 0.3s;
+            transition: opacity 0.3s;
             z-index: 1000;
         }
 
         #sub-menu.visible {
-            transform: translateY(0);
             opacity: 1;
         }
 
@@ -224,26 +223,13 @@
             const subMenu = document.getElementById('sub-menu');
 
             menuBtn.addEventListener('click', function () {
-                if (subMenu.style.display === 'none' || subMenu.style.display === '') {
-                    subMenu.style.display = 'block';
-                    setTimeout(() => {
-                        subMenu.classList.add('visible');
-                    }, 10);
-                } else {
-                    subMenu.classList.remove('visible');
-                    setTimeout(() => {
-                        subMenu.style.display = 'none';
-                    }, 300);
-                }
+                subMenu.classList.toggle('visible');
             });
 
             // Agregamos esta parte para cerrar el submenú si se hace clic fuera de él
             document.addEventListener('click', function (event) {
                 if (!subMenu.contains(event.target) && event.target !== menuBtn) {
                     subMenu.classList.remove('visible');
-                    setTimeout(() => {
-                        subMenu.style.display = 'none';
-                    }, 300);
                 }
             });
         });
