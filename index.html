@@ -83,17 +83,15 @@
         }
 
         .discord-button {
-            display: inline-block;
-            padding: 10px 20px;
+            display: block;
+            margin: 30px auto; /* Centrado horizontal */
+            padding: 15px 30px; /* Aumentado el padding */
             background-color: #0000ff;
             color: #ffffff;
             text-decoration: none;
             border-radius: 10px;
-            font-size: 1.2em; /* Tamaño de letra ajustado */
-            margin-top: 30px;
+            font-size: 1.5em; /* Aumentado el tamaño de letra */
             transition: transform 0.3s;
-            animation: pulse 1s infinite;
-            margin-left: calc(50% - 150px); /* Centrado horizontal */
         }
 
         .discord-button:hover {
@@ -170,7 +168,7 @@
         #stars-container {
             position: fixed;
             bottom: 20px;
-            left: 20px;
+            right: 20px; /* Mover las estrellas a la derecha */
             z-index: 100;
         }
 
@@ -184,15 +182,6 @@
             to {
                 opacity: 1;
                 transform: translateX(0);
-            }
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.1);
             }
         }
     </style>
@@ -227,7 +216,7 @@
     </div>
 
     <div id="stars-container">
-        <span class="star">&#9733;</span>
+        <span id="rating" class="star">&#9733;</span>
         <span class="star">&#9733;</span>
         <span class="star">&#9733;</span>
         <span class="star">&#9733;</span>
@@ -268,8 +257,7 @@
                     }, 300);
                 }
             });
-        });
-    </script>
 
-</body>
-</html>
+            // Simulando una valoración dinámica
+            const ratingElement = document.getElementById('rating');
+            let rating = 3; // Puedes cambiar este valor din
