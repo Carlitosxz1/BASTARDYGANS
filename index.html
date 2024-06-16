@@ -36,24 +36,24 @@
             white-space: nowrap;
         }
 
-        nav a {
-            color: #ffffff;
-            margin: 0 10px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.2em;
-            border: 1px solid #ffffff;
-            padding: 10px 15px;
-            border-radius: 5px;
-            display: inline-block;
-            transition: transform 0.3s, border-color 0.3s;
-        }
+            nav a {
+                color: #ffffff;
+                margin: 0 10px;
+                text-decoration: none;
+                font-weight: bold;
+                font-size: 1.2em;
+                border: 1px solid #ffffff;
+                padding: 10px 15px;
+                border-radius: 5px;
+                display: inline-block;
+                transition: transform 0.3s, border-color 0.3s;
+            }
 
-        nav a:hover {
-            text-decoration: underline;
-            transform: scale(1.1);
-            border-color: #ff0000;
-        }
+                nav a:hover {
+                    text-decoration: underline;
+                    transform: scale(1.1);
+                    border-color: #ff0000;
+                }
 
         header {
             padding: 100px 20px 50px;
@@ -63,27 +63,27 @@
             margin-top: 50px;
         }
 
-        header h1,
-        header h2 {
-            opacity: 0;
-            transform: translateX(-100%);
-            animation: slideIn 1s forwards;
-        }
+            header h1,
+            header h2 {
+                opacity: 0;
+                transform: translateX(-100%);
+                animation: slideIn 1s forwards;
+            }
 
-        header h1 {
-            font-size: 3em;
-            color: #ff0000;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-            margin: 0;
-        }
+            header h1 {
+                font-size: 3em;
+                color: #ff0000;
+                text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+                margin: 0;
+            }
 
-        header h2 {
-            font-size: 1.8em;
-            color: #0000ff;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-            margin-top: 10px;
-            animation-delay: 0.5s;
-        }
+            header h2 {
+                font-size: 1.8em;
+                color: #0000ff;
+                text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+                margin-top: 10px;
+                animation-delay: 0.5s;
+            }
 
         .discord-button {
             display: inline-block;
@@ -98,10 +98,10 @@
             animation: pulse 1s infinite;
         }
 
-        .discord-button:hover {
-            background-color: #0000cc;
-            transform: scale(1.05);
-        }
+            .discord-button:hover {
+                background-color: #0000cc;
+                transform: scale(1.05);
+            }
 
         footer {
             background-color: transparent;
@@ -130,16 +130,16 @@
             transition: transform 0.3s, opacity 0.3s;
         }
 
-        #contacto-menu.visible {
-            transform: translateY(0);
-            opacity: 1;
-        }
+            #contacto-menu.visible {
+                transform: translateY(0);
+                opacity: 1;
+            }
 
         #menu-options {
             display: none;
             position: absolute;
-            left: 0;  /* Será ajustado por el JavaScript */
-            top: 100%;  /* Justo debajo del botón */
+            left: 0; /* Será ajustado por el JavaScript */
+            top: 100%; /* Justo debajo del botón */
             background-color: rgba(0, 0, 0, 0.8);
             padding: 20px;
             border-radius: 10px;
@@ -150,24 +150,24 @@
             z-index: 1000;
         }
 
-        #menu-options.visible {
-            transform: translateY(0);
-            opacity: 1;
-        }
+            #menu-options.visible {
+                transform: translateY(0);
+                opacity: 1;
+            }
 
-        #menu-options a {
-            display: block;
-            color: #ffffff;
-            text-decoration: none;
-            padding: 10px 0;
-            border-bottom: 1px solid #ffffff;
-            transition: transform 0.3s, border-color 0.3s;
-        }
+            #menu-options a {
+                display: block;
+                color: #ffffff;
+                text-decoration: none;
+                padding: 10px 0;
+                border-bottom: 1px solid #ffffff;
+                transition: transform 0.3s, border-color 0.3s;
+            }
 
-        #menu-options a:hover {
-            transform: scale(1.1);
-            border-color: #ff0000;
-        }
+                #menu-options a:hover {
+                    transform: scale(1.1);
+                    border-color: #ff0000;
+                }
 
         @keyframes slideIn {
             to {
@@ -177,8 +177,7 @@
         }
 
         @keyframes pulse {
-            0%,
-            100% {
+            0%, 100% {
                 transform: scale(1);
             }
 
@@ -225,50 +224,43 @@
             const menuBtn = document.getElementById('menu-btn');
             const menuOptions = document.getElementById('menu-options');
 
-    menuBtn.addEventListener('mouseenter', function () {
-        // Colocar el menú justo debajo del botón
-        const rect = menuBtn.getBoundingClientRect();
-        menuOptions.style.left = `${rect.left}px`;
-        menuOptions.style.top = `${rect.bottom}px`;
-        
-        toggleMenu(menuOptions);
-    });
+            menuBtn.addEventListener('mouseenter', function () {
+                // Colocar el menú justo debajo del botón
+                const rect = menuBtn.getBoundingClientRect();
+                menuOptions.style.left = `${rect.left}px`;
+                menuOptions.style.top = `${rect.bottom}px`;
 
-    menuBtn.addEventListener('mouseleave', function () {
-        toggleMenu(menuOptions);
-    });
+                toggleMenu(menuOptions);
+            });
 
-    // Asegurar que el menú no desaparezca cuando se pasa el ratón sobre él
-    menuOptions.addEventListener('mouseenter', function () {
-        menuOptions.classList.add('visible');
-    });
+            menuBtn.addEventListener('mouseleave', function () {
+                toggleMenu(menuOptions);
+            });
 
-    menuOptions.addEventListener('mouseleave', function () {
-        toggleMenu(menuOptions);
+            // Asegurar que el menú no desaparezca cuando se pasa el ratón sobre él
+            menuOptions.addEventListener('mouseenter', function () {
+                menuOptions.classList.add('visible');
+            });
 
-     contactoBtn.addEventListener('mouseenter', function () {
-        toggleMenu(contactoMenu);
-    });
+            menuOptions.addEventListener('mouseleave', function () {
+                toggleMenu(menuOptions);
+            });
 
-    contactoBtn.addEventListener('mouseleave', function () {
-        toggleMenu(contactoMenu);
-    });
-
-      // Función para mostrar/ocultar menús
-    function toggleMenu(menu) {
-        if (menu.style.display === 'none' || menu.style.display === '') {
-            menu.style.display = 'block';
-            setTimeout(() => {
-                menu.classList.add('visible');
-            }, 10);
-        } else {
-            menu.classList.remove('visible');
-            setTimeout(() => {
-                menu.style.display = 'none';
-            }, 300);
-        }
-    }
-});
+            // Función para mostrar/ocultar menús
+            function toggleMenu(menu) {
+                if (menu.style.display === 'none' || menu.style.display === '') {
+                    menu.style.display = 'block';
+                    setTimeout(() => {
+                        menu.classList.add('visible');
+                    }, 10);
+                } else {
+                    menu.classList.remove('visible');
+                    setTimeout(() => {
+                        menu.style.display = 'none';
+                    }, 300);
+                }
+            }
+        });
 
     </script>
 </body>
