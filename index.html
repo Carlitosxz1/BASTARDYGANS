@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="es">
 
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=1024">
@@ -12,6 +12,7 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
+            background-video: url("https://imgur.com/HPeU2pW.jpg");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -20,29 +21,21 @@
             width: 100%;
             min-width: 1024px;
         }
-
-        .background-video {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px 10px;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            background-color: rgba(0, 0, 0, 0.5);
-            overflow-x: auto;
-            white-space: nowrap;
-        }
+css
+Copiar código
+    nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 10px;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        background-color: rgba(0, 0, 0, 0.5);
+        overflow-x: auto;
+        white-space: nowrap;
+    }
 
         nav a {
             color: #ffffff;
@@ -57,19 +50,19 @@
             transition: transform 0.3s, border-color 0.3s;
         }
 
-        nav a:hover {
-            text-decoration: underline;
-            transform: scale(1.1);
-            border-color: #ff0000;
-        }
+            nav a:hover {
+                text-decoration: underline;
+                transform: scale(1.1);
+                border-color: #ff0000;
+            }
 
-        header {
-            padding: 100px 20px 50px;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-            margin-top: 50px;
-        }
+    header {
+        padding: 100px 20px 50px;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+        margin-top: 50px;
+    }
 
         header h1,
         header h2 {
@@ -93,46 +86,37 @@
             animation-delay: 0.5s;
         }
 
-        .discord-button {
-            display: inline-block;
-            padding: 25px 35px;
-            background-color: #0000ff;
-            color: #ffffff;
-            text-decoration: none;
-            border-radius: 25px;
-            font-size: 1.6em;
-            margin-top: 30px;
-            transition: transform 0.3s;
-            animation: pulse 1s infinite;
-        }
+    .discord-button {
+        display: inline-block;
+        padding: 25px 35px;
+        background-color: #0000ff;
+        color: #ffffff;
+        text-decoration: none;
+        border-radius: 25px;
+        font-size: 1.6em;
+        margin-top: 30px;
+        transition: transform 0.3s;
+        animation: pulse 1s infinite;
+    }
 
         .discord-button:hover {
             background-color: #0000cc;
             transform: scale(1.05);
         }
 
-        footer {
-            background-color: transparent;
-            text-align: left;
-            padding: 10px;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
+    footer {
+        background-color: transparent;
+        text-align: left;
+        padding: 10px;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+    }
 
-        .footer-content {
-            margin-left: 20px;
-            color: #ffffff;
-        }
-    </style>
-</head>
-
-<body>
-    <div class="background-video">
-        <video autoplay loop muted class="fillWidth">
-            <source src="https://player.vimeo.com/external/959765543.sd.mp4?s=3cb2ac36a0&profile_id=164" type="video/mp4">
-        </video>
-    </div>
+    .footer-content {
+        margin-left: 20px;
+        color: #ffffff;
+    }
         #contacto-menu {
             display: none;
             position: fixed;
