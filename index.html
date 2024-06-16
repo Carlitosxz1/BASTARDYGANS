@@ -253,6 +253,16 @@
                     }, 300);
                 }
             });
+
+            // Agregamos esta parte para cerrar el menú-options si se hace clic fuera de él
+            document.addEventListener('click', function (event) {
+                if (!menuOptions.contains(event.target) && event.target !== menuBtn) {
+                    menuOptions.classList.remove('visible');
+                    setTimeout(() => {
+                        menuOptions.style.display = 'none';
+                    }, 300);
+                }
+            });
         });
     </script>
 </body>
