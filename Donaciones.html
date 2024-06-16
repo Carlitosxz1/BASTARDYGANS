@@ -141,6 +141,18 @@
             } else {
                 contactoMenu.style.display = 'none';
             }
+             }
+
+            // Cerrar el menú-options si se hace clic fuera de él
+            document.addEventListener('click', function (event) {
+                if (!menuOptions.contains(event.target) && !contactoMenu.contains(event.target) && event.target !== menuBtn && event.target !== contactoBtn) {
+                    if (menuOptions.classList.contains('visible')) {
+                        toggleMenu(menuOptions);
+                    }
+                    if (contactoMenu.classList.contains('visible')) {
+                        toggleMenu(contactoMenu);
+                    }
+                }
         });
     });
 </script>
