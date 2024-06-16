@@ -87,13 +87,13 @@
 
         .discord-button {
             display: inline-block;
-            padding: 30px 40px;
+            padding: 25px 35px;
             background-color: #0000ff;
             color: #ffffff;
             text-decoration: none;
-            border-radius: 30px;
-            font-size: 1.5em;
-            margin-top: 50px;
+            border-radius: 25px;
+            font-size: 1.6em;
+            margin-top: 30px;
             transition: transform 0.3s;
             animation: pulse 1s infinite;
         }
@@ -136,27 +136,32 @@
         }
 
         #menu-options {
-    display: none;
-    position: fixed;
-    left: calc(50% - 150px);
-    background-color: rgba(0, 0, 0, 0.8); /* Cambiar a otro color si es necesario */
-    padding: 20px;
-    border-radius: 10px;
-    color: #ffffff; /* Cambiar a otro color si es necesario */
-    transform: translateY(-20px);
-    opacity: 0;
-    transition: transform 0.3s, opacity 0.3s;
-    z-index: 1000;
-}
+            display: none;
+            position: fixed;
+            left: calc(50% - 150px);
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            color: #ffffff;
+            transform: translateY(-20px);
+            opacity: 0;
+            transition: transform 0.3s, opacity 0.3s;
+            z-index: 1000;
+        }
 
-#menu-options a {
-    display: block;
-    color: #ffffff; /* Cambiar a otro color si es necesario */
-    text-decoration: none;
-    padding: 10px 0;
-    border-bottom: 1px solid #ffffff; /* Cambiar a otro color si es necesario */
-    transition: transform 0.3s, border-color 0.3s;
-}
+        #menu-options.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        #menu-options a {
+            display: block;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 0;
+            border-bottom: 1px solid #ffffff;
+            transition: transform 0.3s, border-color 0.3s;
+        }
 
         #menu-options a:hover {
             transform: scale(1.1);
@@ -219,39 +224,41 @@
             const menuBtn = document.getElementById('menu-btn');
             const menuOptions = document.getElementById('menu-options');
 
-        menuBtn.addEventListener('mouseenter', function () {
-        toggleMenu(menuOptions);
-    });
+            contactoBtn.addEventListener('click', function () {
+                toggleMenu(contactoMenu);
+            });
 
-    menuBtn.addEventListener('mouseleave', function () {
-        toggleMenu(menuOptions);
-    });
-
-    // Función para mostrar/ocultar menús
-    function toggleMenu(menu) {
-        if (menu.style.display === 'none' || menu.style.display === '') {
-            menu.style.display = 'block';
-            setTimeout(() => {
-                menu.classList.add('visible');
-            }, 10);
-        } else {
-            menu.classList.remove('visible');
-            setTimeout(() => {
-                menu.style.display = 'none';
-            }, 300);
-        }
-    }
-
-    // Cerrar el menú-options si se hace clic fuera de él
-    document.addEventListener('click', function (event) {
-        if (!menuOptions.contains(event.target) && event.target !== menuBtn) {
-            if (menuOptions.classList.contains('visible')) {
+            menuBtn.addEventListener('click', function () {
                 toggleMenu(menuOptions);
+            });
+
+            // Función para mostrar/ocultar menús
+            function toggleMenu(menu) {
+                if (menu.style.display === 'none' || menu.style.display === '') {
+                    menu.style.display = 'block';
+                    setTimeout(() => {
+                        menu.classList.add('visible');
+                    }, 10);
+                } else {
+                    menu.classList.remove('visible');
+                    setTimeout(() => {
+                        menu.style.display = 'none';
+                    }, 300);
+                }
             }
-        }
-    });
-});
+
+            // Cerrar el menú-options si se hace clic fuera de él
+            document.addEventListener('click', function (event) {
+                if (!menuOptions.contains(event.target) && !contactoMenu.contains(event.target) && event.target !== menuBtn && event.target !== contactoBtn) {
+                    if (menuOptions.classList.contains('visible')) {
+                        toggleMenu(menuOptions);
+                    }
+                    if (contactoMenu.classList.contains('visible')) {
+                        toggleMenu(contactoMenu);
+                    }
+                }
+            });
+        });
     </script>
 </body>
 
-</html>
