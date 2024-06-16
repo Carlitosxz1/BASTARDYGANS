@@ -136,35 +136,36 @@
             opacity: 1;
         }
 
-        #sub-menu {
+        #menu-options {
             display: none;
             position: fixed;
-            top: calc(100% + 10px);
-            left: 50%;
-            transform: translateX(-50%);
+            top: calc(100% + 10px); /* Colocamos el menú debajo del nav */
+            left: calc(50% - 150px);
             background-color: rgba(0, 0, 0, 0.8);
-            padding: 10px;
+            padding: 20px;
             border-radius: 10px;
             color: #ffffff;
+            transform: translateY(-20px);
             opacity: 0;
-            transition: opacity 0.3s;
+            transition: transform 0.3s, opacity 0.3s;
             z-index: 1000;
         }
 
-        #sub-menu.visible {
+        #menu-options.visible {
+            transform: translateY(0);
             opacity: 1;
         }
 
-        #sub-menu a {
+        #menu-options a {
             display: block;
             color: #ffffff;
             text-decoration: none;
-            padding: 5px 0;
+            padding: 10px 0;
             border-bottom: 1px solid #ffffff;
             transition: transform 0.3s, border-color 0.3s;
         }
 
-        #sub-menu a:hover {
+        #menu-options a:hover {
             transform: scale(1.1);
             border-color: #ff0000;
         }
@@ -192,11 +193,6 @@
 <body>
     <nav>
         <a href="#" id="menu-btn">Menú</a>
-        <div id="sub-menu">
-            <a href="miembros.html">Miembros de Bastardygans</a>
-            <a href="valoracion.html">Sugerencia y Valoración</a>
-            <a href="https://discord.gg/5mwaChh7wN" target="_blank">Discord</a>
-        </div>
         <a href="reglas.html">Reglas</a>
         <a href="sobre-nosotros.html">Sobre Nosotros</a>
         <a href="Donaciones.html">Donaciones</a>
@@ -217,19 +213,54 @@
         <p><strong>Correo:</strong> Contacto.bastardygans@gmail.com</p>
     </div>
 
+    <div id="menu-options">
+        <a href="mienbros.html">Miembros Bastardygans</a>
+        <a href="valoracion.html">Valoración y Sugerencias</a>
+        <a href="https://discord.gg/xhDpvFbwrR" target="_blank">Discord</a>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            const contactoBtn = document.getElementById('contacto-btn');
+            const contactoMenu = document.getElementById('contacto-menu');
             const menuBtn = document.getElementById('menu-btn');
-            const subMenu = document.getElementById('sub-menu');
+            const menuOptions = document.getElementById('menu-options');
 
-            menuBtn.addEventListener('click', function () {
-                subMenu.classList.toggle('visible');
+            contactoBtn.addEventListener('click', function () {
+                if (contactoMenu.style.display === 'none' || contactoMenu.style.display === '') {
+                    contactoMenu.style.display = 'block';
+                    setTimeout(() => {
+                        contactoMenu.classList.add('visible');
+                    }, 10);
+                } else {
+                    contactoMenu.classList.remove('visible');
+                    setTimeout(() => {
+                        contactoMenu.style.display = 'none';
+                    }, 300);
+                }
             });
 
-            // Agregamos esta parte para cerrar el submenú si se hace clic fuera de él
+            menuBtn.addEventListener('click', function () {
+                if (menuOptions.style.display === 'none' || menuOptions.style.display === '') {
+                    menuOptions.style.display = 'block';
+                    setTimeout(() => {
+                        menuOptions.classList.add('visible');
+                    }, 10);
+                } else {
+                    menuOptions.classList.remove('visible');
+                    setTimeout(() => {
+                        menuOptions.style.display = 'none';
+                    }, 300);
+                }
+            });
+
+            // Agregamos esta parte para cerrar el menú-options si se hace clic fuera de él
             document.addEventListener('click', function (event) {
-                if (!subMenu.contains(event.target) && event.target !== menuBtn) {
-                    subMenu.classList.remove('visible');
+                if (!menuOptions.contains(event.target) && event.target !== menuBtn) {
+                    menuOptions.classList.remove('visible');
+                    setTimeout(() => {
+                        menuOptions.style.display = 'none';
+                    }, 300);
                 }
             });
         });
@@ -237,3 +268,4 @@
 </body>
 
 </html>
+
