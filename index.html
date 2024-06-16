@@ -219,73 +219,46 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-    const contactoBtn = document.getElementById('contacto-btn');
-    const contactoMenu = document.getElementById('contacto-menu');
-    const menuBtn = document.getElementById('menu-btn');
-    const menuOptions = document.getElementById('menu-options');
-            
-             contactoBtn.addEventListener('click', function () {
-        toggleMenu(contactoMenu);
-    });
+            const contactoBtn = document.getElementById('contacto-btn');
+            const contactoMenu = document.getElementById('contacto-menu');
+            const menuBtn = document.getElementById('menu-btn');
+            const menuOptions = document.getElementById('menu-options');
 
-    menuBtn.addEventListener('click', function () {
-        toggleMenu(menuOptions);
-    });
             contactoBtn.addEventListener('click', function () {
-                if (contactoMenu.style.display === 'none' || contactoMenu.style.display === '') {
-                    contactoMenu.style.display = 'block';
-                    setTimeout(() => {
-                        contactoMenu.classList.add('visible');
-                    }, 10);
-                } else {
-                    contactoMenu.classList.remove('visible');
-                    setTimeout(() => {
-                        contactoMenu.style.display = 'none';
-                    }, 300);
-                }
+                toggleMenu(contactoMenu);
             });
 
             menuBtn.addEventListener('click', function () {
-                if (menuOptions.style.display === 'none' || menuOptions.style.display === '') {
-                    menuOptions.style.display = 'block';
+                toggleMenu(menuOptions);
+            });
+
+            // Función para mostrar/ocultar menús
+            function toggleMenu(menu) {
+                if (menu.style.display === 'none' || menu.style.display === '') {
+                    menu.style.display = 'block';
                     setTimeout(() => {
-                        menuOptions.classList.add('visible');
+                        menu.classList.add('visible');
                     }, 10);
                 } else {
-                    menuOptions.classList.remove('visible');
+                    menu.classList.remove('visible');
                     setTimeout(() => {
-                        menuOptions.style.display = 'none';
+                        menu.style.display = 'none';
                     }, 300);
                 }
-            });
-// Función para mostrar/ocultar menús
-    function toggleMenu(menu) {
-        if (menu.style.display === 'none' || menu.style.display === '') {
-            menu.style.display = 'block';
-            setTimeout(() => {
-                menu.classList.add('visible');
-            }, 10);
-        } else {
-            menu.classList.remove('visible');
-            setTimeout(() => {
-                menu.style.display = 'none';
-            }, 300);
-        }
-    }
+            }
 
-    // Cerrar el menú-options si se hace clic fuera de él
-    document.addEventListener('click', function (event) {
-        if (!menuOptions.contains(event.target) && !contactoMenu.contains(event.target) && event.target !== menuBtn && event.target !== contactoBtn) {
-            if (menuOptions.classList.contains('visible')) {
-                toggleMenu(menuOptions);
-            }
-            if (contactoMenu.classList.contains('visible')) {
-                toggleMenu(contactoMenu);
-            }
-        }
-    });
-});
-           
+            // Cerrar el menú-options si se hace clic fuera de él
+            document.addEventListener('click', function (event) {
+                if (!menuOptions.contains(event.target) && !contactoMenu.contains(event.target) && event.target !== menuBtn && event.target !== contactoBtn) {
+                    if (menuOptions.classList.contains('visible')) {
+                        toggleMenu(menuOptions);
+                    }
+                    if (contactoMenu.classList.contains('visible')) {
+                        toggleMenu(contactoMenu);
+                    }
+                }
+            });
+        });
     </script>
 </body>
 
