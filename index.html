@@ -225,11 +225,6 @@
             const menuBtn = document.getElementById('menu-btn');
             const menuOptions = document.getElementById('menu-options');
 
-            contactoBtn.addEventListener('click', function () {
-        contactoMenu.classList.toggle('visible');
-    });
-});
-
      menuBtn.addEventListener('mouseenter', function () {
                 // Colocar el menú justo debajo del botón
                 const rect = menuBtn.getBoundingClientRect();
@@ -251,7 +246,30 @@
             menuOptions.addEventListener('mouseleave', function () {
                 toggleMenu(menuOptions);
             });
+            
+            contactoBtn.addEventListener('mouseenter', function () {
+                // Colocar el menú justo debajo del botón
+                const rect = contactoBtn.getBoundingClientRect();
+                contactoMenu.style.left = `${rect.left}px`;
+                contactoMenu.style.top = `${rect.bottom}px`;
 
+                toggleMenu(contactoMenu);
+            });
+
+            contactoBtn.addEventListener('mouseleave', function () {
+                toggleMenu(contactoMenu);
+            });
+
+            // Asegurar que el menú no desaparezca cuando se pasa el ratón sobre él
+            contactoMenu.addEventListener('mouseenter', function () {
+                contactoMenu.classList.add('visible');
+            });
+
+            contactoMenu.addEventListener('mouseleave', function () {
+                toggleMenu(contactoMenu);
+            });
+
+            
             // Función para mostrar/ocultar menús
             function toggleMenu(menu) {
                 if (menu.style.display === 'none' || menu.style.display === '') {
