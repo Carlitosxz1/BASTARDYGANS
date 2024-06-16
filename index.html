@@ -39,7 +39,7 @@
             margin: 0 10px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.2em; /* Tamaño de letra ajustado */
+            font-size: 1.2em;
             border: 1px solid #ffffff;
             padding: 10px 15px;
             border-radius: 5px;
@@ -51,6 +51,23 @@
             text-decoration: underline;
             transform: scale(1.1);
             border-color: #ff0000;
+        }
+
+        .discord-button {
+            display: block;
+            margin: 10px 10px 30px; /* Ajustado el margen */
+            background-color: #0000ff;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.8em; /* Aumentado el tamaño de letra */
+            transition: transform 0.3s;
+            max-width: 100px; /* Ancho máximo */
+        }
+
+        .discord-button:hover {
+            background-color: #0000cc;
+            transform: scale(1.05);
         }
 
         header {
@@ -68,35 +85,18 @@
         }
 
         header h1 {
-            font-size: 3em; /* Tamaño de letra ajustado */
+            font-size: 3em;
             color: #ff0000;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
             margin: 0;
         }
 
         header h2 {
-            font-size: 1.8em; /* Tamaño de letra ajustado */
+            font-size: 1.8em;
             color: #0000ff;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
             margin-top: 10px;
             animation-delay: 0.5s;
-        }
-
-        .discord-button {
-            display: block;
-            margin: 30px auto; /* Centrado horizontal */
-            padding: 15px 30px; /* Aumentado el padding */
-            background-color: #0000ff;
-            color: #ffffff;
-            text-decoration: none;
-            border-radius: 10px;
-            font-size: 1.5em; /* Aumentado el tamaño de letra */
-            transition: transform 0.3s;
-        }
-
-        .discord-button:hover {
-            background-color: #0000cc;
-            transform: scale(1.05);
         }
 
         footer {
@@ -134,11 +134,11 @@
         #menu-options {
             display: none;
             position: fixed;
-            top: 140px; /* Aumentado el espacio */
-            left: calc(50% - 150px); /* Centrado horizontal */
+            top: calc(100% + 10px);
+            left: calc(50% - 150px);
             background-color: rgba(0, 0, 0, 0.8);
-            padding: 20px; /* Aumentado el padding */
-            border-radius: 10px; /* Aumentado el radio */
+            padding: 20px;
+            border-radius: 10px;
             color: #ffffff;
             transform: translateY(-20px);
             opacity: 0;
@@ -155,7 +155,7 @@
             display: block;
             color: #ffffff;
             text-decoration: none;
-            padding: 10px 0; /* Aumentado el padding vertical */
+            padding: 10px 0;
             border-bottom: 1px solid #ffffff;
             transition: transform 0.3s, border-color 0.3s;
         }
@@ -163,19 +163,6 @@
         #menu-options a:hover {
             transform: scale(1.1);
             border-color: #ff0000;
-        }
-
-        #stars-container {
-            position: fixed;
-            bottom: 20px;
-            right: 20px; /* Mover las estrellas a la derecha */
-            z-index: 100;
-        }
-
-        .star {
-            color: #ffd700; /* Color de estrellas */
-            font-size: 2em; /* Tamaño de las estrellas */
-            margin-right: 5px; /* Espacio entre las estrellas */
         }
 
         @keyframes slideIn {
@@ -189,10 +176,15 @@
 <body>
     <nav>
         <a href="#" id="menu-btn">Menú</a>
-        <a href="reglas.html">Reglas</a>
-        <a href="sobre-nosotros.html">Sobre Nosotros</a>
-        <a href="Donaciones.html">Donaciones</a>
-        <a href="#" id="contacto-btn" style="margin-left: auto;">Contacto</a> <!-- Mueve este enlace a la derecha -->
+        <div id="menu-options">
+            <a href="reglas.html">Reglas</a>
+            <a href="sobre-nosotros.html">Sobre Nosotros</a>
+            <a href="Donaciones.html">Donaciones</a>
+            <a href="mienbros.html">Miembros Bastardygans</a>
+            <a href="valoracion.html">Valoración y Sugerencias</a>
+            <a href="https://discord.gg/xhDpvFbwrR" target="_blank">Discord</a>
+        </div>
+        <a href="#" id="contacto-btn" style="margin-left: auto;">Contacto</a>
     </nav>
     <header>
         <h1>BastardyGans</h1>
@@ -207,20 +199,6 @@
 
     <div id="contacto-menu">
         <p><strong>Correo:</strong> Contacto.bastardygans@gmail.com</p>
-    </div>
-
-    <div id="menu-options">
-        <a href="mienbros.html">Miembros Bastardygans</a>
-        <a href="valoracion.html">Valoración y Sugerencias</a>
-        <a href="https://discord.gg/xhDpvFbwrR" target="_blank">Discord</a>
-    </div>
-
-    <div id="stars-container">
-        <span id="rating" class="star">&#9733;</span>
-        <span class="star">&#9733;</span>
-        <span class="star">&#9733;</span>
-        <span class="star">&#9733;</span>
-        <span class="star">&#9733;</span>
     </div>
 
     <script>
@@ -257,7 +235,7 @@
                     }, 300);
                 }
             });
-
-            // Simulando una valoración dinámica
-            const ratingElement = document.getElementById('rating');
-            let rating = 3; // Puedes cambiar este valor din
+        });
+    </script>
+</body>
+</html>
