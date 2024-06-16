@@ -96,7 +96,6 @@
             margin-top: 30px;
             transition: transform 0.3s;
             animation: pulse 1s infinite;
-            /* margin-left: calc(50% - 150px); */ /* Eliminamos el margen izquierdo */
         }
 
         .discord-button:hover {
@@ -253,9 +252,9 @@
                 }
             });
 
-            // Agregamos esta parte para cerrar el menú-options si se hace clic fuera de él
+            // Cerrar el menú-options si se hace clic fuera de él
             document.addEventListener('click', function (event) {
-                if (!menuOptions.contains(event.target) && event.target !== menuBtn) {
+                if (!menuOptions.contains(event.target) && event.target !== menuBtn && event.target !== contactoBtn) {
                     menuOptions.classList.remove('visible');
                     setTimeout(() => {
                         menuOptions.style.display = 'none';
@@ -267,4 +266,3 @@
 </body>
 
 </html>
-
