@@ -219,11 +219,18 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const contactoBtn = document.getElementById('contacto-btn');
-            const contactoMenu = document.getElementById('contacto-menu');
-            const menuBtn = document.getElementById('menu-btn');
-            const menuOptions = document.getElementById('menu-options');
+    const contactoBtn = document.getElementById('contacto-btn');
+    const contactoMenu = document.getElementById('contacto-menu');
+    const menuBtn = document.getElementById('menu-btn');
+    const menuOptions = document.getElementById('menu-options');
+            
+             contactoBtn.addEventListener('click', function () {
+        toggleMenu(contactoMenu);
+    });
 
+    menuBtn.addEventListener('click', function () {
+        toggleMenu(menuOptions);
+    });
             contactoBtn.addEventListener('click', function () {
                 if (contactoMenu.style.display === 'none' || contactoMenu.style.display === '') {
                     contactoMenu.style.display = 'block';
@@ -251,17 +258,34 @@
                     }, 300);
                 }
             });
+// Función para mostrar/ocultar menús
+    function toggleMenu(menu) {
+        if (menu.style.display === 'none' || menu.style.display === '') {
+            menu.style.display = 'block';
+            setTimeout(() => {
+                menu.classList.add('visible');
+            }, 10);
+        } else {
+            menu.classList.remove('visible');
+            setTimeout(() => {
+                menu.style.display = 'none';
+            }, 300);
+        }
+    }
 
-            // Cerrar el menú-options si se hace clic fuera de él
-            document.addEventListener('click', function (event) {
-                if (!menuOptions.contains(event.target) && event.target !== menuBtn && event.target !== contactoBtn) {
-                    menuOptions.classList.remove('visible');
-                    setTimeout(() => {
-                        menuOptions.style.display = 'none';
-                    }, 300);
-                }
-            });
-        });
+    // Cerrar el menú-options si se hace clic fuera de él
+    document.addEventListener('click', function (event) {
+        if (!menuOptions.contains(event.target) && !contactoMenu.contains(event.target) && event.target !== menuBtn && event.target !== contactoBtn) {
+            if (menuOptions.classList.contains('visible')) {
+                toggleMenu(menuOptions);
+            }
+            if (contactoMenu.classList.contains('visible')) {
+                toggleMenu(contactoMenu);
+            }
+        }
+    });
+});
+           
     </script>
 </body>
 
