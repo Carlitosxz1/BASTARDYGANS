@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <meta name="viewport" content="width=1024">
-    <title>Métodos de Pago - BastardyGans</title>
+    <title>Donaciones - BastardyGans</title>
     <style>
-        html, body {
+        html,
+        body {
             height: 100%;
             margin: 0;
             padding: 0;
@@ -22,15 +23,15 @@
         }
 
         nav {
-            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
             padding: 20px 10px;
-            text-align: center;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            display: flex;
-            justify-content: center;
+            background-color: rgba(0, 0, 0, 0.5);
             overflow-x: auto;
             white-space: nowrap;
         }
@@ -40,111 +41,106 @@
             margin: 0 10px;
             text-decoration: none;
             font-weight: bold;
+            font-size: 1.2em;
             border: 1px solid #ffffff;
             padding: 10px 15px;
             border-radius: 5px;
-            font-size: 1.2em; /* Aumento del tamaño de letra */
             display: inline-block;
+            transition: transform 0.3s, border-color 0.3s;
         }
 
         nav a:hover {
             text-decoration: underline;
+            transform: scale(1.1);
+            border-color: #ff0000;
         }
 
-        section {
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.8);
-            margin: 150px auto 0;
-            border-radius: 10px;
-            max-width: 800px;
-            font-size: 1.2em; /* Aumento del tamaño de letra */
+        header {
+            padding: 100px 20px 50px;
             text-align: center;
+            position: relative;
+            z-index: 1;
+            margin-top: 50px;
         }
 
-        .payment-method {
-            margin-bottom: 20px;
+        header h1,
+        header h2 {
+            opacity: 0;
+            transform: translateX(-100%);
+            animation: slideIn 1s forwards;
         }
 
-        .payment-method img {
-            max-width: 100%;
-            height: auto;
+        header h1 {
+            font-size: 3em;
+            color: #ff0000;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
         }
 
-        .donation-button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #ff0000;
+        header h2 {
+            font-size: 2em;
             color: #ffffff;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.5em; /* Aumento del tamaño de letra */
-            margin-top: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
         }
 
-        .donation-button:hover {
-            background-color: #cc0000;
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
-        .bottom-image {
-            margin-top: 20px;
+        .donation-section {
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            margin: 20px;
         }
 
-        footer {
-            background-color: transparent;
-            text-align: left;
+        .donation-section h2 {
+            color: #ff0000;
+        }
+
+        .donation-section p {
+            color: #ffffff;
+        }
+
+        .donation-section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .donation-section li {
+            background-color: rgba(255, 255, 255, 0.1);
+            margin: 10px 0;
             padding: 10px;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-
-        .footer-content {
-            margin-left: 20px;
-            color: #ffffff;
+            border-radius: 5px;
         }
     </style>
 </head>
+
 <body>
     <nav>
         <a href="index.html">Inicio</a>
+        <a href="Donaciones.html">Donaciones</a>
         <a href="reglas.html">Reglas</a>
         <a href="sobre-nosotros.html">Sobre Nosotros</a>
-        <a href="https://discord.gg/4m9Du4VMgr" target="_blank">Discord</a>
-        <a href="#" id="contacto-btn" style="margin-left: auto;">Contacto</a> <!-- Mueve este enlace a la derecha -->
     </nav>
-    <section>
-        <h2>Métodos de Donación</h2>
-        <div class="payment-method">
-            <a href="https://www.webpay.cl/form-pay/182649?utm_source=transbank&utm_medium=app&utm_campaign=link_apptransbank" class="donation-button" target="_blank">DONACIÓN</a>
-            <img src="https://centrodeayuda.kastorsoftware.cl/wp-content/uploads/2022/04/%C2%BFCo%CC%81mo-activar-el-servicio-de-pago-Webpay_.png" alt="Webpay" class="bottom-image">
-        </div>
-    </section>
-    <footer>
-        <div class="footer-content">
-            <p>© 2024 BastardyGans. Todos los derechos reservados.</p>
-        </div>
-    </footer>
 
-    <div id="contacto-menu" style="display: none; position: fixed; top: 100px; right: 10px; background-color: #0000ff; padding: 10px; border-radius: 5px;">
-    <p><strong>Correo:</strong> Contacto.bastardygans@gmail.com</p>
-</div>
+    <header>
+        <h1>Apoya el Servidor</h1>
+    </header>
 
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const contactoBtn = document.getElementById('contacto-btn');
-        const contactoMenu = document.getElementById('contacto-menu');
-
-        contactoBtn.addEventListener('click', function () {
-            if (contactoMenu.style.display === 'none' || contactoMenu.style.display === '') {
-                contactoMenu.style.display = 'block';
-            } else {
-                contactoMenu.style.display = 'none';
-            }
-        });
-    });
-</script>
-
-    
+    <main>
+        <section class="donation-section">
+            <h2>Cómo Donar</h2>
+            <p>Tus donaciones ayudan a mantener el servidor en funcionamiento y mejorarlo constantemente. A continuación, te explicamos cómo puedes colaborar.</p>
+            <ul>
+                <li><strong>PayPal:</strong> Envía tus donaciones a nuestra cuenta de PayPal: example@paypal.com</li>
+                <li><strong>Patreon:</strong> Apóyanos a través de Patreon para recibir beneficios exclusivos: <a href="https://patreon.com/example" target="_blank">patreon.com/example</a></li>
+                <li><strong>Transferencia Bancaria:</strong> Contacta con nosotros para más detalles sobre cómo realizar una transferencia directa.</li>
+            </ul>
+        </section>
+    </main>
 </body>
+
 </html>
