@@ -248,11 +248,6 @@
             });
             
             contactoBtn.addEventListener('mouseenter', function () {
-                // Colocar el menú justo debajo del botón
-                const rect = contactoBtn.getBoundingClientRect();
-                contactoMenu.style.left = `${rect.left}px`;
-                contactoMenu.style.top = `${rect.bottom}px`;
-
                 toggleMenu(contactoMenu);
             });
 
