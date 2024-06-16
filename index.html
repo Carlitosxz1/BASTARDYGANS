@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=1024">
@@ -12,7 +12,7 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background-imagen: url("https://imgur.com/HPeU2pW.jpg");
+            background-image: url("https://imgur.com/HPeU2pW.jpg");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -21,21 +21,20 @@
             width: 100%;
             min-width: 1024px;
         }
-css
-Copiar código
-    nav {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 20px 10px;
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 1000;
-        background-color: rgba(0, 0, 0, 0.5);
-        overflow-x: auto;
-        white-space: nowrap;
-    }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 10px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(0, 0, 0, 0.5);
+            overflow-x: auto;
+            white-space: nowrap;
+        }
 
         nav a {
             color: #ffffff;
@@ -50,19 +49,19 @@ Copiar código
             transition: transform 0.3s, border-color 0.3s;
         }
 
-            nav a:hover {
-                text-decoration: underline;
-                transform: scale(1.1);
-                border-color: #ff0000;
-            }
+        nav a:hover {
+            text-decoration: underline;
+            transform: scale(1.1);
+            border-color: #ff0000;
+        }
 
-    header {
-        padding: 100px 20px 50px;
-        text-align: center;
-        position: relative;
-        z-index: 1;
-        margin-top: 50px;
-    }
+        header {
+            padding: 100px 20px 50px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            margin-top: 50px;
+        }
 
         header h1,
         header h2 {
@@ -86,37 +85,38 @@ Copiar código
             animation-delay: 0.5s;
         }
 
-    .discord-button {
-        display: inline-block;
-        padding: 25px 35px;
-        background-color: #0000ff;
-        color: #ffffff;
-        text-decoration: none;
-        border-radius: 25px;
-        font-size: 1.6em;
-        margin-top: 30px;
-        transition: transform 0.3s;
-        animation: pulse 1s infinite;
-    }
+        .discord-button {
+            display: inline-block;
+            padding: 25px 35px;
+            background-color: #0000ff;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 1.6em;
+            margin-top: 30px;
+            transition: transform 0.3s;
+            animation: pulse 1s infinite;
+        }
 
         .discord-button:hover {
             background-color: #0000cc;
             transform: scale(1.05);
         }
 
-    footer {
-        background-color: transparent;
-        text-align: left;
-        padding: 10px;
-        position: fixed;
-        width: 100%;
-        bottom: 0;
-    }
+        footer {
+            background-color: transparent;
+            text-align: left;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
 
-    .footer-content {
-        margin-left: 20px;
-        color: #ffffff;
-    }
+        .footer-content {
+            margin-left: 20px;
+            color: #ffffff;
+        }
+
         #contacto-menu {
             display: none;
             position: fixed;
@@ -132,10 +132,10 @@ Copiar código
             margin-right: -17px;
         }
 
-            #contacto-menu.visible {
-                transform: translateY(0);
-                opacity: 1;
-            }
+        #contacto-menu.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
 
         #menu-options {
             display: none;
@@ -153,24 +153,24 @@ Copiar código
             margin-left: -20px;
         }
 
-            #menu-options.visible {
-                transform: translateY(0);
-                opacity: 1;
-            }
+        #menu-options.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
 
-            #menu-options a {
+        #menu-options a {
                 display: block;
                 color: #ffffff;
                 text-decoration: none;
                 padding: 10px 0;
                 border-bottom: 1px solid #ffffff;
                 transition: transform 0.3s, border-color 0.3s;
-            }
+        }
 
-                #menu-options a:hover {
-                    transform: scale(1.1);
-                    border-color: #ff0000;
-                }
+        #menu-options a:hover {
+            transform: scale(1.1);
+            border-color: #ff0000;
+        }
 
         @keyframes slideIn {
             to {
@@ -180,7 +180,8 @@ Copiar código
         }
 
         @keyframes pulse {
-            0%, 100% {
+            0%,
+            100% {
                 transform: scale(1);
             }
 
@@ -227,7 +228,7 @@ Copiar código
             const menuBtn = document.getElementById('menu-btn');
             const menuOptions = document.getElementById('menu-options');
 
-     menuBtn.addEventListener('mouseenter', function () {
+            menuBtn.addEventListener('mouseenter', function () {
                 // Colocar el menú justo debajo del botón
                 const rect = menuBtn.getBoundingClientRect();
                 menuOptions.style.left = `${rect.left}px`;
@@ -248,7 +249,7 @@ Copiar código
             menuOptions.addEventListener('mouseleave', function () {
                 toggleMenu(menuOptions);
             });
-            
+
             contactoBtn.addEventListener('mouseenter', function () {
                 toggleMenu(contactoMenu);
             });
@@ -265,7 +266,7 @@ Copiar código
             contactoMenu.addEventListener('mouseleave', function () {
                 toggleMenu(contactoMenu);
             });
-            
+
             // Función para mostrar/ocultar menús
             function toggleMenu(menu) {
                 if (menu.style.display === 'none' || menu.style.display === '') {
@@ -281,7 +282,7 @@ Copiar código
                 }
             }
         });
-
     </script>
 </body>
 
+</html>
