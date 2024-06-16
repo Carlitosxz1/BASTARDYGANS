@@ -245,9 +245,16 @@
 
     menuOptions.addEventListener('mouseleave', function () {
         toggleMenu(menuOptions);
+
+     contactoBtn.addEventListener('mouseenter', function () {
+        toggleMenu(contactoMenu);
     });
 
-    // Función para mostrar/ocultar menús
+    contactoBtn.addEventListener('mouseleave', function () {
+        toggleMenu(contactoMenu);
+    });
+
+      // Función para mostrar/ocultar menús
     function toggleMenu(menu) {
         if (menu.style.display === 'none' || menu.style.display === '') {
             menu.style.display = 'block';
