@@ -265,6 +265,22 @@
             contactoMenu.addEventListener('mouseleave', function () {
                 toggleMenu(contactoMenu);
             });
+            
+            // Función para mostrar/ocultar menús
+            function toggleMenu(menu) {
+                if (menu.style.display === 'none' || menu.style.display === '') {
+                    menu.style.display = 'block';
+                    setTimeout(() => {
+                        menu.classList.add('visible');
+                    }, 10);
+                } else {
+                    menu.classList.remove('visible');
+                    setTimeout(() => {
+                        menu.style.display = 'none';
+                    }, 300);
+                }
+            }
+        });
 
     </script>
 </body>
