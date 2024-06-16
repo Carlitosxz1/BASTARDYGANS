@@ -96,7 +96,7 @@
             margin-top: 30px;
             transition: transform 0.3s;
             animation: pulse 1s infinite;
-            margin-left: calc(50% - 150px);
+            /* margin-left: calc(50% - 150px); */ /* Eliminamos el margen izquierdo */
         }
 
         .discord-button:hover {
@@ -139,7 +139,7 @@
         #menu-options {
             display: none;
             position: fixed;
-            top: 140px;
+            top: calc(100% + 10px); /* Colocamos el menú debajo del nav */
             left: calc(50% - 150px);
             background-color: rgba(0, 0, 0, 0.8);
             padding: 20px;
