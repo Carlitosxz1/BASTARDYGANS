@@ -137,36 +137,26 @@
 
         #menu-options {
     display: none;
-    position: absolute;
-    left: 0;  /* Será ajustado por el JavaScript */
-    top: 100%;  /* Justo debajo del botón */
-    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    left: calc(50% - 150px);
+    background-color: rgba(0, 0, 0, 0.8); /* Cambiar a otro color si es necesario */
     padding: 20px;
     border-radius: 10px;
-    color: #ffffff;
+    color: #ffffff; /* Cambiar a otro color si es necesario */
     transform: translateY(-20px);
     opacity: 0;
     transition: transform 0.3s, opacity 0.3s;
     z-index: 1000;
 }
 
+#menu-options a {
+    display: block;
+    color: #ffffff; /* Cambiar a otro color si es necesario */
+    text-decoration: none;
+    padding: 10px 0;
+    border-bottom: 1px solid #ffffff; /* Cambiar a otro color si es necesario */
+    transition: transform 0.3s, border-color 0.3s;
 }
-
-        }
-
-        #menu-options.visible {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        #menu-options a {
-            display: block;
-            color: #ffffff;
-            text-decoration: none;
-            padding: 10px 0;
-            border-bottom: 1px solid #ffffff;
-            transition: transform 0.3s, border-color 0.3s;
-        }
 
         #menu-options a:hover {
             transform: scale(1.1);
@@ -230,24 +220,10 @@
             const menuOptions = document.getElementById('menu-options');
 
         menuBtn.addEventListener('mouseenter', function () {
-        // Colocar el menú justo debajo del botón
-        const rect = menuBtn.getBoundingClientRect();
-        menuOptions.style.left = `${rect.left}px`;
-        menuOptions.style.top = `${rect.bottom}px`;
-        
         toggleMenu(menuOptions);
     });
 
     menuBtn.addEventListener('mouseleave', function () {
-        toggleMenu(menuOptions);
-    });
-
-    // Asegurar que el menú no desaparezca cuando se pasa el ratón sobre él
-    menuOptions.addEventListener('mouseenter', function () {
-        menuOptions.classList.add('visible');
-    });
-
-    menuOptions.addEventListener('mouseleave', function () {
         toggleMenu(menuOptions);
     });
 
@@ -265,6 +241,15 @@
             }, 300);
         }
     }
+
+    // Cerrar el menú-options si se hace clic fuera de él
+    document.addEventListener('click', function (event) {
+        if (!menuOptions.contains(event.target) && event.target !== menuBtn) {
+            if (menuOptions.classList.contains('visible')) {
+                toggleMenu(menuOptions);
+            }
+        }
+    });
 });
     </script>
 </body>
