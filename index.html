@@ -117,28 +117,11 @@
             color: #ffffff;
         }
 
-        #contacto-menu {
-            display: none;
-            position: fixed;
-            top: 100px;
-            right: 10px;
-            background-color: #0000ff;
-            padding: 10px;
-            border-radius: 5px;
-            transform: translateY(-20px);
-            opacity: 0;
-            transition: transform 0.3s, opacity 0.3s;
-        }
-
-        #contacto-menu.visible {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
         #menu-options {
             display: none;
-            position: fixed;
-            left: calc(50% - 150px);
+            position: absolute;
+            left: 0;
+            top: calc(100% + 10px);
             background-color: rgba(0, 0, 0, 0.8);
             padding: 20px;
             border-radius: 10px;
@@ -194,6 +177,11 @@
         <a href="reglas.html">Reglas</a>
         <a href="sobre-nosotros.html">Sobre Nosotros</a>
         <a href="Donaciones.html">Donaciones</a>
+        <div id="menu-options">
+            <a href="mienbros.html">Miembros Bastardygans</a>
+            <a href="valoracion.html">Valoración y Sugerencias</a>
+            <a href="https://discord.gg/xhDpvFbwrR" target="_blank">Discord</a>
+        </div>
         <a href="#" id="contacto-btn" style="margin-left: auto;">Contacto</a>
     </nav>
     <header>
@@ -209,12 +197,6 @@
 
     <div id="contacto-menu">
         <p><strong>Correo:</strong> Contacto.bastardygans@gmail.com</p>
-    </div>
-
-    <div id="menu-options">
-        <a href="mienbros.html">Miembros Bastardygans</a>
-        <a href="valoracion.html">Valoración y Sugerencias</a>
-        <a href="https://discord.gg/xhDpvFbwrR" target="_blank">Discord</a>
     </div>
 
     <script>
