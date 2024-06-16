@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -19,172 +20,179 @@
             width: 100%;
             min-width: 1024px;
         }
+css
+Copiar código
+    nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 10px;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        background-color: rgba(0, 0, 0, 0.5);
+        overflow-x: auto;
+        white-space: nowrap;
+    }
 
-        nav {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px 10px;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            background-color: rgba(0, 0, 0, 0.5);
-            overflow-x: auto;
-            white-space: nowrap;
-        }
+    nav a {
+        color: #ffffff;
+        margin: 0 10px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.2em; /* Tamaño de letra ajustado */
+        border: 1px solid #ffffff;
+        padding: 10px 15px;
+        border-radius: 5px;
+        display: inline-block;
+        transition: transform 0.3s, border-color 0.3s;
+    }
 
-        nav a {
-            color: #ffffff;
-            margin: 0 10px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.2em;
-            border: 1px solid #ffffff;
-            padding: 10px 15px;
-            border-radius: 5px;
-            display: inline-block;
-            transition: transform 0.3s, border-color 0.3s;
-        }
+    nav a:hover {
+        text-decoration: underline;
+        transform: scale(1.1);
+        border-color: #ff0000;
+    }
 
-        nav a:hover {
-            text-decoration: underline;
-            transform: scale(1.1);
-            border-color: #ff0000;
-        }
+    header {
+        padding: 100px 20px 50px;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+        margin-top: 50px;
+    }
 
-        .discord-button {
-            display: block;
-            margin: 10px 10px 30px; /* Ajustado el margen */
-            background-color: #0000ff;
-            color: #ffffff;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.8em; /* Aumentado el tamaño de letra */
-            transition: transform 0.3s;
-            max-width: 100px; /* Ancho máximo */
-        }
+    header h1, header h2 {
+        opacity: 0;
+        transform: translateX(-100%);
+        animation: slideIn 1s forwards;
+    }
 
-        .discord-button:hover {
-            background-color: #0000cc;
-            transform: scale(1.05);
-        }
+    header h1 {
+        font-size: 3em; /* Tamaño de letra ajustado */
+        color: #ff0000;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        margin: 0;
+    }
 
-        header {
-            padding: 100px 20px 50px;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-            margin-top: 50px;
-        }
+    header h2 {
+        font-size: 1.8em; /* Tamaño de letra ajustado */
+        color: #0000ff;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        margin-top: 10px;
+        animation-delay: 0.5s;
+    }
 
-        header h1, header h2 {
-            opacity: 0;
-            transform: translateX(-100%);
-            animation: slideIn 1s forwards;
-        }
+    .discord-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #0000ff;
+        color: #ffffff;
+        text-decoration: none;
+        border-radius: 10px;
+        font-size: 1.2em; /* Tamaño de letra ajustado */
+        margin-top: 30px;
+        transition: transform 0.3s;
+        animation: pulse 1s infinite;
+        margin-left: calc(50% - 150px); /* Centrado horizontal */
+    }
 
-        header h1 {
-            font-size: 3em;
-            color: #ff0000;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-            margin: 0;
-        }
+    .discord-button:hover {
+        background-color: #0000cc;
+        transform: scale(1.05);
+    }
 
-        header h2 {
-            font-size: 1.8em;
-            color: #0000ff;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-            margin-top: 10px;
-            animation-delay: 0.5s;
-        }
+    footer {
+        background-color: transparent;
+        text-align: left;
+        padding: 10px;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+    }
 
-        footer {
-            background-color: transparent;
-            text-align: left;
-            padding: 10px;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
+    .footer-content {
+        margin-left: 20px;
+        color: #ffffff;
+    }
 
-        .footer-content {
-            margin-left: 20px;
-            color: #ffffff;
-        }
+    #contacto-menu {
+        display: none;
+        position: fixed;
+        top: 100px;
+        right: 10px;
+        background-color: #0000ff;
+        padding: 10px;
+        border-radius: 5px;
+        transform: translateY(-20px);
+        opacity: 0;
+        transition: transform 0.3s, opacity 0.3s;
+    }
 
-        #contacto-menu {
-            display: none;
-            position: fixed;
-            top: 100px;
-            right: 10px;
-            background-color: #0000ff;
-            padding: 10px;
-            border-radius: 5px;
-            transform: translateY(-20px);
-            opacity: 0;
-            transition: transform 0.3s, opacity 0.3s;
-        }
+    #contacto-menu.visible {
+        transform: translateY(0);
+        opacity: 1;
+    }
 
-        #contacto-menu.visible {
-            transform: translateY(0);
+    #menu-options {
+        display: none;
+        position: fixed;
+        top: 140px; /* Aumentado el espacio */
+        left: calc(50% - 150px); /* Centrado horizontal */
+        background-color: rgba(0, 0, 0, 0.8);
+        padding: 20px; /* Aumentado el padding */
+        border-radius: 10px; /* Aumentado el radio */
+        color: #ffffff;
+        transform: translateY(-20px);
+        opacity: 0;
+        transition: transform 0.3s, opacity 0.3s;
+        z-index: 1000;
+    }
+
+    #menu-options.visible {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    #menu-options a {
+        display: block;
+        color: #ffffff;
+        text-decoration: none;
+        padding: 10px 0; /* Aumentado el padding vertical */
+        border-bottom: 1px solid #ffffff;
+        transition: transform 0.3s, border-color 0.3s;
+    }
+
+    #menu-options a:hover {
+        transform: scale(1.1);
+        border-color: #ff0000;
+    }
+
+    @keyframes slideIn {
+        to {
             opacity: 1;
+            transform: translateX(0);
         }
+    }
 
-        #menu-options {
-            display: none;
-            position: fixed;
-            top: calc(100% + 10px);
-            left: calc(50% - 150px);
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 20px;
-            border-radius: 10px;
-            color: #ffffff;
-            transform: translateY(-20px);
-            opacity: 0;
-            transition: transform 0.3s, opacity 0.3s;
-            z-index: 1000;
+    @keyframes pulse {
+        0%, 100% {
+            transform: scale(1);
         }
-
-        #menu-options.visible {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        #menu-options a {
-            display: block;
-            color: #ffffff;
-            text-decoration: none;
-            padding: 10px 0;
-            border-bottom: 1px solid #ffffff;
-            transition: transform 0.3s, border-color 0.3s;
-        }
-
-        #menu-options a:hover {
+        50% {
             transform: scale(1.1);
-            border-color: #ff0000;
         }
-
-        @keyframes slideIn {
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-    </style>
+    }
+</style>
 </head>
 <body>
     <nav>
         <a href="#" id="menu-btn">Menú</a>
-        <div id="menu-options">
-            <a href="reglas.html">Reglas</a>
-            <a href="sobre-nosotros.html">Sobre Nosotros</a>
-            <a href="Donaciones.html">Donaciones</a>
-            <a href="mienbros.html">Miembros Bastardygans</a>
-            <a href="valoracion.html">Valoración y Sugerencias</a>
-            <a href="https://discord.gg/xhDpvFbwrR" target="_blank">Discord</a>
-        </div>
-        <a href="#" id="contacto-btn" style="margin-left: auto;">Contacto</a>
+        <a href="reglas.html">Reglas</a>
+        <a href="sobre-nosotros.html">Sobre Nosotros</a>
+        <a href="Donaciones.html">Donaciones</a>
+        <a href="#" id="contacto-btn" style="margin-left: auto;">Contacto</a> <!-- Mueve este enlace a la derecha -->
     </nav>
     <header>
         <h1>BastardyGans</h1>
@@ -196,46 +204,52 @@
             <p>&copy; 2024 BastardyGans. Todos los derechos reservados.</p>
         </div>
     </footer>
+php
+Copiar código
+<div id="contacto-menu">
+    <p><strong>Correo:</strong> Contacto.bastardygans@gmail.com</p>
+</div>
 
-    <div id="contacto-menu">
-        <p><strong>Correo:</strong> Contacto.bastardygans@gmail.com</p>
-    </div>
+<div id="menu-options">
+    <a href="mienbros.html">Miembros Bastardygans</a>
+    <a href="valoracion.html">Valoración y Sugerencias</a>
+    <a href="https://discord.gg/xhDpvFbwrR" target="_blank">Discord</a>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const contactoBtn = document.getElementById('contacto-btn');
+        const contactoMenu = document.getElementById('contacto-menu');
+        const menuBtn = document.getElementById('menu-btn');
+        const menuOptions = document.getElementById('menu-options');
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const contactoBtn = document.getElementById('contacto-btn');
-            const contactoMenu = document.getElementById('contacto-menu');
-            const menuBtn = document.getElementById('menu-btn');
-            const menuOptions = document.getElementById('menu-options');
-
-            contactoBtn.addEventListener('click', function () {
-                if (contactoMenu.style.display === 'none' || contactoMenu.style.display === '') {
-                    contactoMenu.style.display = 'block';
-                    setTimeout(() => {
-                        contactoMenu.classList.add('visible');
-                    }, 10);
-                } else {
-                    contactoMenu.classList.remove('visible');
-                    setTimeout(() => {
-                        contactoMenu.style.display = 'none';
-                    }, 300);
-                }
-            });
-
-            menuBtn.addEventListener('click', function () {
-                if (menuOptions.style.display === 'none' || menuOptions.style.display === '') {
-                    menuOptions.style.display = 'block';
-                    setTimeout(() => {
-                        menuOptions.classList.add('visible');
-                    }, 10);
-                } else {
-                    menuOptions.classList.remove('visible');
-                    setTimeout(() => {
-                        menuOptions.style.display = 'none';
-                    }, 300);
-                }
-            });
+        contactoBtn.addEventListener('click', function () {
+            if (contactoMenu.style.display === 'none' || contactoMenu.style.display === '') {
+                contactoMenu.style.display = 'block';
+                setTimeout(() => {
+                    contactoMenu.classList.add('visible');
+                }, 10);
+            } else {
+                contactoMenu.classList.remove('visible');
+                setTimeout(() => {
+                    contactoMenu.style.display = 'none';
+                }, 300);
+            }
         });
-    </script>
+
+        menuBtn.addEventListener('click', function () {
+            if (menuOptions.style.display === 'none' || menuOptions.style.display === '') {
+                menuOptions.style.display = 'block';
+                setTimeout(() => {
+                    menuOptions.classList.add('visible');
+                }, 10);
+            } else {
+                menuOptions.classList.remove('visible');
+                setTimeout(() => {
+                    menuOptions.style.display = 'none';
+                }, 300);
+            }
+        });
+    });
+</script>
 </body>
 </html>
