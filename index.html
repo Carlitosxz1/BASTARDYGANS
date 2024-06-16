@@ -93,6 +93,7 @@
             margin-top: 30px;
             transition: transform 0.3s;
             animation: pulse 1s infinite;
+            margin-left: calc(50% - 150px); /* Centrado horizontal */
         }
 
         .discord-button:hover {
@@ -135,11 +136,11 @@
         #menu-options {
             display: none;
             position: fixed;
-            top: 80px;
-            left: 10px;
+            top: 140px; /* Aumentado el espacio */
+            left: calc(50% - 150px); /* Centrado horizontal */
             background-color: rgba(0, 0, 0, 0.8);
-            padding: 10px;
-            border-radius: 5px;
+            padding: 20px; /* Aumentado el padding */
+            border-radius: 10px; /* Aumentado el radio */
             color: #ffffff;
             transform: translateY(-20px);
             opacity: 0;
@@ -156,7 +157,7 @@
             display: block;
             color: #ffffff;
             text-decoration: none;
-            padding: 5px 0;
+            padding: 10px 0; /* Aumentado el padding vertical */
             border-bottom: 1px solid #ffffff;
             transition: transform 0.3s, border-color 0.3s;
         }
@@ -164,6 +165,19 @@
         #menu-options a:hover {
             transform: scale(1.1);
             border-color: #ff0000;
+        }
+
+        #stars-container {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 100;
+        }
+
+        .star {
+            color: #ffd700; /* Color de estrellas */
+            font-size: 2em; /* Tamaño de las estrellas */
+            margin-right: 5px; /* Espacio entre las estrellas */
         }
 
         @keyframes slideIn {
@@ -210,6 +224,14 @@
         <a href="mienbros.html">Miembros Bastardygans</a>
         <a href="valoracion.html">Valoración y Sugerencias</a>
         <a href="https://discord.gg/xhDpvFbwrR" target="_blank">Discord</a>
+    </div>
+
+    <div id="stars-container">
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
     </div>
 
     <script>
