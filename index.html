@@ -136,10 +136,10 @@
         }
 
         #menu-options {
-         display: none;
+    display: none;
     position: absolute;
     left: 0;  /* Será ajustado por el JavaScript */
-    top: 100%;  /* Justo debajo del botón */
+    top: calc(100% + 10px);  /* Justo debajo del botón con un margen adicional */
     background-color: rgba(0, 0, 0, 0.8);
     padding: 20px;
     border-radius: 10px;
@@ -148,6 +148,9 @@
     opacity: 0;
     transition: transform 0.3s, opacity 0.3s;
     z-index: 1000;
+    width: 300px;  /* Aumenta el ancho si es necesario */
+}
+
         }
 
         #menu-options.visible {
@@ -225,17 +228,21 @@
             const menuBtn = document.getElementById('menu-btn');
             const menuOptions = document.getElementById('menu-options');
 
-            menuBtn.addEventListener('mouseenter', function () {
-        // Colocar el menú justo debajo del botón
+          menuBtn.addEventListener('mouseenter', function () {
+        // Colocar el menú justo debajo del botón con un margen adicional
         const rect = menuBtn.getBoundingClientRect();
         menuOptions.style.left = `${rect.left}px`;
-        menuOptions.style.top = `${rect.bottom}px`;
+        menuOptions.style.top = `${rect.bottom + 10}px`;  // Añadir 10px de margen
         
         toggleMenu(menuOptions);
     });
 
     menuBtn.addEventListener('mouseleave', function () {
-        toggleMenu(menuOptions);
+        setTimeout(() => {
+            if (!menuOptions.matches(':hover')) {
+                toggleMenu(menuOptions);
+            }
+        }, 100);  // Retrasar el cierre para permitir mover el ratón al menú
     });
 
     // Asegurar que el menú no desaparezca cuando se pasa el ratón sobre él
