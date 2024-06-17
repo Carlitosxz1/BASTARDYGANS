@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miembros - BastardyGans</title>
+    <style>
+        /* Estilos generales */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: #ffffff;
+            overflow-x: auto;
+            width: 100%;
+            min-width: 1024px;
+        }
+
+        /* Estilos para la imagen de fondo */
+        #image-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* Estilos para el menú de navegación */
+        nav {
+            background-color: rgba(0, 0, 0, 0.00);
+            padding: 20px 0;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            overflow-x: auto;
+            white-space: nowrap;
+            animation: fadeInDown 0.5s ease;
+        }
+
+        /* Estilos para las opciones del menú */
+        nav a {
+            color: #ffffff;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: bold;
+            border: 5px solid #ffffff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 1.2em;
+            display: inline-block;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #00BFFF;
+            border-color: #00BFFF;
+            transform: scale(1.1);
+        }
+
+        /* Estilos para la sección de contenido */
+        section {
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            margin: 150px auto 20px;
+            border-radius: 10px;
+            max-width: 800px;
+            text-align: justify;
+            line-height: 1.6;
+            font-size: 1.2em;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        /* Estilos para las tablas */
+        table {
+            width: 100%;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ffffff;
+            text-align: left;
+        }
+
+        th {
+            background-color: #2E86C1;
+        }
+
+        /* Estilos para el pie de página */
+        footer {
+            background-color: transparent;
+            text-align: left;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            opacity: 0;
+            animation: fadeInUpFooter 0.5s ease forwards;
+        }
+
+        /* Definir animaciones */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUpFooter {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Imagen de fondo -->
+    <img id="image-background" src="URL_DE_TU_IMAGEN" alt="Imagen de fondo">
+
+    <!-- Menú de navegación -->
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="reglas.html">Reglas</a>
+        <a href="sobre-nosotros.html">Sobre Nosotros</a>
+        <a href="donaciones.html">Donaciones</a>
+    </nav>
+
+    <!-- Sección de contenido -->
+    <section>
+        <h2>Miembros</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Rol</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Persona 1</td>
+                    <td>Rol 1</td>
+                </tr>
+                <tr>
+                    <td>Persona 2</td>
+                    <td>Rol 2</td>
+                </tr>
+                <!-- Agrega más filas según sea necesario -->
+            </tbody>
+        </table>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Rol</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Persona 3</td>
+                    <td>Rol 3</td>
+                </tr>
+                <tr>
+                    <td>Persona 4</td>
+                    <td>Rol 4</td>
+                </tr>
+                <!-- Agrega más filas según sea necesario -->
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 BastardyGans. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.style.animationDelay = '0.5s';
+                link.style.animationName = 'fadeIn';
+                link.style.opacity = '1';
+            });
+
+            const footer = document.querySelector('footer');
+            footer.style.animationDelay = '1s';
+            footer.style.opacity = '1';
+        });
+    </script>
+</body>
+</html>
