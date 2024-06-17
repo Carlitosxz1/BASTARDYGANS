@@ -98,7 +98,7 @@
         .grid-container {
             display: grid;
             grid-template-columns: 1fr auto 1fr;
-            gap: 500px;
+            gap: 0; /* Eliminamos el espacio entre las columnas */
             align-items: start;
             justify-content: center;
         }
@@ -110,6 +110,7 @@
             background-color: rgba(0, 0, 0, 0.6);
             padding: 20px;
             border-radius: 10px;
+            width: 50%; /* Ocupa el 50% del ancho del contenedor */
         }
 
         /* Estilos para las tablas */
@@ -135,50 +136,6 @@
             margin-bottom: 20px;
             color: #FF0000; /* Color rojo para BASTARDYGANS */
             font-weight: 900; /* Grosor aumentado */
-        }
-
-        .boomwars-title {
-            color: #00BFFF; /* Color celeste para BOOMWARS */
-            font-size: 1.5em;
-            text-align: center;
-            font-weight: 900; /* Grosor aumentado */
-        }
-
-        .boomwars-subtitle {
-            color: #00BFFF; /* Color celeste para BOOMWARS */
-            font-size: 1em;
-            text-align: center;
-            font-weight: 900; /* Grosor aumentado */
-        }
-
-        .radiant-title {
-            color: #00FF00; /* Color verde para RADIANT PVP */
-            font-size: 1.5em;
-            text-align: center;
-            font-weight: 900; /* Grosor aumentado */
-        }
-
-        .radiant-subtitle {
-            color: #00FF00; /* Color verde para RADIANT PVP */
-            font-size: 1em;
-            text-align: center;
-            font-weight: 900; /* Grosor aumentado */
-        }
-
-        .Fundador {
-            color: gold; /* Color dorado para los fundadores */
-        }
-
-        .miembro-radiant {
-            color: #00FF00; /* Color verde para miembros de RADIANT PVP */
-        }
-
-        .Administrador {
-            color: #FF0000; /* Color Rojo para administradores */
-        }
-
-        .miembro-boom {
-            color: #00BFFF; /* Color Celeste para miembros BOOMGANS WARS */
         }
 
         /* Estilos para el pie de página */
@@ -239,7 +196,10 @@
 </head>
 <body>
     <!-- Imagen de fondo -->
-    <img id="image-background" src="https://www.dropbox.com/scl/fi/6n8ltjv7mrf33ir3gkptv/Dise-o-sin-t-tulo.png?rlkey=09dpf5wkcmm5qktl4gqdq95pe&st=5k90spar&raw=1" alt="Imagen de fondo">
+    <div id="image-background">
+        <div style="width: 50%; float: left;"><img src="https://www.dropbox.com/scl/fi/6n8ltjv7mrf33ir3gkptv/Dise-o-sin-t-tulo.png?rlkey=09dpf5wkcmm5qktl4gqdq95pe&st=5k90spar&raw=1" alt="Imagen de fondo"></div>
+        <div style="width: 50%; float: right;"><img src="https://www.dropbox.com/scl/fi/6n8ltjv7mrf33ir3gkptv/Dise-o-sin-t-tulo.png?rlkey=09dpf5wkcmm5qktl4gqdq95pe&st=5k90spar&raw=1" alt="Imagen de fondo"></div>
+    </div>
 
     <!-- Menú de navegación -->
     <nav>
@@ -257,6 +217,7 @@
 
     <!-- Continuación de la sección de contenido -->
     <section>
+        <h1 class="section-title">BastardyGans</h1>
         <div class="grid-container">
             <div class="table-container">
                 <div class="boomwars-title">BOOMGANS</div>
@@ -272,22 +233,6 @@
                         <tr>
                             <td>Persona 1</td>
                             <td class="Fundador">FUNDADOR</td>
-                        </tr>
-                        <tr>
-                            <td>Persona 2</td>
-                            <td class="Administrador">ADMINISTRADOR</td>
-                        </tr>
-                        <tr>
-                            <td>Persona 3</td>
-                            <td class="Administrador">ADMINISTRADOR</td>
-                        </tr>
-                         <tr>
-                            <td>Persona 4</td>
-                            <td class="miembro-boom">MIEMBRO</td>
-                        </tr>
-                         <tr>
-                            <td>Persona 5</td>
-                            <td class="miembro-boom">MIEMBRO</td>
                         </tr>
                         <!-- Agrega más filas según sea necesario -->
                     </tbody>
@@ -308,22 +253,6 @@
                             <td>Persona 1</td>
                             <td class="Fundador">FUNDADOR</td>
                         </tr>
-                        <tr>
-                            <td>Persona 2</td>
-                            <td class="Administrador">ADMINISTRADOR</td>
-                        </tr>
-                        <tr>
-                            <td>Persona 3</td>
-                            <td class="Administrador">ADMINISTRADOR</td>
-                        </tr>
-                        <tr>
-                            <td>Persona 4</td>
-                            <td class="miembro-radiant">MIEMBRO</td>
-                        </tr>
-                        <tr>
-                            <td>Persona 5</td>
-                            <td class="miembro-radiant">MIEMBRO</td>
-                        </tr>
                         <!-- Agrega más filas según sea necesario -->
                     </tbody>
                 </table>
@@ -339,6 +268,20 @@
     </footer>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.style.animationDelay = '0.5s';
+                link.style.animationName = 'fadeIn';
+                link.style.opacity = '1';
+            });
+
+            const footer = document.querySelector('footer');
+            footer.style.animationDelay = '1s';
+            footer.style.opacity = '1';
+        });
+    </
+<script>
         document.addEventListener('DOMContentLoaded', function () {
             const navLinks = document.querySelectorAll('nav a');
             navLinks.forEach(link => {
