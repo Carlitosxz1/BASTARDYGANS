@@ -165,6 +165,22 @@
             font-weight: 900; /* Grosor aumentado */
         }
 
+        .fundador {
+            color: gold; /* Color dorado para los fundadores */
+        }
+
+        .administrador {
+            color: red; /* Color rojo para los administradores */
+        }
+
+        .miembro-boom {
+            color: #00BFFF; /* Color celeste para miembros de BOOMGANS WARS */
+        }
+
+        .miembro-radiant {
+            color: #00FF00; /* Color verde para miembros de RADIANT PVP */
+        }
+
         /* Estilos para el pie de página */
         footer {
             background-color: transparent;
@@ -239,8 +255,7 @@
         </div>
     </nav>
 
-    <!-- Sección de contenido -->
-    <section>
+<!-- Continuación de la sección de contenido -->
         <div class="grid-container">
             <div class="table-container">
                 <div class="boomwars-title">BOOMGANS</div>
@@ -255,11 +270,15 @@
                     <tbody>
                         <tr>
                             <td>Persona 1</td>
-                            <td>Rol 1</td>
+                            <td class="fundador">Fundador</td>
                         </tr>
                         <tr>
                             <td>Persona 2</td>
-                            <td>Rol 2</td>
+                            <td class="administrador">Administrador</td>
+                        </tr>
+                        <tr>
+                            <td>Persona 3</td>
+                            <td class="miembro-boom">Miembro BOOMGANS</td>
                         </tr>
                         <!-- Agrega más filas según sea necesario -->
                     </tbody>
@@ -278,12 +297,8 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Persona 3</td>
-                            <td>Rol 3</td>
-                        </tr>
-                        <tr>
                             <td>Persona 4</td>
-                            <td>Rol 4</td>
+                            <td class="miembro-radiant">Miembro RADIANT</td>
                         </tr>
                         <!-- Agrega más filas según sea necesario -->
                     </tbody>
@@ -315,3 +330,4 @@
     </script>
 </body>
 </html>
+
