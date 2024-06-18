@@ -12,8 +12,9 @@
             padding: 0;
             font-family: Arial, sans-serif;
             color: #ffffff;
-            overflow-x: hidden;
+            overflow-x: auto;
             width: 100%;
+            min-width: 1024px;
         }
 
         /* Estilos para la imagen de fondo */
@@ -30,7 +31,7 @@
         /* Estilos para el menú de navegación */
         nav {
             background-color: transparent;
-            padding: 10px 20px;
+            padding: 20px 0;
             position: fixed;
             width: 100%;
             top: 0;
@@ -43,24 +44,24 @@
             animation: fadeInDown 0.5s ease;
         }
 
-        nav a {
-            color: #ffffff;
-            margin: 0 10px;
-            text-decoration: none;
-            font-weight: bold;
-            border: 2px solid #ffffff;
-            padding: 8px 12px;
-            border-radius: 5px;
-            font-size: 1.2em;
-            display: inline-block;
-            transition: transform 0.3s ease, color 0.3s ease;
-        }
+            nav a {
+                color: #ffffff;
+                margin: 0 10px;
+                text-decoration: none;
+                font-weight: bold;
+                border: 5px solid #ffffff;
+                padding: 10px 15px;
+                border-radius: 5px;
+                font-size: 1.5em;
+                display: inline-block;
+                transition: transform 0.3s ease, color 0.3s ease;
+            }
 
-        nav a:hover {
-            background-color: #00BFFF;
-            border-color: #00BFFF;
-            transform: scale(1.1);
-        }
+                nav a:hover {
+                    background-color: #00BFFF;
+                    border-color: #00BFFF;
+                    transform: scale(1.1);
+                }
 
         .menu-container {
             display: flex;
@@ -69,15 +70,15 @@
             align-items: center;
         }
 
-        .right-menu {
+        .right-menu a {
             margin-left: auto;
         }
 
         /* Estilos para la sección de contenido */
         section {
-            padding: 20px;
+            padding: 10px;
             background-color: transparent;
-            margin: 0px auto 0px;
+            margin: 0px auto 0px; /* Agrandado el margen superior */
             border-radius: 10px;
             max-width: 800px;
             text-align: justify;
@@ -91,31 +92,34 @@
         /* Estilos para las tablas */
         .table-container {
             margin-bottom: 20px;
-            background-color: rgba(0, 0, 0, 0.5);
-            border-radius: 10px;
-            overflow-x: auto;
-            display: block;
-            margin: 20px auto;
-            max-width: 90%; /* Ajusta este valor para cambiar el tamaño máximo de las tablas */
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo para las tablas */
+            border-radius: 10px; /* Añadido el borde redondeado */
+            overflow-x: auto; /* Permitir desplazamiento horizontal */
+            display: inline-block;
+            margin-left: 250px;
+            margin-right: 250px;
+            
         }
 
+
+        /* Estilos para las tablas */
         .left-table,
         .right-table {
-            width: 90%; /* Ajusta este valor para cambiar el tamaño de las tablas */
+            width: 68%; /* Mantén el ancho de las tablas */
             border-radius: 20px;
             overflow: hidden;
             border: 3px solid white;
             margin: 0 auto;
-            font-weight: 900;
-            background-color: rgba(0, 0, 0, 0.5);
-            background-size: 30% auto;
-            background-position: center;
+            font-weight: 900; /* Grosor aumentado */
+            background-color: rgba(0, 0, 0, 0.5); /* Cambia el color de fondo de las tablas */
+            background-size: 30% auto; /* Establece el tamaño del fondo horizontalmente */
+            background-position: center; /* Centra el fondo horizontalmente */
         }
 
         th, td {
             padding: 10px;
             text-align: center;
-            border: 1px solid white;
+            border: 1px solid white; /* Añadida línea de borde */
         }
 
         th {
@@ -124,25 +128,25 @@
         }
 
         .Fundador {
-            color: gold;
+            color: gold; /* Color dorado para los fundadores */
         }
 
         .miembro-radiant {
-            color: #00FF00;
+            color: #00FF00; /* Color verde para miembros de RADIANT PVP */
         }
 
         .Administrador {
-            color: #FF0000;
+            color: #FF0000; /* Color Rojo para administradores */
         }
 
         .miembro-boom {
-            color: #00BFFF;
+            color: #00BFFF; /* Color Celeste para miembros BOOMGANS WARS */
         }
 
         /* Estilos para el pie de página */
         footer {
             background-color: transparent;
-            text-align: center;
+            text-align: left;
             padding: 10px;
             position: fixed;
             width: 100%;
@@ -157,6 +161,7 @@
                 opacity: 0;
                 transform: translateY(-20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -168,6 +173,7 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -179,6 +185,7 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -189,6 +196,7 @@
             from {
                 opacity: 0;
             }
+
             to {
                 opacity: 1;
             }
@@ -200,7 +208,7 @@
             text-align: center;
             font-size: 2em;
             margin-bottom: 10px;
-            font-weight: 900;
+            font-weight: 900; /* Grosor aumentado */
         }
 
         .table-title-Radian {
@@ -214,32 +222,10 @@
         /* Estilo para el título BastardyGans */
         h2 {
             text-align: center;
-            margin-top: 100px;
-            font-size: 3em;
-            font-weight: 900;
-            color: red;
-        }
-
-        @media (max-width: 768px) {
-            nav a {
-                font-size: 1em;
-                padding: 6px 10px;
-            }
-
-            .table-container {
-                margin: 20px 10px;
-                max-width: 100%;
-            }
-
-            .left-table,
-            .right-table {
-                width: 100%;
-            }
-
-            h2 {
-                font-size: 2em;
-                margin-top: 60px;
-            }
+            margin-top: 40px;
+            font-size: 3em; /* Tamaño aumentado */
+            font-weight: 900; /* Grosor aumentado */
+            color: red; /* Color rojo */
         }
     </style>
 </head>
@@ -267,7 +253,7 @@
     </section>
 
     <!-- Tabla Radiant PVP -->
-    <section class="table-container">
+    <section class="table-container" style="float: right;">
         <div class="table-title-Radian">RADIANT</div>
         <div class="table-title-Radian">PVP</div>
         <table class="right-table">
@@ -287,7 +273,7 @@
                     <td class="Administrador">ADMINISTRADOR</td>
                 </tr>
                 <tr>
-                    <td class="Administrador">Persona 3</td>
+                    <td class="Administrador">Persona 3</tdclass="Administrador">
                     <td class="Administrador">ADMINISTRADOR</td>
                 </tr>
                 <tr>
@@ -298,12 +284,14 @@
                     <td class="miembro-radiant">Persona 5</td>
                     <td class="miembro-radiant">MIEMBRO</td>
                 </tr>
+
+                <!-- Agrega más filas según sea necesario -->
             </tbody>
         </table>
     </section>
 
     <!-- Tabla BoomGans Wars -->
-    <section class="table-container">
+    <section class="table-container" style="float: left;">
         <div class="table-title-Boom">BOOMGANS</div>
         <div class="table-title-Boom">WARS</div>
         <table class="left-table">
@@ -334,6 +322,8 @@
                     <td class="miembro-boom">Persona 5</td>
                     <td class="miembro-boom">MIEMBRO</td>
                 </tr>
+                
+                <!-- Agrega más filas según sea necesario -->
             </tbody>
         </table>
     </section>
