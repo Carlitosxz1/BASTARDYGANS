@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=1024">
     <title>Métodos de Pago - BastardyGans</title>
     <style>
-        html, body {
+        html,
+        body {
             height: 100%;
             margin: 0;
             padding: 0;
@@ -162,6 +164,7 @@
             }
     </style>
 </head>
+
 <body>
     <!-- Video de fondo -->
     <div id="video-container">
@@ -207,7 +210,21 @@
                     contactoMenu.style.display = 'none';
                 }
             });
+
+            const video = document.getElementById('video-background');
+
+            // Guardar posición del video en localStorage
+            video.addEventListener('timeupdate', function () {
+                localStorage.setItem('videoPosition', video.currentTime);
+            });
+
+            // Restaurar posición del video desde localStorage
+            const savedPosition = localStorage.getItem('videoPosition');
+            if (savedPosition) {
+                video.currentTime = parseFloat(savedPosition);
+            }
         });
     </script>
 </body>
+
 </html>
