@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre Nosotros - BastardyGans</title>
     <style>
         /* Estilos generales */
-        html, body {
+        html,
+        body {
             height: 100%;
             margin: 0;
             padding: 0;
@@ -31,7 +33,7 @@
         /* Estilos para el menú de navegación */
         nav {
             background-color: rgba(0, 0, 0, 0.00);
-            padding: 20px 0; /* Ajustamos el padding */
+            padding: 20px 0;
             text-align: center;
             position: fixed;
             width: 100%;
@@ -174,6 +176,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Video de fondo -->
     <video id="video-background" autoplay muted loop>
@@ -239,7 +242,24 @@
             footer.style.animationDelay = '1s';
             footer.style.opacity = '1';
         });
+
+        // Guardar y restaurar la posición del video de fondo
+        const video = document.getElementById('video-background');
+
+        // Verificar si localStorage es compatible
+        if (window.localStorage) {
+            // Verificar si hay una posición guardada
+            const savedPosition = localStorage.getItem('videoPosition');
+            if (savedPosition) {
+                video.currentTime = parseFloat(savedPosition);
+            }
+
+            // Guardar la posición al salir de la página
+            window.addEventListener('beforeunload', () => {
+                localStorage.setItem('videoPosition', video.currentTime.toString());
+            });
+        }
     </script>
 </body>
-</html>
 
+</html>
