@@ -14,7 +14,7 @@
             color: #ffffff;
             overflow-x: auto;
             width: 100%;
-            min-width: 1024px;
+            min-width: 1920px;
         }
 
         /* Estilos para la imagen de fondo */
@@ -238,7 +238,6 @@
                 width: 100%; /* Cambia el ancho de las tablas para dispositivos móviles */
                 margin-left: 0;
                 margin-right: 0;
-                border-collapse: collapse; /* Elimina la separación entre las celdas */
             }
         }
     </style>
@@ -287,77 +286,82 @@
                     <td class="Administrador">ADMINISTRADOR</td>
                 </tr>
                 <tr>
-                    <td class="Administrador">Persona 3</td>
+                    <td class="Administrador">Persona 3</tdclass="Administrador">
                     <td class="Administrador">ADMINISTRADOR</td>
                 </tr>
                 <tr>
                     <td class="miembro-radiant">Persona 4</td>
                     <td class="miembro-radiant">MIEMBRO</td>
-<tr>
-    <td class="miembro-radiant">Persona 5</td>
-    <td class="miembro-radiant">MIEMBRO</td>
-</tr>
-</tbody>
-</table>
-</section>
+                </tr>
+                <tr>
+                    <td class="miembro-radiant">Persona 5</td>
+                    <td class="miembro-radiant">MIEMBRO</td>
+                </tr>
 
-<!-- Tabla BoomGans Wars -->
-<section class="table-container" style="float: left;">
-    <div class="table-title-Boom">BOOMGANS</div>
-    <div class="table-title-Boom">WARS</div>
-    <table class="left-table">
-        <thead>
-            <tr>
-                <th>INTEGRANTES</th>
-                <th>ROLES</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td class="Fundador">Persona 1</td>
-                <td class="Fundador">FUNDADOR</td>
-            </tr>
-            <tr>
-                <td class="Administrador">Persona 2</td>
-                <td class="Administrador">ADMINISTRADOR</td>
-            </tr>
-            <tr>
-                <td class="Administrador">Persona 3</td>
-                <td class="Administrador">ADMINISTRADOR</td>
-            </tr>
-            <tr>
-                <td class="miembro-boom">Persona 4</td>
-                <td class="miembro-boom">MIEMBRO</td>
-            </tr>
-            <tr>
-                <td class="miembro-boom">Persona 5</td>
-                <td class="miembro-boom">MIEMBRO</td>
-            </tr>
-        </tbody>
-    </table>
-</section>
+                <!-- Agrega más filas según sea necesario -->
+            </tbody>
+        </table>
+    </section>
 
-<!-- Pie de página -->
-<footer>
-    <div class="footer-content">
-        <p>&copy; 2024 BastardyGans. Todos los derechos reservados.</p>
-    </div>
-</footer>
+    <!-- Tabla BoomGans Wars -->
+    <section class="table-container" style="float: left;">
+        <div class="table-title-Boom">BOOMGANS</div>
+        <div class="table-title-Boom">WARS</div>
+        <table class="left-table">
+            <thead>
+                <tr>
+                    <th>INTEGRANTES</th>
+                    <th>ROLES</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="Fundador">Persona 1</td>
+                    <td class="Fundador">FUNDADOR</td>
+                </tr>
+                <tr>
+                    <td class="Administrador">Persona 2</td>
+                    <td class="Administrador">ADMINISTRADOR</td>
+                </tr>
+                <tr>
+                    <td class="Administrador">Persona 3</td>
+                    <td class="Administrador">ADMINISTRADOR</td>
+                </tr>
+                <tr>
+                    <td class="miembro-boom">Persona 4</td>
+                    <td class="miembro-boom">MIEMBRO</td>
+                </tr>
+                <tr>
+                    <td class="miembro-boom">Persona 5</td>
+                    <td class="miembro-boom">MIEMBRO</td>
+                </tr>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const navLinks = document.querySelectorAll('nav a');
-        navLinks.forEach(link => {
-            link.style.animationDelay = '0.5s';
-            link.style.animationName = 'fadeIn';
-            link.style.opacity = '1';
+                <!-- Agrega más filas según sea necesario -->
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 BastardyGans. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.style.animationDelay = '0.5s';
+                link.style.animationName = 'fadeIn';
+                link.style.opacity = '1';
+            });
+
+            const footer = document.querySelector('footer');
+            footer.style.animationDelay = '1s';
+            footer.style.opacity = '1';
         });
-
-        const footer = document.querySelector('footer');
-        footer.style.animationDelay = '1s';
-        footer.style.opacity = '1';
-    });
-</script>
+    </script>
 </body>
 </html>
 
