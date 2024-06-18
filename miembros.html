@@ -98,9 +98,7 @@
             display: inline-block;
             margin-left: 250px;
             margin-right: 250px;
-            
         }
-
 
         /* Estilos para las tablas */
         .left-table,
@@ -227,6 +225,21 @@
             font-weight: 900; /* Grosor aumentado */
             color: red; /* Color rojo */
         }
+
+        /* Media query para dispositivos móviles */
+        @media screen and (max-width: 768px) {
+            .table-container {
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            .left-table,
+            .right-table {
+                width: 100%; /* Cambia el ancho de las tablas para dispositivos móviles */
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -278,7 +291,7 @@
                 </tr>
                 <tr>
                     <td class="miembro-radiant">Persona 4</td>
-                    <td class="miembro-radiant">MIEMBRO</td>
+                    miembro-radiant">MIEMBRO</td>
                 </tr>
                 <tr>
                     <td class="miembro-radiant">Persona 5</td>
@@ -322,7 +335,7 @@
                     <td class="miembro-boom">Persona 5</td>
                     <td class="miembro-boom">MIEMBRO</td>
                 </tr>
-                
+
                 <!-- Agrega más filas según sea necesario -->
             </tbody>
         </table>
