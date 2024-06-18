@@ -241,6 +241,18 @@
             const contactoMenu = document.getElementById('contacto-menu');
             const menuBtn = document.getElementById('menu-btn');
             const menuOptions = document.getElementById('menu-options');
+            const video = document.getElementById('video-background');
+
+            // Guardar la posición del video antes de salir de la página
+            window.addEventListener('beforeunload', function () {
+                localStorage.setItem('videoTime', video.currentTime);
+            });
+
+            // Recuperar la posición del video al cargar la página
+            const savedTime = localStorage.getItem('videoTime');
+            if (savedTime !== null) {
+                video.currentTime = savedTime;
+            }
 
             menuBtn.addEventListener('mouseenter', function () {
                 // Colocar el menú justo debajo del botón
