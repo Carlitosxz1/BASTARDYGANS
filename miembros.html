@@ -12,7 +12,6 @@
             padding: 0;
             font-family: Arial, sans-serif;
             color: #ffffff;
-            overflow-x: auto;
             width: 100%;
             min-width: 1024px;
         }
@@ -39,29 +38,28 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            overflow-x: auto;
             white-space: nowrap;
             animation: fadeInDown 0.5s ease;
         }
 
-            nav a {
-                color: #ffffff;
-                margin: 0 10px;
-                text-decoration: none;
-                font-weight: bold;
-                border: 5px solid #ffffff;
-                padding: 10px 15px;
-                border-radius: 5px;
-                font-size: 1.5em;
-                display: inline-block;
-                transition: transform 0.3s ease, color 0.3s ease;
-            }
+        nav a {
+            color: #ffffff;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: bold;
+            border: 5px solid #ffffff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 1.5em;
+            display: inline-block;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
 
-                nav a:hover {
-                    background-color: #00BFFF;
-                    border-color: #00BFFF;
-                    transform: scale(1.1);
-                }
+        nav a:hover {
+            background-color: #00BFFF;
+            border-color: #00BFFF;
+            transform: scale(1.1);
+        }
 
         .menu-container {
             display: flex;
@@ -95,12 +93,10 @@
             background-color: rgba(0, 0, 0, 0.5); /* Fondo para las tablas */
             border-radius: 10px; /* Añadido el borde redondeado */
             overflow-x: hidden; /* Oculta la barra de desplazamiento horizontal */
-            display: inline-block;
             margin-left: 250px;
             margin-right: 250px;
         }
 
-        /* Estilos para las tablas */
         .left-table,
         .right-table {
             width: 75%; /* Mantén el ancho de las tablas */
@@ -141,65 +137,6 @@
             color: #00BFFF; /* Color Celeste para miembros BOOMGANS WARS */
         }
 
-        /* Estilos para el pie de página */
-        footer {
-            background-color: transparent;
-            text-align: left;
-            padding: 10px;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-            opacity: 0;
-            animation: fadeInUpFooter 0.5s ease forwards;
-        }
-
-        /* Definir animaciones */
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUpFooter {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
         /* Estilos adicionales para los títulos de las tablas */
         .table-title-Radian,
         .table-title-Boom {
@@ -238,6 +175,11 @@
                 width: 100%; /* Cambia el ancho de las tablas para dispositivos móviles */
                 margin-left: 0;
                 margin-right: 0;
+            }
+
+            /* Estilos adicionales para dispositivos móviles */
+            .table-container {
+                overflow-y: auto; /* Habilita el desplazamiento vertical en la tabla */
             }
         }
     </style>
