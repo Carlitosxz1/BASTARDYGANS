@@ -338,7 +338,7 @@
                 star.addEventListener('change', function () {
                     const value = this.value;
                     stars.forEach(s => {
-                        s.checked = s.value <= value;
+                        s.nextElementSibling.style.color = s.value <= value ? '#FFD700' : '#ddd';
                     });
                 });
             });
