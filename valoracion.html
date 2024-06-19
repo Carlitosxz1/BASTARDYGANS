@@ -117,7 +117,6 @@
             display: flex;
             justify-content: center;
             margin-top: 20px;
-            direction: rtl;
         }
 
         .rating input {
@@ -131,13 +130,13 @@
             transition: color 0.3s ease;
         }
 
-        .rating input:checked ~ label,
         .rating label:hover,
-        .rating label:hover ~ label {
+        .rating label:hover ~ label,
+        .rating input:checked ~ label {
             color: #FFD700;
         }
 
-        .rating input:checked + label ~ label {
+        .rating input:checked ~ label ~ label {
             color: #ddd;
         }
 
@@ -256,11 +255,11 @@
             <h3>Valora nuestro sitio</h3>
             <form id="rating-form">
                 <div class="rating">
-                    <input type="radio" name="star" id="star5" value="5"><label for="star5">★</label>
-                    <input type="radio" name="star" id="star4" value="4"><label for="star4">★</label>
-                    <input type="radio" name="star" id="star3" value="3"><label for="star3">★</label>
-                    <input type="radio" name="star" id="star2" value="2"><label for="star2">★</label>
                     <input type="radio" name="star" id="star1" value="1"><label for="star1">★</label>
+                    <input type="radio" name="star" id="star2" value="2"><label for="star2">★</label>
+                    <input type="radio" name="star" id="star3" value="3"><label for="star3">★</label>
+                    <input type="radio" name="star" id="star4" value="4"><label for="star4">★</label>
+                    <input type="radio" name="star" id="star5" value="5"><label for="star5">★</label>
                 </div>
                 <button type="submit">Enviar Valoración</button>
             </form>
@@ -294,16 +293,11 @@
 
             // Guardar y restaurar la posición del video de fondo
             const video = document.getElementById('video-background');
-
-            // Verificar si localStorage es compatible
             if (window.localStorage) {
-                // Verificar si hay una posición guardada
                 const savedPosition = localStorage.getItem('videoPosition');
                 if (savedPosition) {
                     video.currentTime = parseFloat(savedPosition);
                 }
-
-                // Guardar la posición al salir de la página
                 window.addEventListener('beforeunload', () => {
                     localStorage.setItem('videoPosition', video.currentTime.toString());
                 });
@@ -334,6 +328,17 @@
                 ratingsList.appendChild(ratingItem);
                 alert('¡Gracias por tu valoración!');
                 ratingForm.reset();
+            });
+
+            // Mostrar las estrellas correctamente al hacer clic
+            const stars = document.querySelectorAll('.rating input');
+            stars.forEach(star => {
+                star.addEventListener('change', function () {
+                    const value = this.value;
+                    stars.forEach(s => {
+                        s.checked = s.value <= value;
+                    });
+                });
             });
         });
     </script>
