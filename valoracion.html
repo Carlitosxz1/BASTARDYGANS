@@ -117,6 +117,7 @@
             display: flex;
             justify-content: center;
             margin-top: 20px;
+            direction: rtl;
         }
 
         .rating input {
@@ -264,6 +265,12 @@
                 <button type="submit">Enviar Valoración</button>
             </form>
         </div>
+
+        <div class="form-container">
+            <h3>Sugerencias y Valoraciones Recibidas</h3>
+            <div id="suggestions-list"></div>
+            <div id="ratings-list"></div>
+        </div>
     </section>
 
     <footer>
@@ -304,16 +311,27 @@
 
             // Manejar envío del formulario de sugerencias
             const suggestionForm = document.getElementById('suggestion-form');
+            const suggestionsList = document.getElementById('suggestions-list');
             suggestionForm.addEventListener('submit', function (event) {
                 event.preventDefault();
+                const name = document.getElementById('name').value;
+                const suggestion = document.getElementById('suggestion').value;
+                const suggestionItem = document.createElement('div');
+                suggestionItem.innerHTML = `<strong>${name}:</strong> <p>${suggestion}</p>`;
+                suggestionsList.appendChild(suggestionItem);
                 alert('¡Gracias por tu sugerencia!');
                 suggestionForm.reset();
             });
 
             // Manejar envío del formulario de valoración
             const ratingForm = document.getElementById('rating-form');
+            const ratingsList = document.getElementById('ratings-list');
             ratingForm.addEventListener('submit', function (event) {
                 event.preventDefault();
+                const rating = document.querySelector('input[name="star"]:checked').value;
+                const ratingItem = document.createElement('div');
+                ratingItem.innerHTML = `<p>Valoración: ${rating} estrellas</p>`;
+                ratingsList.appendChild(ratingItem);
                 alert('¡Gracias por tu valoración!');
                 ratingForm.reset();
             });
