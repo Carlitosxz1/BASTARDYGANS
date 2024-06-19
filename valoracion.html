@@ -313,6 +313,7 @@
                 const suggestionItem = document.createElement('div');
                 suggestionItem.innerHTML = `<strong>${name}:</strong> <p>${suggestion}</p>`;
                 suggestionsList.appendChild(suggestionItem);
+                saveToLocalStorage('suggestions', name, suggestion);
                 alert('¡Gracias por tu sugerencia!');
                 suggestionForm.reset();
             });
@@ -326,6 +327,7 @@
                 const ratingItem = document.createElement('div');
                 ratingItem.innerHTML = `<p>Valoración: ${rating} estrellas</p>`;
                 ratingsList.appendChild(ratingItem);
+                saveToLocalStorage('ratings', '', rating);
                 alert('¡Gracias por tu valoración!');
                 ratingForm.reset();
             });
@@ -340,6 +342,31 @@
                     });
                 });
             });
+
+            // Guardar en LocalStorage
+            function saveToLocalStorage(type, name, value) {
+                let data = localStorage.getItem(type) ? JSON.parse(localStorage.getItem(type)) : [];
+                data.push({ name, value });
+                localStorage.setItem(type, JSON.stringify(data));
+            }
+
+            // Cargar datos de LocalStorage
+            function loadFromLocalStorage(type, container) {
+                let data = localStorage.getItem(type) ? JSON.parse(localStorage.getItem(type)) : [];
+                data.forEach(item => {
+                    let itemElement = document.createElement('div');
+                    if (type === 'suggestions') {
+                        itemElement.innerHTML = `<strong>${item.name}:</strong> <p>${item.value}</p>`;
+                    } else if (type === 'ratings') {
+                        itemElement.innerHTML = `<p>Valoración: ${item.value} estrellas</p>`;
+                    }
+                    container.appendChild(itemElement);
+                });
+            }
+
+            // Cargar sugerencias y valoraciones al iniciar
+            loadFromLocalStorage('suggestions', suggestionsList);
+            loadFromLocalStorage('ratings', ratingsList);
         });
     </script>
 </body>
