@@ -14,9 +14,8 @@
             padding: 0;
             font-family: Arial, sans-serif;
             color: #ffffff;
-            overflow-x: auto;
+            overflow-x: hidden;
             width: 100%;
-            min-width: 1024px;
         }
 
         /* Estilos para el video de fondo */
@@ -46,15 +45,8 @@
             animation: fadeInDown 0.5s ease;
         }
 
-        /* Estilos para el menú "Sobre Nosotros" */
-        #sobre-nosotros-link {
-            color: #ffffff; /* Letras blancas */
-            border-color: #ffffff; /* Mantener el color blanco para el borde de este enlace */
-            transition: transform 0.3s ease, background-color 0.3s ease; /* Agregar transición de transform y background-color */
-        }
-
         /* Estilos para las opciones del menú */
-        nav a:not(#sobre-nosotros-link) {
+        nav a {
             color: #ffffff;
             margin: 0 10px;
             text-decoration: none;
@@ -67,11 +59,11 @@
             transition: transform 0.3s ease, color 0.3s ease; /* Agregar transición de transform y color */
         }
 
-            nav a:not(#sobre-nosotros-link):hover {
-                background-color: #00BFFF;
-                border-color: #00BFFF;
-                transform: scale(1.1);
-            }
+        nav a:hover {
+            background-color: #00BFFF;
+            border-color: #00BFFF;
+            transform: scale(1.1);
+        }
 
         /* Estilos para la sección de contenido */
         section {
@@ -101,9 +93,9 @@
             transition: background-color 0.3s ease;
         }
 
-            .discord-link:hover {
-                background-color: #0000cc;
-            }
+        .discord-link:hover {
+            background-color: #0000cc;
+        }
 
         /* Estilos para el pie de página */
         footer {
@@ -172,6 +164,36 @@
 
             to {
                 opacity: 1;
+            }
+        }
+
+        /* Media Queries para pantallas pequeñas */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                padding: 10px 0;
+            }
+
+            nav a {
+                margin: 5px 0;
+                padding: 10px 20px;
+                font-size: 1em;
+            }
+
+            section {
+                margin: 100px 10px 20px;
+                padding: 10px;
+                font-size: 1em;
+            }
+
+            .discord-link {
+                font-size: 1em;
+                padding: 10px 20px;
+            }
+
+            #contacto-menu {
+                top: 60px;
+                right: 10px;
             }
         }
     </style>
