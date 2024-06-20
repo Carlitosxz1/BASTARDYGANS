@@ -31,38 +31,61 @@
 
         /* Estilos para el menú de navegación */
         nav {
-            background-color: rgba(0, 0, 0, 0.00);
-            padding: 20px 0;
-            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
             display: flex;
-            justify-content: center;
-            overflow-x: auto;
-            white-space: nowrap;
-            animation: fadeInDown 0.5s ease;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        /* Botón del menú para móviles */
+        .menu-btn {
+            display: none;
+            font-size: 1.5em;
+            background: none;
+            border: none;
+            color: #ffffff;
+            cursor: pointer;
+            margin-left: auto;
+            margin-right: 10px;
         }
 
         /* Estilos para las opciones del menú */
+        .nav-links {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
         nav a {
             color: #ffffff;
             margin: 0 10px;
             text-decoration: none;
             font-weight: bold;
-            border: 5px solid #ffffff;
-            padding: 10px 15px;
+            border: 2px solid #ffffff;
+            padding: 5px 10px;
             border-radius: 5px;
-            font-size: 1.2em;
             display: inline-block;
-            transition: transform 0.3s ease, color 0.3s ease; /* Agregar transición de transform y color */
+            transition: transform 0.3s, border-color 0.3s;
         }
 
         nav a:hover {
             background-color: #00BFFF;
             border-color: #00BFFF;
             transform: scale(1.1);
+        }
+
+        /* Estilos específicos para el enlace "Sobre Nosotros" */
+        #sobre-nosotros-link {
+            color: #ffffff;
+            border-color: #ffffff;
         }
 
         /* Estilos para la sección de contenido */
@@ -90,7 +113,7 @@
             border-radius: 8px;
             margin-top: 30px;
             font-size: 1.5em;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s;
         }
 
         .discord-link:hover {
@@ -100,7 +123,7 @@
         /* Estilos para el pie de página */
         footer {
             background-color: transparent;
-            text-align: left;
+            text-align: center;
             padding: 10px;
             position: fixed;
             width: 100%;
@@ -169,31 +192,44 @@
 
         /* Media Queries para pantallas pequeñas */
         @media (max-width: 768px) {
-            nav {
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
                 flex-direction: column;
-                padding: 10px 0;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.8);
+                position: absolute;
+                top: 50px;
+                left: 0;
+            }
+
+            .nav-links.show {
+                display: flex;
             }
 
             nav a {
                 margin: 5px 0;
-                padding: 10px 20px;
-                font-size: 1em;
+                padding: 10px;
+                font-size: 1.1em;
+                width: 100%;
+                text-align: center;
             }
 
             section {
                 margin: 100px 10px 20px;
-                padding: 10px;
-                font-size: 1em;
+                max-width: 100%;
             }
 
             .discord-link {
-                font-size: 1em;
+                font-size: 1.2em;
                 padding: 10px 20px;
             }
 
-            #contacto-menu {
-                top: 60px;
-                right: 10px;
+            footer {
+                text-align: center;
             }
         }
     </style>
@@ -208,13 +244,14 @@
 
     <!-- Contenido de la página -->
     <nav>
-        <div>
+        <button class="menu-btn" id="menu-btn">&#9776;</button>
+        <div class="nav-links" id="nav-links">
             <a href="index.html">Inicio</a>
             <a href="reglas.html">Reglas</a>
             <a href="Donaciones.html">Donaciones</a>
             <a href="https://discord.gg/4m9Du4VMgr" target="_blank">Discord</a>
+            <a href="#" id="contacto-btn">Contacto</a>
         </div>
-        <a href="#" id="contacto-btn">Contacto</a>
     </nav>
 
     <section>
@@ -242,6 +279,13 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            const menuBtn = document.getElementById('menu-btn');
+            const navLinks = document.getElementById('nav-links');
+
+            menuBtn.addEventListener('click', function () {
+                navLinks.classList.toggle('show');
+            });
+
             const contactoBtn = document.getElementById('contacto-btn');
             const contactoMenu = document.getElementById('contacto-menu');
 
@@ -253,8 +297,8 @@
                 }
             });
 
-            const navLinks = document.querySelectorAll('nav a:not(#sobre-nosotros-link)');
-            navLinks.forEach(link => {
+            const navLinkElements = document.querySelectorAll('nav a:not(#sobre-nosotros-link)');
+            navLinkElements.forEach(link => {
                 link.style.animationDelay = '0.5s';
                 link.style.animationName = 'fadeIn';
                 link.style.opacity = '1';
