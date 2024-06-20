@@ -1,5 +1,13 @@
-<!DOCTYPE html>
+<?php
+session_start();
 
+// Verificar si el usuario ha iniciado sesión
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    header("Location: login.html"); // Redirigir al formulario de inicio de sesión si no ha iniciado sesión
+    exit;
+}
+?>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -19,29 +27,29 @@
             position: relative;
         }
 
-    #video-background {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: -1;
-    }
+        #video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
 
-    nav {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 20px 10px;
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 1000;
-        background-color: rgb(255, 255, 255, 0,00);
-        overflow-x: auto;
-        white-space: nowrap;
-    }
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 10px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background-color: rgb(255, 255, 255, 0.00);
+            overflow-x: auto;
+            white-space: nowrap;
+        }
 
         nav a {
             color: #ffffff;
@@ -56,19 +64,19 @@
             transition: transform 0.3s, border-color 0.3s;
         }
 
-            nav a:hover {
-                background-color: #00BFFF;
-                border-color: #00BFFF;
-                transform: scale(1.1);
-            }
+        nav a:hover {
+            background-color: #00BFFF;
+            border-color: #00BFFF;
+            transform: scale(1.1);
+        }
 
-    header {
-        padding: 100px 20px 50px;
-        text-align: center;
-        position: relative;
-        z-index: 1;
-        margin-top: 50px;
-    }
+        header {
+            padding: 100px 20px 50px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            margin-top: 50px;
+        }
 
         header h1,
         header h2 {
@@ -92,73 +100,73 @@
             animation-delay: 0.5s;
         }
 
-    .discord-button {
-        display: inline-block;
-        padding: 25px 35px;
-        background-color: #0000ff;
-        color: #ffffff;
-        text-decoration: none;
-        border-radius: 25px;
-        font-size: 1.6em;
-        margin-top: 30px;
-        transition: transform 0.3s;
-        animation: pulse 1s infinite;
-    }
+        .discord-button {
+            display: inline-block;
+            padding: 25px 35px;
+            background-color: #0000ff;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 1.6em;
+            margin-top: 30px;
+            transition: transform 0.3s;
+            animation: pulse 1s infinite;
+        }
 
         .discord-button:hover {
             background-color: #0000cc;
             transform: scale(1.05);
         }
 
-    footer {
-        background-color: transparent;
-        text-align: left;
-        padding: 10px;
-        position: fixed;
-        width: 100%;
-        bottom: 0;
-    }
+        footer {
+            background-color: transparent;
+            text-align: left;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
 
-    .footer-content {
-        margin-left: 20px;
-        color: #ffffff;
-    }
+        .footer-content {
+            margin-left: 20px;
+            color: #ffffff;
+        }
 
-    #contacto-menu {
-        display: none;
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background-color: #0000ff;
-        padding: 10px;
-        border-radius: 10px;
-        transform: translateY(-20px);
-        opacity: 0;
-        transition: transform 0.3s, opacity 0.3s;
-        margin-top: 70px;
-        margin-right: -17px;
-    }
+        #contacto-menu {
+            display: none;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #0000ff;
+            padding: 10px;
+            border-radius: 10px;
+            transform: translateY(-20px);
+            opacity: 0;
+            transition: transform 0.3s, opacity 0.3s;
+            margin-top: 70px;
+            margin-right: -17px;
+        }
 
         #contacto-menu.visible {
             transform: translateY(0);
             opacity: 1;
         }
 
-    #menu-options {
-        display: none;
-        position: absolute;
-        left: 0;
-        top: 100%;
-        background-color: rgb(0, 0, 0, 0,00);
-        padding: 25px;
-        border-radius: 25px;
-        color: #ffffff;
-        transform: translateY(-20px);
-        opacity: 0;
-        transition: transform 0.3s, opacity 0.3s;
-        z-index: 1000;
-        margin-left: -25px;
-    }
+        #menu-options {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 100%;
+            background-color: rgb(0, 0, 0, 0.00);
+            padding: 25px;
+            border-radius: 25px;
+            color: #ffffff;
+            transform: translateY(-20px);
+            opacity: 0;
+            transition: transform 0.3s, opacity 0.3s;
+            z-index: 1000;
+            margin-left: -25px;
+        }
 
         #menu-options.visible {
             transform: translateY(0);
@@ -175,29 +183,29 @@
             font-size: 1.2em;
         }
 
-            #menu-options a:hover {
-                background-color: #ffffff00;
-                border-color: #ffffff00;
-                transform: scale(1.2);
+        #menu-options a:hover {
+            background-color: #ffffff00;
+            border-color: #ffffff00;
+            transform: scale(1.2);
+        }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
             }
 
-    @keyframes slideIn {
-        to {
-            opacity: 1;
-            transform: translateX(0);
+            50% {
+                transform: scale(1.1);
+            }
         }
-    }
-
-    @keyframes pulse {
-        0%, 100% {
-            transform: scale(1);
-        }
-
-        50% {
-            transform: scale(1.1);
-        }
-    }
-</style>
+    </style>
 </head>
 <body>
     <!-- Video de fondo -->
@@ -205,107 +213,108 @@
         <source src="https://dl.dropboxusercontent.com/scl/fi/3xnvagr7lla6gi76rftqu/Bastardygans.mp4?rlkey=80ykwq0y5k8xeacjcwnnlrqgn&st=kb983m47" type="video/mp4">
         Tu navegador no soporta la etiqueta de video.
     </video>
-<nav>
-    <a href="#" id="menu-btn">Menú</a>
-    <a href="reglas.html">Reglas</a>
-    <a href="sobre-nosotros.html">Sobre Nosotros</a>
-    <a href="Donaciones.html">Donaciones</a>
-    <a href="#" id="contacto-btn" style="margin-left: auto;">Contacto</a>
-</nav>
-<header>
-    <h1>BastardyGans</h1>
-    <h2>Servidor de GTA Roleplay PVP</h2>
-    <a href="https://discord.gg/xhDpvFbwrR" class="discord-button" target="_blank">Discord</a>
-</header>
-<footer>
-    <div class="footer-content">
-        <p>&copy; 2024 BastardyGans. Todos los derechos reservados.</p>
+    <nav>
+        <a href="#" id="menu-btn">Menú</a>
+        <a href="reglas.php">Reglas</a>
+        <a href="sobre-nosotros.php">Sobre Nosotros</a>
+        <a href="donaciones.php">Donaciones</a>
+        <a href="#" id="contacto-btn" style="margin-left: auto;">Contacto</a>
+    </nav>
+    <header>
+        <h1>BastardyGans</h1>
+        <h2>Servidor de GTA Roleplay PVP</h2>
+        <a href="https://discord.gg/xhDpvFbwrR" class="discord-button" target="_blank">Discord</a>
+    </header>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 BastardyGans. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <div id="contacto-menu">
+        <p><strong>Correo:</strong> Contacto.bastardygans@gmail.com</p>
     </div>
-</footer>
 
-<div id="contacto-menu">
-    <p><strong>Correo:</strong> Contacto.bastardygans@gmail.com</p>
-</div>
+    <div id="menu-options">
+        <a href="miembros.php">Miembros Bastardygans</a>
+        <a href="valoracion.php">Valoración y Sugerencias</a>
+        <a href="https://discord.gg/xhDpvFbwrR" target="_blank">Discord</a>
+    </div>
 
-<div id="menu-options">
-    <a href="miembros.html">Miembros Bastardygans</a>
-    <a href="valoracion.html">Valoración y Sugerencias</a>
-    <a href="https://discord.gg/xhDpvFbwrR" target="_blank">Discord</a>
-</div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const contactoBtn = document.getElementById('contacto-btn');
+            const contactoMenu = document.getElementById('contacto-menu');
+            const menuBtn = document.getElementById('menu-btn');
+            const menuOptions = document.getElementById('menu-options');
+            const video = document.getElementById('video-background');
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const contactoBtn = document.getElementById('contacto-btn');
-        const contactoMenu = document.getElementById('contacto-menu');
-        const menuBtn = document.getElementById('menu-btn');
-        const menuOptions = document.getElementById('menu-options');
-        const video = document.getElementById('video-background');
+            // Guardar la posición del video antes de salir de la página
+            window.addEventListener('beforeunload', function () {
+                localStorage.setItem('videoTime', video.currentTime);
+            });
 
-        // Guardar la posición del video antes de salir de la página
-        window.addEventListener('beforeunload', function () {
-            localStorage.setItem('videoTime', video.currentTime);
-        });
-
-        // Recuperar la posición del video al cargar la página
-        const savedTime = localStorage.getItem('videoTime');
-        if (savedTime !== null) {
-            video.currentTime = savedTime;
-        }
-
-        menuBtn.addEventListener('mouseenter', function () {
-            // Colocar el menú justo debajo del botón
-            const rect = menuBtn.getBoundingClientRect();
-            menuOptions.style.left = `${rect.left}px`;
-            menuOptions.style.top = `${rect.bottom}px`;
-
-            toggleMenu(menuOptions);
-        });
-
-        menuBtn.addEventListener('mouseleave', function () {
-            toggleMenu(menuOptions);
-        });
-
-        // Asegurar que el menú no desaparezca cuando se pasa el ratón sobre él
-        menuOptions.addEventListener('mouseenter', function () {
-            menuOptions.classList.add('visible');
-        });
-
-        menuOptions.addEventListener('mouseleave', function () {
-            toggleMenu(menuOptions);
-        });
-
-        contactoBtn.addEventListener('mouseenter', function () {
-            toggleMenu(contactoMenu);
-        });
-
-        contactoBtn.addEventListener('mouseleave', function () {
-            toggleMenu(contactoMenu);
-        });
-
-        // Asegurar que el menú no desaparezca cuando se pasa el ratón sobre él
-        contactoMenu.addEventListener('mouseenter', function () {
-            contactoMenu.classList.add('visible');
-        });
-
-        contactoMenu.addEventListener('mouseleave', function () {
-            toggleMenu(contactoMenu);
-        });
-
-        // Función para mostrar/ocultar menús
-        function toggleMenu(menu) {
-            if (menu.style.display === 'none' || menu.style.display === '') {
-                menu.style.display = 'block';
-                setTimeout(() => {
-                    menu.classList.add('visible');
-                }, 10);
-            } else {
-                menu.classList.remove('visible');
-                setTimeout(() => {
-                    menu.style.display = 'none';
-                }, 300);
+            // Recuperar la posición del video al cargar la página
+            const savedTime = localStorage.getItem('videoTime');
+            if (savedTime !== null) {
+                video.currentTime = savedTime;
             }
-        }
-    });
-</script>
+
+            menuBtn.addEventListener('mouseenter', function () {
+                // Colocar el menú justo debajo del botón
+                const rect = menuBtn.getBoundingClientRect();
+                menuOptions.style.left = `${rect.left}px`;
+                menuOptions.style.top = `${rect.bottom}px`;
+
+                toggleMenu(menuOptions);
+            });
+
+            menuBtn.addEventListener('mouseleave', function () {
+                toggleMenu(menuOptions);
+            });
+
+            // Asegurar que el menú no desaparezca cuando se pasa el ratón sobre él
+            menuOptions.addEventListener('mouseenter', function () {
+                menuOptions.classList.add('visible');
+            });
+
+            menuOptions.addEventListener('mouseleave', function () {
+                toggleMenu(menuOptions);
+            });
+
+            contactoBtn.addEventListener('mouseenter', function () {
+                toggleMenu(contactoMenu);
+            });
+
+            contactoBtn.addEventListener('mouseleave', function () {
+                toggleMenu(contactoMenu);
+            });
+
+            // Asegurar que el menú no desaparezca cuando se pasa el ratón sobre él
+            contactoMenu.addEventListener('mouseenter', function () {
+                contactoMenu.classList.add('visible');
+            });
+
+            contactoMenu.addEventListener('mouseleave', function () {
+                toggleMenu(contactoMenu);
+            });
+
+            // Función para mostrar/ocultar menús
+            function toggleMenu(menu) {
+                if (menu.style.display === 'none' || menu.style.display === '') {
+                    menu.style.display = 'block';
+                    setTimeout(() => {
+                        menu.classList.add('visible');
+                    }, 10);
+                } else {
+                    menu.classList.remove('visible');
+                    setTimeout(() => {
+                        menu.style.display = 'none';
+                    }, 300);
+                }
+            }
+        });
+    </script>
 </body>
 </html>
+
