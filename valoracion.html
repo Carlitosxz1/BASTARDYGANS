@@ -282,13 +282,11 @@
         <div class="form-container">
             <h3>Sugerencias Recibidas</h3>
             <div id="suggestions-list"></div>
-            <button id="clear-suggestions">Borrar Sugerencias</button>
         </div>
 
         <div class="form-container">
             <h3>Valoraciones Recibidas</h3>
             <div id="ratings-list"></div>
-            <button id="clear-ratings">Borrar Valoraciones</button>
         </div>
     </section>
 
@@ -385,21 +383,6 @@
             // Cargar sugerencias y valoraciones al iniciar
             loadFromLocalStorage('suggestions', suggestionsList);
             loadFromLocalStorage('ratings', ratingsList);
-
-            // Borrar sugerencias y valoraciones
-            const clearSuggestionsButton = document.getElementById('clear-suggestions');
-            clearSuggestionsButton.addEventListener('click', function () {
-                localStorage.removeItem('suggestions');
-                suggestionsList.innerHTML = '';
-                alert('Sugerencias borradas.');
-            });
-
-            const clearRatingsButton = document.getElementById('clear-ratings');
-            clearRatingsButton.addEventListener('click', function () {
-                localStorage.removeItem('ratings');
-                ratingsList.innerHTML = '';
-                alert('Valoraciones borradas.');
-            });
         });
     </script>
 </body>
