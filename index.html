@@ -29,7 +29,7 @@
 
         nav {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             padding: 10px;
             position: fixed;
@@ -37,7 +37,12 @@
             top: 0;
             z-index: 1000;
             background-color: rgba(0, 0, 0, 0.5);
-            white-space: nowrap;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         nav a {
@@ -57,6 +62,16 @@
             background-color: #00BFFF;
             border-color: #00BFFF;
             transform: scale(1.1);
+        }
+
+        .menu-btn {
+            display: none;
+            font-size: 1.5em;
+            background: none;
+            border: none;
+            color: #ffffff;
+            cursor: pointer;
+            margin-left: auto;
         }
 
         header {
@@ -201,10 +216,27 @@
                 flex-direction: column;
             }
 
-            nav a {
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.8);
+            }
+
+            .nav-links a {
                 margin: 5px 0;
                 padding: 10px 15px;
                 font-size: 1.1em;
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-links.show {
+                display: flex;
             }
 
             header h1 {
@@ -241,17 +273,22 @@
     </video>
 
     <nav>
-        <a href="#" id="menu-btn">Menú</a>
-        <a href="reglas.html">Reglas</a>
-        <a href="sobre-nosotros.html">Sobre Nosotros</a>
-        <a href="Donaciones.html">Donaciones</a>
-        <a href="#" id="contacto-btn" style="margin-left: auto;">Contacto</a>
+        <button class="menu-btn" id="menu-btn">&#9776;</button>
+        <div class="nav-links" id="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="reglas.html">Reglas</a>
+            <a href="sobre-nosotros.html">Sobre Nosotros</a>
+            <a href="Donaciones.html">Donaciones</a>
+            <a href="#" id="contacto-btn">Contacto</a>
+        </div>
     </nav>
+
     <header>
         <h1>BastardyGans</h1>
         <h2>Servidor de GTA Roleplay PVP</h2>
         <a href="https://discord.gg/xhDpvFbwrR" class="discord-button" target="_blank">Discord</a>
     </header>
+
     <footer>
         <div class="footer-content">
             <p>&copy; 2024 BastardyGans. Todos los derechos reservados.</p>
@@ -274,6 +311,7 @@
             const contactoMenu = document.getElementById('contacto-menu');
             const menuBtn = document.getElementById('menu-btn');
             const menuOptions = document.getElementById('menu-options');
+            const navLinks = document.getElementById('nav-links');
             const video = document.getElementById('video-background');
 
             // Guardar la posición del video antes de salir de la página
@@ -287,26 +325,8 @@
                 video.currentTime = savedTime;
             }
 
-            menuBtn.addEventListener('mouseenter', function () {
-                // Colocar el menú justo debajo del botón
-                const rect = menuBtn.getBoundingClientRect();
-                menuOptions.style.left = `${rect.left}px`;
-                menuOptions.style.top = `${rect.bottom}px`;
-
-                toggleMenu(menuOptions);
-            });
-
-            menuBtn.addEventListener('mouseleave', function () {
-                toggleMenu(menuOptions);
-            });
-
-            // Asegurar que el menú no desaparezca cuando se pasa el ratón sobre él
-            menuOptions.addEventListener('mouseenter', function () {
-                menuOptions.classList.add('visible');
-            });
-
-            menuOptions.addEventListener('mouseleave', function () {
-                toggleMenu(menuOptions);
+            menuBtn.addEventListener('click', function () {
+                navLinks.classList.toggle('show');
             });
 
             contactoBtn.addEventListener('mouseenter', function () {
