@@ -125,13 +125,16 @@
 
         .rating label {
             font-size: 2em;
-            color: #ddd;
+            color: #FFD700;
             cursor: pointer;
             transition: color 0.3s ease;
         }
 
         .rating label:hover,
-        .rating label:hover ~ label,
+        .rating label:hover ~ label {
+            color: #ddd;
+        }
+
         .rating input:checked ~ label {
             color: #FFD700;
         }
@@ -246,7 +249,7 @@
         <div>
             <a href="index.html">Inicio</a>
             <a href="reglas.html">Reglas</a>
-            <a href="Donaciones.html">Donaciones</a>
+            <a href="donaciones.html">Donaciones</a>
             <a href="https://discord.gg/4m9Du4VMgr" target="_blank">Discord</a>
         </div>
     </nav>
@@ -277,9 +280,15 @@
         </div>
 
         <div class="form-container">
-            <h3>Sugerencias y Valoraciones Recibidas</h3>
+            <h3>Sugerencias Recibidas</h3>
             <div id="suggestions-list"></div>
+            <button id="clear-suggestions">Borrar Sugerencias</button>
+        </div>
+
+        <div class="form-container">
+            <h3>Valoraciones Recibidas</h3>
             <div id="ratings-list"></div>
+            <button id="clear-ratings">Borrar Valoraciones</button>
         </div>
     </section>
 
@@ -376,6 +385,21 @@
             // Cargar sugerencias y valoraciones al iniciar
             loadFromLocalStorage('suggestions', suggestionsList);
             loadFromLocalStorage('ratings', ratingsList);
+
+            // Borrar sugerencias y valoraciones
+            const clearSuggestionsButton = document.getElementById('clear-suggestions');
+            clearSuggestionsButton.addEventListener('click', function () {
+                localStorage.removeItem('suggestions');
+                suggestionsList.innerHTML = '';
+                alert('Sugerencias borradas.');
+            });
+
+            const clearRatingsButton = document.getElementById('clear-ratings');
+            clearRatingsButton.addEventListener('click', function () {
+                localStorage.removeItem('ratings');
+                ratingsList.innerHTML = '';
+                alert('Valoraciones borradas.');
+            });
         });
     </script>
 </body>
