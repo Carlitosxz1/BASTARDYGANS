@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
 
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=1024">
     <title>BastardyGans - Servidor de GTA Roleplay</title>
     <style>
         html,
@@ -13,74 +13,62 @@
             padding: 0;
             font-family: Arial, sans-serif;
             color: #ffffff;
-            overflow-x: hidden;
+            overflow-x: auto;
             width: 100%;
+            min-width: 1024px;
+            position: relative;
         }
 
-        #video-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-        }
+    #video-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+    }
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-
-        .nav-links {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 10px;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        background-color: rgb(255, 255, 255, 0,00);
+        overflow-x: auto;
+        white-space: nowrap;
+    }
 
         nav a {
             color: #ffffff;
-            margin: 0 5px;
+            margin: 0 10px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1em;
-            border: 2px solid #ffffff;
-            padding: 5px 10px;
+            font-size: 1.2em;
+            border: 5px solid #ffffff;
+            padding: 10px 15px;
             border-radius: 5px;
             display: inline-block;
             transition: transform 0.3s, border-color 0.3s;
         }
 
-        nav a:hover {
-            background-color: #00BFFF;
-            border-color: #00BFFF;
-            transform: scale(1.1);
-        }
+            nav a:hover {
+                background-color: #00BFFF;
+                border-color: #00BFFF;
+                transform: scale(1.1);
+            }
 
-        .menu-btn {
-            display: none;
-            font-size: 1.5em;
-            background: none;
-            border: none;
-            color: #ffffff;
-            cursor: pointer;
-            margin-left: auto;
-        }
-
-        header {
-            padding: 80px 20px 20px;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-            margin-top: 50px;
-        }
+    header {
+        padding: 100px 20px 50px;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+        margin-top: 50px;
+    }
 
         header h1,
         header h2 {
@@ -90,87 +78,87 @@
         }
 
         header h1 {
-            font-size: 2.5em;
+            font-size: 3em;
             color: #ff0000;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
             margin: 0;
         }
 
         header h2 {
-            font-size: 1.5em;
+            font-size: 1.8em;
             color: #0000ff;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
             margin-top: 10px;
             animation-delay: 0.5s;
         }
 
-        .discord-button {
-            display: inline-block;
-            padding: 15px 25px;
-            background-color: #0000ff;
-            color: #ffffff;
-            text-decoration: none;
-            border-radius: 25px;
-            font-size: 1.2em;
-            margin-top: 20px;
-            transition: transform 0.3s;
-            animation: pulse 1s infinite;
-        }
+    .discord-button {
+        display: inline-block;
+        padding: 25px 35px;
+        background-color: #0000ff;
+        color: #ffffff;
+        text-decoration: none;
+        border-radius: 25px;
+        font-size: 1.6em;
+        margin-top: 30px;
+        transition: transform 0.3s;
+        animation: pulse 1s infinite;
+    }
 
         .discord-button:hover {
             background-color: #0000cc;
             transform: scale(1.05);
         }
 
-        footer {
-            background-color: transparent;
-            text-align: left;
-            padding: 10px;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
+    footer {
+        background-color: transparent;
+        text-align: left;
+        padding: 10px;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+    }
 
-        .footer-content {
-            margin-left: 20px;
-            color: #ffffff;
-        }
+    .footer-content {
+        margin-left: 20px;
+        color: #ffffff;
+    }
 
-        #contacto-menu {
-            display: none;
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background-color: #0000ff;
-            padding: 10px;
-            border-radius: 10px;
-            transform: translateY(-20px);
-            opacity: 0;
-            transition: transform 0.3s, opacity 0.3s;
-            margin-top: 70px;
-            margin-right: -17px;
-        }
+    #contacto-menu {
+        display: none;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background-color: #0000ff;
+        padding: 10px;
+        border-radius: 10px;
+        transform: translateY(-20px);
+        opacity: 0;
+        transition: transform 0.3s, opacity 0.3s;
+        margin-top: 70px;
+        margin-right: -17px;
+    }
 
         #contacto-menu.visible {
             transform: translateY(0);
             opacity: 1;
         }
 
-        #menu-options {
-            display: none;
-            position: absolute;
-            left: 0;
-            top: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 25px;
-            border-radius: 25px;
-            color: #ffffff;
-            transform: translateY(-20px);
-            opacity: 0;
-            transition: transform 0.3s, opacity 0.3s;
-            z-index: 1000;
-            margin-left: -25px;
-        }
+    #menu-options {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 100%;
+        background-color: rgb(0, 0, 0, 0,00);
+        padding: 25px;
+        border-radius: 25px;
+        color: #ffffff;
+        transform: translateY(-20px);
+        opacity: 0;
+        transition: transform 0.3s, opacity 0.3s;
+        z-index: 1000;
+        margin-left: -25px;
+    }
 
         #menu-options.visible {
             transform: translateY(0);
@@ -181,187 +169,143 @@
             display: block;
             color: #ff0000;
             text-decoration: none;
-            padding: 10px 0;
+            padding: 25px 0;
             border-bottom: 1px solid #ff0000;
             transition: transform 0.5s, border-color 0.5s;
-            font-size: 1em;
+            font-size: 1.2em;
         }
 
-        #menu-options a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.2);
-            transform: scale(1.2);
+            #menu-options a:hover {
+                background-color: #ffffff00;
+                border-color: #ffffff00;
+                transform: scale(1.2);
+            }
+
+    @keyframes slideIn {
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes pulse {
+        0%, 100% {
+            transform: scale(1);
         }
 
-        @keyframes slideIn {
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+        50% {
+            transform: scale(1.1);
         }
-
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.1);
-            }
-        }
-
-        /* Media Queries para pantallas pequeñas */
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-            }
-
-            .menu-btn {
-                display: block;
-            }
-
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                background-color: rgba(0, 0, 0, 0.8);
-            }
-
-            .nav-links a {
-                margin: 5px 0;
-                padding: 10px 15px;
-                font-size: 1.1em;
-                width: 100%;
-                text-align: center;
-            }
-
-            .nav-links.show {
-                display: flex;
-            }
-
-            header h1 {
-                font-size: 2em;
-            }
-
-            header h2 {
-                font-size: 1.2em;
-            }
-
-            .discord-button {
-                font-size: 1em;
-                padding: 10px 20px;
-            }
-
-            #contacto-menu {
-                top: 60px;
-                right: 10px;
-            }
-
-            #menu-options {
-                top: 60px;
-                left: 10px;
-            }
-        }
-    </style>
+    }
+</style>
 </head>
-
 <body>
     <!-- Video de fondo -->
     <video id="video-background" autoplay muted loop>
         <source src="https://dl.dropboxusercontent.com/scl/fi/3xnvagr7lla6gi76rftqu/Bastardygans.mp4?rlkey=80ykwq0y5k8xeacjcwnnlrqgn&st=kb983m47" type="video/mp4">
         Tu navegador no soporta la etiqueta de video.
     </video>
-
-    <nav>
-        <button class="menu-btn" id="menu-btn">&#9776;</button>
-        <div class="nav-links" id="nav-links">
-            <a href="index.html">Inicio</a>
-            <a href="reglas.html">Reglas</a>
-            <a href="sobre-nosotros.html">Sobre Nosotros</a>
-            <a href="Donaciones.html">Donaciones</a>
-            <a href="#" id="contacto-btn">Contacto</a>
-        </div>
-    </nav>
-
-    <header>
-        <h1>BastardyGans</h1>
-        <h2>Servidor de GTA Roleplay PVP</h2>
-        <a href="https://discord.gg/xhDpvFbwrR" class="discord-button" target="_blank">Discord</a>
-    </header>
-
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2024 BastardyGans. Todos los derechos reservados.</p>
-        </div>
-    </footer>
-
-    <div id="contacto-menu">
-        <p><strong>Correo:</strong> Contacto.bastardygans@gmail.com</p>
+<nav>
+    <a href="#" id="menu-btn">Menú</a>
+    <a href="reglas.html">Reglas</a>
+    <a href="sobre-nosotros.html">Sobre Nosotros</a>
+    <a href="Donaciones.html">Donaciones</a>
+    <a href="#" id="contacto-btn" style="margin-left: auto;">Contacto</a>
+</nav>
+<header>
+    <h1>BastardyGans</h1>
+    <h2>Servidor de GTA Roleplay PVP</h2>
+    <a href="https://discord.gg/xhDpvFbwrR" class="discord-button" target="_blank">Discord</a>
+</header>
+<footer>
+    <div class="footer-content">
+        <p>&copy; 2024 BastardyGans. Todos los derechos reservados.</p>
     </div>
+</footer>
 
-    <div id="menu-options">
-        <a href="miembros.html">Miembros Bastardygans</a>
-        <a href="valoracion.html">Valoración y Sugerencias</a>
-        <a href="https://discord.gg/xhDpvFbwrR" target="_blank">Discord</a>
-    </div>
+<div id="contacto-menu">
+    <p><strong>Correo:</strong> Contacto.bastardygans@gmail.com</p>
+</div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const contactoBtn = document.getElementById('contacto-btn');
-            const contactoMenu = document.getElementById('contacto-menu');
-            const menuBtn = document.getElementById('menu-btn');
-            const menuOptions = document.getElementById('menu-options');
-            const navLinks = document.getElementById('nav-links');
-            const video = document.getElementById('video-background');
+<div id="menu-options">
+    <a href="miembros.html">Miembros Bastardygans</a>
+    <a href="valoracion.html">Valoración y Sugerencias</a>
+    <a href="https://discord.gg/xhDpvFbwrR" target="_blank">Discord</a>
+</div>
 
-            // Guardar la posición del video antes de salir de la página
-            window.addEventListener('beforeunload', function () {
-                localStorage.setItem('videoTime', video.currentTime);
-            });
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const contactoBtn = document.getElementById('contacto-btn');
+        const contactoMenu = document.getElementById('contacto-menu');
+        const menuBtn = document.getElementById('menu-btn');
+        const menuOptions = document.getElementById('menu-options');
+        const video = document.getElementById('video-background');
 
-            // Recuperar la posición del video al cargar la página
-            const savedTime = localStorage.getItem('videoTime');
-            if (savedTime !== null) {
-                video.currentTime = savedTime;
-            }
-
-            menuBtn.addEventListener('click', function () {
-                navLinks.classList.toggle('show');
-            });
-
-            contactoBtn.addEventListener('mouseenter', function () {
-                toggleMenu(contactoMenu);
-            });
-
-            contactoBtn.addEventListener('mouseleave', function () {
-                toggleMenu(contactoMenu);
-            });
-
-            // Asegurar que el menú no desaparezca cuando se pasa el ratón sobre él
-            contactoMenu.addEventListener('mouseenter', function () {
-                contactoMenu.classList.add('visible');
-            });
-
-            contactoMenu.addEventListener('mouseleave', function () {
-                toggleMenu(contactoMenu);
-            });
-
-            // Función para mostrar/ocultar menús
-            function toggleMenu(menu) {
-                if (menu.style.display === 'none' || menu.style.display === '') {
-                    menu.style.display = 'block';
-                    setTimeout(() => {
-                        menu.classList.add('visible');
-                    }, 10);
-                } else {
-                    menu.classList.remove('visible');
-                    setTimeout(() => {
-                        menu.style.display = 'none';
-                    }, 300);
-                }
-            }
+        // Guardar la posición del video antes de salir de la página
+        window.addEventListener('beforeunload', function () {
+            localStorage.setItem('videoTime', video.currentTime);
         });
-    </script>
-</body>
 
+        // Recuperar la posición del video al cargar la página
+        const savedTime = localStorage.getItem('videoTime');
+        if (savedTime !== null) {
+            video.currentTime = savedTime;
+        }
+
+        menuBtn.addEventListener('mouseenter', function () {
+            // Colocar el menú justo debajo del botón
+            const rect = menuBtn.getBoundingClientRect();
+            menuOptions.style.left = `${rect.left}px`;
+            menuOptions.style.top = `${rect.bottom}px`;
+
+            toggleMenu(menuOptions);
+        });
+
+        menuBtn.addEventListener('mouseleave', function () {
+            toggleMenu(menuOptions);
+        });
+
+        // Asegurar que el menú no desaparezca cuando se pasa el ratón sobre él
+        menuOptions.addEventListener('mouseenter', function () {
+            menuOptions.classList.add('visible');
+        });
+
+        menuOptions.addEventListener('mouseleave', function () {
+            toggleMenu(menuOptions);
+        });
+
+        contactoBtn.addEventListener('mouseenter', function () {
+            toggleMenu(contactoMenu);
+        });
+
+        contactoBtn.addEventListener('mouseleave', function () {
+            toggleMenu(contactoMenu);
+        });
+
+        // Asegurar que el menú no desaparezca cuando se pasa el ratón sobre él
+        contactoMenu.addEventListener('mouseenter', function () {
+            contactoMenu.classList.add('visible');
+        });
+
+        contactoMenu.addEventListener('mouseleave', function () {
+            toggleMenu(contactoMenu);
+        });
+
+        // Función para mostrar/ocultar menús
+        function toggleMenu(menu) {
+            if (menu.style.display === 'none' || menu.style.display === '') {
+                menu.style.display = 'block';
+                setTimeout(() => {
+                    menu.classList.add('visible');
+                }, 10);
+            } else {
+                menu.classList.remove('visible');
+                setTimeout(() => {
+                    menu.style.display = 'none';
+                }, 300);
+            }
+        }
+    });
+</script>
+</body>
 </html>
