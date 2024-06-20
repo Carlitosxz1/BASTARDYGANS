@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="es">
 
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,318 +14,249 @@
             padding: 0;
             font-family: Arial, sans-serif;
             color: #ffffff;
-            overflow-x: hidden;
+            overflow-x: auto;
             width: 100%;
+            min-width: 1024px;
         }
 
-        /* Estilos para el video de fondo */
-        #video-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-        }
+    /* Estilos para el video de fondo */
+    #video-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+    }
 
-        /* Estilos para el menú de navegación */
-        nav {
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 10px 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
+    /* Estilos para el menú de navegación */
+    nav {
+        background-color: rgba(0, 0, 0, 0.00);
+        padding: 20px 0;
+        text-align: center;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        overflow-x: auto;
+        white-space: nowrap;
+        animation: fadeInDown 0.5s ease;
+    }
 
-        /* Botón del menú para móviles */
-        .menu-btn {
-            display: none;
-            font-size: 1.5em;
-            background: none;
-            border: none;
-            color: #ffffff;
-            cursor: pointer;
-            margin-left: auto;
-            margin-right: 10px;
-        }
+    /* Estilos para el menú "Sobre Nosotros" */
+    #sobre-nosotros-link {
+        color: #ffffff; /* Letras blancas */
+        border-color: #ffffff; /* Mantener el color blanco para el borde de este enlace */
+        transition: transform 0.3s ease, background-color 0.3s ease; /* Agregar transición de transform y background-color */
+    }
 
-        /* Estilos para las opciones del menú */
-        .nav-links {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-        }
+    /* Estilos para las opciones del menú */
+    nav a:not(#sobre-nosotros-link) {
+        color: #ffffff;
+        margin: 0 10px;
+        text-decoration: none;
+        font-weight: bold;
+        border: 5px solid #ffffff;
+        padding: 10px 15px;
+        border-radius: 5px;
+        font-size: 1.2em;
+        display: inline-block;
+        transition: transform 0.3s ease, color 0.3s ease; /* Agregar transición de transform y color */
+    }
 
-        nav a {
-            color: #ffffff;
-            margin: 0 10px;
-            text-decoration: none;
-            font-weight: bold;
-            border: 2px solid #ffffff;
-            padding: 5px 10px;
-            border-radius: 5px;
-            display: inline-block;
-            transition: transform 0.3s, border-color 0.3s;
-        }
-
-        nav a:hover {
+        nav a:not(#sobre-nosotros-link):hover {
             background-color: #00BFFF;
             border-color: #00BFFF;
             transform: scale(1.1);
         }
 
-        /* Estilos específicos para el enlace "Sobre Nosotros" */
-        #sobre-nosotros-link {
-            color: #ffffff;
-            border-color: #ffffff;
-        }
+    /* Estilos para la sección de contenido */
+    section {
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0.8);
+        margin: 150px auto 20px;
+        border-radius: 10px;
+        max-width: 800px;
+        text-align: justify;
+        line-height: 1.6;
+        font-size: 1.2em;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.5s ease forwards;
+    }
 
-        /* Estilos para la sección de contenido */
-        section {
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.8);
-            margin: 150px auto 20px;
-            border-radius: 10px;
-            max-width: 800px;
-            text-align: justify;
-            line-height: 1.6;
-            font-size: 1.2em;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.5s ease forwards;
-        }
-
-        /* Estilos para el enlace de Discord */
-        .discord-link {
-            display: inline-block;
-            padding: 15px 30px;
-            background-color: #0000ff;
-            color: #ffffff;
-            text-decoration: none;
-            border-radius: 8px;
-            margin-top: 30px;
-            font-size: 1.5em;
-            transition: background-color 0.3s;
-        }
+    /* Estilos para el enlace de Discord */
+    .discord-link {
+        display: inline-block;
+        padding: 15px 30px;
+        background-color: #0000ff;
+        color: #ffffff;
+        text-decoration: none;
+        border-radius: 8px;
+        margin-top: 30px;
+        font-size: 1.5em;
+        transition: background-color 0.3s ease;
+    }
 
         .discord-link:hover {
             background-color: #0000cc;
         }
 
-        /* Estilos para el pie de página */
-        footer {
-            background-color: transparent;
-            text-align: center;
-            padding: 10px;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
+    /* Estilos para el pie de página */
+    footer {
+        background-color: transparent;
+        text-align: left;
+        padding: 10px;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+        opacity: 0;
+        animation: fadeInUpFooter 0.5s ease forwards;
+    }
+
+    /* Estilos para el menú de contacto */
+    #contacto-menu {
+        display: none;
+        position: fixed;
+        top: 100px;
+        right: 10px;
+        background-color: #0000ff;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    /* Definir animaciones */
+    @keyframes fadeInDown {
+        from {
             opacity: 0;
-            animation: fadeInUpFooter 0.5s ease forwards;
+            transform: translateY(-20px);
         }
 
-        /* Estilos para el menú de contacto */
-        #contacto-menu {
-            display: none;
-            position: fixed;
-            top: 100px;
-            right: 10px;
-            background-color: #0000ff;
-            padding: 10px;
-            border-radius: 5px;
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
         }
 
-        /* Definir animaciones */
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+    @keyframes fadeInUpFooter {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
         }
 
-        @keyframes fadeInUpFooter {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        to {
+            opacity: 1;
         }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        /* Media Queries para pantallas pequeñas */
-        @media (max-width: 768px) {
-            .menu-btn {
-                display: block;
-            }
-
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                background-color: rgba(0, 0, 0, 0.8);
-                position: absolute;
-                top: 50px;
-                left: 0;
-            }
-
-            .nav-links.show {
-                display: flex;
-            }
-
-            nav a {
-                margin: 5px 0;
-                padding: 10px;
-                font-size: 1.1em;
-                width: 100%;
-                text-align: center;
-            }
-
-            section {
-                margin: 100px 10px 20px;
-                max-width: 100%;
-            }
-
-            .discord-link {
-                font-size: 1.2em;
-                padding: 10px 20px;
-            }
-
-            footer {
-                text-align: center;
-            }
-        }
-    </style>
+    }
+</style>
 </head>
-
 <body>
     <!-- Video de fondo -->
     <video id="video-background" autoplay muted loop>
         <source src="https://dl.dropboxusercontent.com/scl/fi/3xnvagr7lla6gi76rftqu/Bastardygans.mp4?rlkey=80ykwq0y5k8xeacjcwnnlrqgn&st=kb983m47" type="video/mp4">
         Tu navegador no soporta la etiqueta de video.
     </video>
-
-    <!-- Contenido de la página -->
-    <nav>
-        <button class="menu-btn" id="menu-btn">&#9776;</button>
-        <div class="nav-links" id="nav-links">
-            <a href="index.html">Inicio</a>
-            <a href="reglas.html">Reglas</a>
-            <a href="Donaciones.html">Donaciones</a>
-            <a href="https://discord.gg/4m9Du4VMgr" target="_blank">Discord</a>
-            <a href="#" id="contacto-btn">Contacto</a>
-        </div>
-    </nav>
-
-    <section>
-        <h2 style="color: #2E86C1; font-family: 'Roboto', sans-serif;">Sobre Nosotros</h2>
-        <p>
-            El servidor PvP de BastardyGans fue fundado a principios de 2024 por un grupo de jugadores apasionados que querían crear una comunidad PvP próspera.
-            El reclutamiento inicial se centró en amigos y pequeñas comunidades de jugadores.
-            Se estableció un equipo dedicado de moderadores para garantizar un ambiente comunitario positivo y respetuoso.
-            Las asociaciones con otros servidores y comunidades de juegos ayudaron a impulsar la participación.
-            Hoy en día, BastardyGans PVP cuenta con una comunidad activa, con eventos regulares y una comunidad de apoyo.
-            El servidor continúa creciendo, enfocándose en mejorar la experiencia de juego y mantener un ambiente acogedor para todos los jugadores.
-        </p>
-        <a class="discord-link" href="https://discord.gg/4m9Du4VMgr" target="_blank">Únete a nuestro Discord</a>
-    </section>
-
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2024 BastardyGans. Todos los derechos reservados.</p>
-        </div>
-    </footer>
-
-    <div id="contacto-menu">
-        <p><strong>Correo:</strong> Contacto.bastardygans@gmail.com</p>
+<!-- Contenido de la página -->
+<nav>
+    <div>
+        <a href="index.html">Inicio</a>
+        <a href="reglas.html">Reglas</a>
+        <a href="Donaciones.html">Donaciones</a>
+        <a href="https://discord.gg/4m9Du4VMgr" target="_blank">Discord</a>
     </div>
+    <a href="#" id="contacto-btn">Contacto</a>
+</nav>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const menuBtn = document.getElementById('menu-btn');
-            const navLinks = document.getElementById('nav-links');
+<section>
+    <h2 style="color: #2E86C1; font-family: 'Roboto', sans-serif;">Sobre Nosotros</h2>
+    <p>
+        El servidor PvP de BastardyGans fue fundado a principios de 2024 por un grupo de jugadores apasionados que querían crear una comunidad PvP próspera.
+        El reclutamiento inicial se centró en amigos y pequeñas comunidades de jugadores.
+        Se estableció un equipo dedicado de moderadores para garantizar un ambiente comunitario positivo y respetuoso.
+        Las asociaciones con otros servidores y comunidades de juegos ayudaron a impulsar la participación.
+        Hoy en día, BastardyGans PVP cuenta con una comunidad activa, con eventos regulares y una comunidad de apoyo.
+        El servidor continúa creciendo, enfocándose en mejorar la experiencia de juego y mantener un ambiente acogedor para todos los jugadores.
+    </p>
+    <a class="discord-link" href="https://discord.gg/4m9Du4VMgr" target="_blank">Únete a nuestro Discord</a>
+</section>
 
-            menuBtn.addEventListener('click', function () {
-                navLinks.classList.toggle('show');
-            });
+<footer>
+    <div class="footer-content">
+        <p>&copy; 2024 BastardyGans. Todos los derechos reservados.</p>
+    </div>
+</footer>
 
-            const contactoBtn = document.getElementById('contacto-btn');
-            const contactoMenu = document.getElementById('contacto-menu');
+<div id="contacto-menu">
+    <p><strong>Correo:</strong> Contacto.bastardygans@gmail.com</p>
+</div>
 
-            contactoBtn.addEventListener('click', function () {
-                if (contactoMenu.style.display === 'none' || contactoMenu.style.display === '') {
-                    contactoMenu.style.display = 'block';
-                } else {
-                    contactoMenu.style.display = 'none';
-                }
-            });
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const contactoBtn = document.getElementById('contacto-btn');
+        const contactoMenu = document.getElementById('contacto-menu');
 
-            const navLinkElements = document.querySelectorAll('nav a:not(#sobre-nosotros-link)');
-            navLinkElements.forEach(link => {
-                link.style.animationDelay = '0.5s';
-                link.style.animationName = 'fadeIn';
-                link.style.opacity = '1';
-            });
-
-            const footer = document.querySelector('footer');
-            footer.style.animationDelay = '1s';
-            footer.style.opacity = '1';
+        contactoBtn.addEventListener('click', function () {
+            if (contactoMenu.style.display === 'none' || contactoMenu.style.display === '') {
+                contactoMenu.style.display = 'block';
+            } else {
+                contactoMenu.style.display = 'none';
+            }
         });
 
-        // Guardar y restaurar la posición del video de fondo
-        const video = document.getElementById('video-background');
+        const navLinks = document.querySelectorAll('nav a:not(#sobre-nosotros-link)');
+        navLinks.forEach(link => {
+            link.style.animationDelay = '0.5s';
+            link.style.animationName = 'fadeIn';
+            link.style.opacity = '1';
+        });
 
-        // Verificar si localStorage es compatible
-        if (window.localStorage) {
-            // Verificar si hay una posición guardada
-            const savedPosition = localStorage.getItem('videoPosition');
-            if (savedPosition) {
-                video.currentTime = parseFloat(savedPosition);
-            }
+        const footer = document.querySelector('footer');
+        footer.style.animationDelay = '1s';
+        footer.style.opacity = '1';
+    });
 
-            // Guardar la posición al salir de la página
-            window.addEventListener('beforeunload', () => {
-                localStorage.setItem('videoPosition', video.currentTime.toString());
-            });
+    // Guardar y restaurar la posición del video de fondo
+    const video = document.getElementById('video-background');
+
+    // Verificar si localStorage es compatible
+    if (window.localStorage) {
+        // Verificar si hay una posición guardada
+        const savedPosition = localStorage.getItem('videoPosition');
+        if (savedPosition) {
+            video.currentTime = parseFloat(savedPosition);
         }
-    </script>
-</body>
 
+        // Guardar la posición al salir de la página
+        window.addEventListener('beforeunload', () => {
+            localStorage.setItem('videoPosition', video.currentTime.toString());
+        });
+    }
+</script>
+</body>
 </html>
