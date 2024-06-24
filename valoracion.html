@@ -236,6 +236,10 @@
             }
         }
     </style>
+    <!-- Firebase App (base) SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.9.3/firebase-app.js"></script>
+    <!-- Firebase Firestore SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js"></script>
 </head>
 <body>
     <!-- Video de fondo -->
@@ -296,54 +300,52 @@
     </footer>
 
     <script>
+        // Your Firebase configuration
+        const firebaseConfig = {
+            apiKey: "TU_API_KEY",
+            authDomain: "TU_AUTH_DOMAIN",
+            projectId: "TU_PROJECT_ID",
+            storageBucket: "TU_STORAGE_BUCKET",
+            messagingSenderId: "TU_MESSAGING_SENDER_ID",
+            appId: "TU_APP_ID"
+        };
+
+        // Initialize Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
         document.addEventListener('DOMContentLoaded', () => {
-            const navLinks = document.querySelectorAll('nav a');
-            const footer = document.querySelector('footer');
-            const video = document.getElementById('video-background');
             const suggestionForm = document.getElementById('suggestion-form');
             const suggestionsList = document.getElementById('suggestions-list');
             const ratingForm = document.getElementById('rating-form');
             const ratingsList = document.getElementById('ratings-list');
             const stars = document.querySelectorAll('.rating input');
 
-            navLinks.forEach(link => {
-                link.style.animationDelay = '0.5s';
-                link.style.animationName = 'fadeIn';
-                link.style.opacity = '1';
-            });
-
-            footer.style.animationDelay = '1s';
-            footer.style.opacity = '1';
-
-            if (window.localStorage) {
-                const savedPosition = localStorage.getItem('videoPosition');
-                if (savedPosition) {
-                    video.currentTime = parseFloat(savedPosition);
-                }
-                window.addEventListener('beforeunload', () => {
-                    localStorage.setItem('videoPosition', video.currentTime.toString());
-                });
-            }
-
-            suggestionForm.addEventListener('submit', event => {
+            suggestionForm.addEventListener('submit', async event => {
                 event.preventDefault();
                 const name = document.getElementById('name').value;
                 const suggestion = document.getElementById('suggestion').value;
+
+                await db.collection('suggestions').add({ name, suggestion });
+
                 const suggestionItem = document.createElement('div');
                 suggestionItem.innerHTML = `<strong>${name}:</strong> <p>${suggestion}</p>`;
                 suggestionsList.appendChild(suggestionItem);
-                saveToLocalStorage('suggestions', { name, value: suggestion });
+
                 alert('¡Gracias por tu sugerencia!');
                 suggestionForm.reset();
             });
 
-            ratingForm.addEventListener('submit', event => {
+            ratingForm.addEventListener('submit', async event => {
                 event.preventDefault();
                 const rating = document.querySelector('input[name="star"]:checked').value;
+
+                await db.collection('ratings').add({ rating });
+
                 const ratingItem = document.createElement('div');
                 ratingItem.innerHTML = `<p>Valoración: ${rating} estrellas</p>`;
                 ratingsList.appendChild(ratingItem);
-                saveToLocalStorage('ratings', { value: rating });
+
                 alert('¡Gracias por tu valoración!');
                 ratingForm.reset();
             });
@@ -357,27 +359,28 @@
                 });
             });
 
-            function saveToLocalStorage(type, data) {
-                let storedData = JSON.parse(localStorage.getItem(type)) || [];
-                storedData.push(data);
-                localStorage.setItem(type, JSON.stringify(storedData));
-            }
-
-            function loadFromLocalStorage(type, container) {
-                const storedData = JSON.parse(localStorage.getItem(type)) || [];
-                storedData.forEach(item => {
-                    const itemElement = document.createElement('div');
-                    if (type === 'suggestions') {
-                        itemElement.innerHTML = `<strong>${item.name}:</strong> <p>${item.value}</p>`;
-                    } else if (type === 'ratings') {
-                        itemElement.innerHTML = `<p>Valoración: ${item.value} estrellas</p>`;
-                    }
-                    container.appendChild(itemElement);
+            async function loadSuggestions() {
+                const snapshot = await db.collection('suggestions').get();
+                snapshot.forEach(doc => {
+                    const data = doc.data();
+                    const suggestionItem = document.createElement('div');
+                    suggestionItem.innerHTML = `<strong>${data.name}:</strong> <p>${data.suggestion}</p>`;
+                    suggestionsList.appendChild(suggestionItem);
                 });
             }
 
-            loadFromLocalStorage('suggestions', suggestionsList);
-            loadFromLocalStorage('ratings', ratingsList);
+            async function loadRatings() {
+                const snapshot = await db.collection('ratings').get();
+                snapshot.forEach(doc => {
+                    const data = doc.data();
+                    const ratingItem = document.createElement('div');
+                    ratingItem.innerHTML = `<p>Valoración: ${data.rating} estrellas</p>`;
+                    ratingsList.appendChild(ratingItem);
+                });
+            }
+
+            loadSuggestions();
+            loadRatings();
         });
     </script>
 </body>
