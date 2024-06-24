@@ -237,41 +237,120 @@
         }
     </style>
     <!-- Firebase App (base) SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.9.3/firebase-app.js"></script>
-    <!-- Firebase Firestore SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js"></script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "firebase/app";
+        import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBgBrskgoHSDOLvz8K41mUtdLKiWY9yAOc",
+            authDomain: "bastardygans-52e3d.firebaseapp.com",
+            projectId: "bastardygans-52e3d",
+            storageBucket: "bastardygans-52e3d.appspot.com",
+            messagingSenderId: "950389965197",
+            appId: "1:950389965197:web:a7c7f4ce9fc3dc6f8a7dc4",
+            measurementId: "G-9329HMZHF2"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const suggestionForm = document.getElementById('suggestion-form');
+            const suggestionsList = document.getElementById('suggestions-list');
+            const ratingForm = document.getElementById('rating-form');
+            const ratingsList = document.getElementById('ratings-list');
+            const stars = document.querySelectorAll('.rating input');
+
+            suggestionForm.addEventListener('submit', async event => {
+                event.preventDefault();
+                const name = document.getElementById('name').value;
+                const suggestion = document.getElementById('suggestion').value;
+
+                await addDoc(collection(db, 'suggestions'), { name, suggestion });
+
+                const suggestionItem = document.createElement('div');
+                suggestionItem.innerHTML = `<strong>${name}:</strong> <p>${suggestion}</p>`;
+                suggestionsList.appendChild(suggestionItem);
+
+                alert('¡Gracias por tu sugerencia!');
+                suggestionForm.reset();
+            });
+
+            ratingForm.addEventListener('submit', async event => {
+                event.preventDefault();
+                const rating = document.querySelector('input[name="star"]:checked').value;
+
+                await addDoc(collection(db, 'ratings'), { rating });
+
+                const ratingItem = document.createElement('div');
+                ratingItem.innerHTML = `<p>Valoración: ${rating} estrellas</p>`;
+                ratingsList.appendChild(ratingItem);
+
+                alert('¡Gracias por tu valoración!');
+                ratingForm.reset();
+            });
+
+            stars.forEach(star => {
+                star.addEventListener('change', function() {
+                    const value = this.value;
+                    stars.forEach(s => {
+                        s.nextElementSibling.style.color = s.value <= value ? '#FFD700' : '#ddd';
+                    });
+                });
+            });
+
+            async function loadSuggestions() {
+                const snapshot = await getDocs(collection(db, 'suggestions'));
+                snapshot.forEach(doc => {
+                    const data = doc.data();
+                    const suggestionItem = document.createElement('div');
+                    suggestionItem.innerHTML = `<strong>${data.name}:</strong> <p>${data.suggestion}</p>`;
+                    suggestionsList.appendChild(suggestionItem);
+                });
+            }
+
+            async function loadRatings() {
+                const snapshot = await getDocs(collection(db, 'ratings'));
+                snapshot.forEach(doc => {
+                    const data = doc.data();
+                    const ratingItem = document.createElement('div');
+                    ratingItem.innerHTML = `<p>Valoración: ${data.rating} estrellas</p>`;
+                    ratingsList.appendChild(ratingItem);
+                });
+            }
+
+            loadSuggestions();
+            loadRatings();
+        });
+    </script>
 </head>
 <body>
-    <!-- Video de fondo -->
-    <video id="video-background" autoplay muted loop>
-        <source src="https://dl.dropboxusercontent.com/scl/fi/3xnvagr7lla6gi76rftqu/Bastardygans.mp4?rlkey=80ykwq0y5k8xeacjcwnnlrqgn&st=kb983m47" type="video/mp4">
+    <video id="video-background" autoplay loop muted>
+        <source src="video/Fondo.webm" type="video/webm">
         Tu navegador no soporta la etiqueta de video.
     </video>
 
-    <!-- Contenido de la página -->
     <nav>
-        <div>
-            <a href="index.html">Inicio</a>
-            <a href="reglas.html">Reglas</a>
-            <a href="sobre-nosotros.html">Sobre Nosotros</a>
-            <a href="donaciones.html">Donaciones</a>
-            <a href="https://discord.gg/4m9Du4VMgr" target="_blank">Discord</a>
-        </div>
+        <a href="#sugerencias">Sugerencias</a>
+        <a href="#valoracion">Valoración</a>
+        <a href="index.html">Regresar a la Página Principal</a>
     </nav>
 
     <section>
-        <h2 style="color: #2E86C1; font-family: 'Roboto', sans-serif;">Sugerencias y Valoración</h2>
         <div class="form-container">
-            <h3>Deja tu Sugerencia</h3>
+            <h3>Sugerencias</h3>
             <form id="suggestion-form">
-                <input type="text" id="name" name="name" placeholder="Tu nombre" required>
-                <textarea id="suggestion" name="suggestion" placeholder="Tu sugerencia" rows="5" required></textarea>
+                <input type="text" id="name" placeholder="Tu nombre" required>
+                <textarea id="suggestion" placeholder="Tu sugerencia" required></textarea>
                 <button type="submit">Enviar Sugerencia</button>
             </form>
         </div>
 
         <div class="form-container">
-            <h3>Valora nuestro sitio</h3>
+            <h3>Valoración</h3>
             <form id="rating-form">
                 <div class="rating">
                     <input type="radio" name="star" id="star1" value="1"><label for="star1">★</label>
@@ -298,90 +377,5 @@
     <footer>
         <p style="color: #ffffff;">© 2024 BastardyGans. Todos los derechos reservados.</p>
     </footer>
-
-    <script>
-        // Your Firebase configuration
-        const firebaseConfig = {
-            apiKey: "TU_API_KEY",
-            authDomain: "TU_AUTH_DOMAIN",
-            projectId: "TU_PROJECT_ID",
-            storageBucket: "TU_STORAGE_BUCKET",
-            messagingSenderId: "TU_MESSAGING_SENDER_ID",
-            appId: "TU_APP_ID"
-        };
-
-        // Initialize Firebase
-        const app = firebase.initializeApp(firebaseConfig);
-        const db = firebase.firestore();
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const suggestionForm = document.getElementById('suggestion-form');
-            const suggestionsList = document.getElementById('suggestions-list');
-            const ratingForm = document.getElementById('rating-form');
-            const ratingsList = document.getElementById('ratings-list');
-            const stars = document.querySelectorAll('.rating input');
-
-            suggestionForm.addEventListener('submit', async event => {
-                event.preventDefault();
-                const name = document.getElementById('name').value;
-                const suggestion = document.getElementById('suggestion').value;
-
-                await db.collection('suggestions').add({ name, suggestion });
-
-                const suggestionItem = document.createElement('div');
-                suggestionItem.innerHTML = `<strong>${name}:</strong> <p>${suggestion}</p>`;
-                suggestionsList.appendChild(suggestionItem);
-
-                alert('¡Gracias por tu sugerencia!');
-                suggestionForm.reset();
-            });
-
-            ratingForm.addEventListener('submit', async event => {
-                event.preventDefault();
-                const rating = document.querySelector('input[name="star"]:checked').value;
-
-                await db.collection('ratings').add({ rating });
-
-                const ratingItem = document.createElement('div');
-                ratingItem.innerHTML = `<p>Valoración: ${rating} estrellas</p>`;
-                ratingsList.appendChild(ratingItem);
-
-                alert('¡Gracias por tu valoración!');
-                ratingForm.reset();
-            });
-
-            stars.forEach(star => {
-                star.addEventListener('change', function() {
-                    const value = this.value;
-                    stars.forEach(s => {
-                        s.nextElementSibling.style.color = s.value <= value ? '#FFD700' : '#ddd';
-                    });
-                });
-            });
-
-            async function loadSuggestions() {
-                const snapshot = await db.collection('suggestions').get();
-                snapshot.forEach(doc => {
-                    const data = doc.data();
-                    const suggestionItem = document.createElement('div');
-                    suggestionItem.innerHTML = `<strong>${data.name}:</strong> <p>${data.suggestion}</p>`;
-                    suggestionsList.appendChild(suggestionItem);
-                });
-            }
-
-            async function loadRatings() {
-                const snapshot = await db.collection('ratings').get();
-                snapshot.forEach(doc => {
-                    const data = doc.data();
-                    const ratingItem = document.createElement('div');
-                    ratingItem.innerHTML = `<p>Valoración: ${data.rating} estrellas</p>`;
-                    ratingsList.appendChild(ratingItem);
-                });
-            }
-
-            loadSuggestions();
-            loadRatings();
-        });
-    </script>
 </body>
 </html>
