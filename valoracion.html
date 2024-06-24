@@ -296,20 +296,25 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', () => {
             const navLinks = document.querySelectorAll('nav a');
+            const footer = document.querySelector('footer');
+            const video = document.getElementById('video-background');
+            const suggestionForm = document.getElementById('suggestion-form');
+            const suggestionsList = document.getElementById('suggestions-list');
+            const ratingForm = document.getElementById('rating-form');
+            const ratingsList = document.getElementById('ratings-list');
+            const stars = document.querySelectorAll('.rating input');
+
             navLinks.forEach(link => {
                 link.style.animationDelay = '0.5s';
                 link.style.animationName = 'fadeIn';
                 link.style.opacity = '1';
             });
 
-            const footer = document.querySelector('footer');
             footer.style.animationDelay = '1s';
             footer.style.opacity = '1';
 
-            // Guardar y restaurar la posición del video de fondo
-            const video = document.getElementById('video-background');
             if (window.localStorage) {
                 const savedPosition = localStorage.getItem('videoPosition');
                 if (savedPosition) {
@@ -320,39 +325,31 @@
                 });
             }
 
-            // Manejar envío del formulario de sugerencias
-            const suggestionForm = document.getElementById('suggestion-form');
-            const suggestionsList = document.getElementById('suggestions-list');
-            suggestionForm.addEventListener('submit', function (event) {
+            suggestionForm.addEventListener('submit', event => {
                 event.preventDefault();
                 const name = document.getElementById('name').value;
                 const suggestion = document.getElementById('suggestion').value;
                 const suggestionItem = document.createElement('div');
                 suggestionItem.innerHTML = `<strong>${name}:</strong> <p>${suggestion}</p>`;
                 suggestionsList.appendChild(suggestionItem);
-                saveToLocalStorage('suggestions', name, suggestion);
+                saveToLocalStorage('suggestions', { name, value: suggestion });
                 alert('¡Gracias por tu sugerencia!');
                 suggestionForm.reset();
             });
 
-            // Manejar envío del formulario de valoración
-            const ratingForm = document.getElementById('rating-form');
-            const ratingsList = document.getElementById('ratings-list');
-            ratingForm.addEventListener('submit', function (event) {
+            ratingForm.addEventListener('submit', event => {
                 event.preventDefault();
                 const rating = document.querySelector('input[name="star"]:checked').value;
                 const ratingItem = document.createElement('div');
                 ratingItem.innerHTML = `<p>Valoración: ${rating} estrellas</p>`;
                 ratingsList.appendChild(ratingItem);
-                saveToLocalStorage('ratings', '', rating);
+                saveToLocalStorage('ratings', { value: rating });
                 alert('¡Gracias por tu valoración!');
                 ratingForm.reset();
             });
 
-            // Mostrar las estrellas correctamente al hacer clic
-            const stars = document.querySelectorAll('.rating input');
             stars.forEach(star => {
-                star.addEventListener('change', function () {
+                star.addEventListener('change', function() {
                     const value = this.value;
                     stars.forEach(s => {
                         s.nextElementSibling.style.color = s.value <= value ? '#FFD700' : '#ddd';
@@ -360,18 +357,16 @@
                 });
             });
 
-            // Guardar en LocalStorage
-            function saveToLocalStorage(type, name, value) {
-                let data = localStorage.getItem(type) ? JSON.parse(localStorage.getItem(type)) : [];
-                data.push({ name, value });
-                localStorage.setItem(type, JSON.stringify(data));
+            function saveToLocalStorage(type, data) {
+                let storedData = JSON.parse(localStorage.getItem(type)) || [];
+                storedData.push(data);
+                localStorage.setItem(type, JSON.stringify(storedData));
             }
 
-            // Cargar datos de LocalStorage
             function loadFromLocalStorage(type, container) {
-                let data = localStorage.getItem(type) ? JSON.parse(localStorage.getItem(type)) : [];
-                data.forEach(item => {
-                    let itemElement = document.createElement('div');
+                const storedData = JSON.parse(localStorage.getItem(type)) || [];
+                storedData.forEach(item => {
+                    const itemElement = document.createElement('div');
                     if (type === 'suggestions') {
                         itemElement.innerHTML = `<strong>${item.name}:</strong> <p>${item.value}</p>`;
                     } else if (type === 'ratings') {
@@ -381,7 +376,6 @@
                 });
             }
 
-            // Cargar sugerencias y valoraciones al iniciar
             loadFromLocalStorage('suggestions', suggestionsList);
             loadFromLocalStorage('ratings', ratingsList);
         });
