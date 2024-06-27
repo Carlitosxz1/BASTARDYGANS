@@ -91,6 +91,24 @@
             animation-delay: 0.5s;
         }
 
+        .discord-button {
+            display: inline-block;
+            padding: 25px 35px;
+            background-color: #0000ff;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 1.6em;
+            margin-top: 30px;
+            transition: transform 0.3s;
+            animation: pulse 1s infinite;
+        }
+
+        .discord-button:hover {
+            background-color: #0000cc;
+            transform: scale(1.05);
+        }
+
         footer {
             background-color: transparent;
             text-align: left;
@@ -103,6 +121,36 @@
         .footer-content {
             margin-left: 20px;
             color: #ffffff;
+        }
+
+        .contacto-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #0000ff;
+            color: #ffffff;
+            padding: 15px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .contacto-btn:hover {
+            background-color: #0000cc;
+            transform: scale(1.05);
+        }
+
+        #contacto-menu {
+            display: none;
+            position: fixed;
+            bottom: 60px;
+            right: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 10px;
+            color: #ffffff;
+            animation: fadeIn 0.5s forwards;
         }
 
         @keyframes slideIn {
@@ -119,6 +167,15 @@
 
             50% {
                 transform: scale(1.1);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
             }
         }
     </style>
@@ -141,6 +198,7 @@
     <header>
         <h1>BastardyGans</h1>
         <h2>Servidor de GTA Roleplay PVP</h2>
+        <a href="https://discord.gg/xhDpvFbwrR" class="discord-button" target="_blank">Discord</a>
     </header>
     
     <footer>
@@ -149,8 +207,15 @@
         </div>
     </footer>
 
+    <a href="#" class="contacto-btn" id="contacto-btn">Contacto</a>
+    <div id="contacto-menu">
+        <p><strong>Correo:</strong> Contacto.bastardygans@gmail.com</p>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            const contactoBtn = document.getElementById('contacto-btn');
+            const contactoMenu = document.getElementById('contacto-menu');
             const video = document.getElementById('video-background');
 
             // Guardar la posición del video antes de salir de la página
@@ -163,6 +228,11 @@
             if (savedTime !== null) {
                 video.currentTime = savedTime;
             }
+
+            contactoBtn.addEventListener('click', function (event) {
+                event.preventDefault();
+                contactoMenu.style.display = contactoMenu.style.display === 'block' ? 'none' : 'block';
+            });
         });
     </script>
 </body>
