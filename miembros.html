@@ -11,10 +11,12 @@
             padding: 0;
             font-family: Arial, sans-serif;
             color: #ffffff;
-            overflow-x: hidden;
+            overflow: hidden;
             width: 100%;
-            min-width: 320px;
             height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         /* Estilos para el video de fondo */
@@ -31,55 +33,43 @@
         /* Estilos para el menú de navegación */
         nav {
             background-color: transparent;
-            padding: 20px 0;
-            position: fixed;
+            padding: 10px;
             width: 100%;
-            top: 0;
-            z-index: 1000;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            white-space: nowrap;
-            animation: fadeInDown 0.5s ease;
+            z-index: 1000;
         }
 
         nav a {
             color: #ffffff;
-            margin: 0 10px;
             text-decoration: none;
             font-weight: bold;
-            border: 2px solid #ffffff;
             padding: 10px 15px;
             border-radius: 5px;
-            font-size: 1.2em;
-            display: inline-block;
+            font-size: 1em;
             transition: transform 0.3s ease, color 0.3s ease;
         }
 
         nav a:hover {
             background-color: #00BFFF;
-            border-color: #00BFFF;
-            transform: scale(1.1);
+            color: #ffffff;
         }
 
         .menu-container {
             display: flex;
-            width: 100%;
             justify-content: space-between;
-            align-items: center;
+            width: 100%;
         }
 
         /* Estilos para la sección de contenido */
         section {
-            padding: 10px;
-            margin: 80px auto 0;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
             max-width: 900px;
-            text-align: justify;
-            line-height: 1.6;
-            font-size: 1.2em;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.5s ease forwards;
+            text-align: center;
+            margin: 20px 0;
         }
 
         /* Estilos para las tablas */
@@ -87,22 +77,20 @@
             margin-bottom: 20px;
             background-color: rgba(0, 0, 0, 0.5);
             border-radius: 10px;
+            width: 90%;
             overflow-x: auto;
-            display: inline-block;
-            margin: 0 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .left-table,
-        .right-table {
+        table {
             width: 100%;
             border-radius: 10px;
-            overflow: hidden;
-            border: 3px solid white;
+            border: 2px solid white;
             margin: 0 auto;
             font-weight: 900;
             background-color: rgba(0, 0, 0, 0.5);
-            background-size: 30% auto;
-            background-position: center;
         }
 
         th, td {
@@ -137,65 +125,15 @@
             background-color: transparent;
             text-align: center;
             padding: 10px;
-            position: fixed;
             width: 100%;
+            position: absolute;
             bottom: 0;
-            opacity: 0;
-            animation: fadeInUpFooter 0.5s ease forwards;
-        }
-
-        /* Definir animaciones */
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUpFooter {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
         }
 
         /* Estilos adicionales para los títulos de las tablas */
         .table-title-Radian,
         .table-title-Boom {
-            text-align: center;
-            font-size: 2em;
+            font-size: 1.5em;
             margin-bottom: 10px;
             font-weight: 900;
         }
@@ -210,25 +148,31 @@
 
         /* Estilo para el título BastardyGans */
         h2 {
-            text-align: center;
-            margin-top: 40px;
-            font-size: 3em;
+            font-size: 2em;
             font-weight: 900;
             color: white;
-            text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
+            text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
         }
 
         /* Media query para dispositivos móviles */
         @media screen and (max-width: 768px) {
-            .table-container {
-                margin: 0;
-                width: 100%;
+            nav a {
+                font-size: 0.8em;
+                padding: 5px 10px;
             }
 
-            .left-table,
-            .right-table {
+            .table-container {
                 width: 100%;
-                margin: 0;
+                padding: 10px;
+            }
+
+            th, td {
+                font-size: 0.8em;
+                padding: 5px;
+            }
+
+            h2 {
+                font-size: 1.5em;
             }
         }
     </style>
@@ -260,7 +204,7 @@
     </section>
 
     <!-- Tabla Radiant PVP -->
-    <section class="table-container" style="float: right;">
+    <section class="table-container">
         <div class="table-title-Radian">RADIANT</div>
         <div class="table-title-Radian">PVP</div>
         <table class="right-table">
@@ -304,7 +248,7 @@
     </section>
 
     <!-- Tabla BoomGans Wars -->
-    <section class="table-container" style="float: left;">
+    <section class="table-container">
         <div class="table-title-Boom">BOOMGANS</div>
         <div class="table-title-Boom">WARS</div>
         <table class="left-table">
@@ -341,7 +285,8 @@
                 </tr>
                 <tr>
                     <td class="miembro-boom">DISPONIBLE</td>
-                    <td class="miembro-boom">MIEMBRO</td>
+                    <td class="miembro-boom">MIEMBRO</td
+
                 </tr>
             </tbody>
         </table>
