@@ -91,24 +91,6 @@
             animation-delay: 0.5s;
         }
 
-        .discord-button {
-            display: inline-block;
-            padding: 25px 35px;
-            background-color: #0000ff;
-            color: #ffffff;
-            text-decoration: none;
-            border-radius: 25px;
-            font-size: 1.6em;
-            margin-top: 30px;
-            transition: transform 0.3s;
-            animation: pulse 1s infinite;
-        }
-
-        .discord-button:hover {
-            background-color: #0000cc;
-            transform: scale(1.05);
-        }
-
         footer {
             background-color: transparent;
             text-align: left;
@@ -121,63 +103,6 @@
         .footer-content {
             margin-left: 20px;
             color: #ffffff;
-        }
-
-        #contacto-menu {
-            display: none;
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background-color: #0000ff;
-            padding: 10px;
-            border-radius: 10px;
-            transform: translateY(-20px);
-            opacity: 0;
-            transition: transform 0.3s, opacity 0.3s;
-            margin-top: 70px;
-            margin-right: -17px;
-        }
-
-        #contacto-menu.visible {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        #menu-options {
-            display: none;
-            position: absolute;
-            left: 0;
-            top: 100%;
-            background-color: rgba(0, 0, 0, 0);
-            padding: 25px;
-            border-radius: 25px;
-            color: #ffffff;
-            transform: translateY(-20px);
-            opacity: 0;
-            transition: transform 0.3s, opacity 0.3s;
-            z-index: 1000;
-            margin-left: -25px;
-        }
-
-        #menu-options.visible {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        #menu-options a {
-            display: block;
-            color: #ff0000;
-            text-decoration: none;
-            padding: 25px 0;
-            border-bottom: 1px solid #ff0000;
-            transition: transform 0.5s, border-color 0.5s;
-            font-size: 1.2em;
-        }
-
-        #menu-options a:hover {
-            background-color: #ffffff00;
-            border-color: #ffffff00;
-            transform: scale(1.2);
         }
 
         @keyframes slideIn {
@@ -201,44 +126,31 @@
 <body>
     <!-- Video de fondo -->
     <video id="video-background" autoplay muted loop>
-    <source src="VIDEOS E IMAGENES/bastardygans.webm" type="video/webm">
-    Tu navegador no soporta el elemento de video.
-</video>
+        <source src="VIDEOS E IMAGENES/bastardygans.webm" type="video/webm">
+        Tu navegador no soporta el elemento de video.
+    </video>
 
     <nav>
-        <a href="#" id="menu-btn">Menú</a>
         <a href="miembros.html">Miembros Bastardygans</a>
         <a href="reglas.html">Reglas</a>
         <a href="sobre-nosotros.html">Sobre Nosotros</a>
-        
-        <a href="#" id="contacto-btn" style="margin-left: auto;">Contacto</a>
+        <a href="donaciones.html">Donaciones</a>
+        <a href="https://discord.gg/xhDpvFbwrR" target="_blank">Discord</a>
     </nav>
+    
     <header>
         <h1>BastardyGans</h1>
         <h2>Servidor de GTA Roleplay PVP</h2>
-        <a href="https://discord.gg/xhDpvFbwrR" class="discord-button" target="_blank">Discord</a>
     </header>
+    
     <footer>
         <div class="footer-content">
             <p>&copy; 2024 BastardyGans. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <div id="contacto-menu">
-        <p><strong>Correo:</strong> Contacto.bastardygans@gmail.com</p>
-    </div>
-
-    <div id="menu-options">
-        <a href="donaciones.html">Donaciones</a>
-        <a href="https://discord.gg/xhDpvFbwrR" target="_blank">Discord</a>
-    </div>
-
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const contactoBtn = document.getElementById('contacto-btn');
-            const contactoMenu = document.getElementById('contacto-menu');
-            const menuBtn = document.getElementById('menu-btn');
-            const menuOptions = document.getElementById('menu-options');
             const video = document.getElementById('video-background');
 
             // Guardar la posición del video antes de salir de la página
@@ -250,40 +162,6 @@
             const savedTime = localStorage.getItem('videoTime');
             if (savedTime !== null) {
                 video.currentTime = savedTime;
-            }
-
-            menuBtn.addEventListener('mouseenter', function () {
-                // Colocar el menú justo debajo del botón
-                const rect = menuBtn.getBoundingClientRect();
-                menuOptions.style.left = `${rect.left}px`;
-                menuOptions.style.top = `${rect.bottom}px`;
-
-                toggleMenu(menuOptions);
-            });
-
-            menuBtn.addEventListener('mouseleave', function () {
-                toggleMenu(menuOptions);
-            });
-
-            // Asegurar que el menú no desaparezca cuando se pasa el ratón sobre él
-            menuOptions.addEventListener('mouseenter', function () {
-                menuOptions.classList.add('visible');
-            });
-
-            menuOptions.addEventListener('mouseleave', function () {
-                toggleMenu(menuOptions);
-            });
-
-            contactoBtn.addEventListener('click', function () {
-                toggleMenu(contactoMenu);
-            });
-
-            function toggleMenu(menu) {
-                if (menu.classList.contains('visible')) {
-                    menu.classList.remove('visible');
-                } else {
-                    menu.classList.add('visible');
-                }
             }
         });
     </script>
