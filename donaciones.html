@@ -210,7 +210,14 @@
         #cart-items li {
             margin-bottom: 10px;
             display: flex;
+            align-items: center;
             justify-content: space-between;
+        }
+
+        #cart-items img {
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
         }
 
         .remove-item-button {
@@ -271,7 +278,7 @@
                 <h2>SLOT BOOMGANG WARS</h2>
                 <p>Slot para unirse a la banda de los bastardygans.</p>
                 <p>Precio: $3000 CLP</p>
-                <button class="add-to-cart-button" data-name="SLOT BOOMGANG WARS" data-price="3000">Añadir al Carrito</button>
+                <button class="add-to-cart-button" data-name="SLOT BOOMGANG WARS" data-price="3000" data-image="https://raw.githubusercontent.com/Carlitosxz1/BASTARDYGANS/main/VIDEOS%20E%20IMAGENES/boom.png">Añadir al Carrito</button>
                 <button class="buy-now-button" data-name="SLOT BOOMGANG WARS" data-price="3000">Pagar Ahora</button>
             </div>
         </div>
@@ -281,7 +288,7 @@
                 <h2>SLOT RADIANT PVP</h2>
                 <p>Slot para unirse a la banda de los bastardygans.</p>
                 <p>Precio: $2500 CLP</p>
-                <button class="add-to-cart-button" data-name="SLOT RADIANT PVP" data-price="2500">Añadir al Carrito</button>
+                <button class="add-to-cart-button" data-name="SLOT RADIANT PVP" data-price="2500" data-image="https://raw.githubusercontent.com/Carlitosxz1/BASTARDYGANS/main/VIDEOS%20E%20IMAGENES/radiant.png">Añadir al Carrito</button>
                 <button class="buy-now-button" data-name="SLOT RADIANT PVP" data-price="2500">Pagar Ahora</button>
             </div>
         </div>
@@ -318,7 +325,12 @@
                 cartItems.innerHTML = '';
                 cartContent.forEach((item, index) => {
                     const li = document.createElement('li');
-                    li.textContent = `${item.name} - $${item.price} CLP`;
+                    const img = document.createElement('img');
+                    img.src = item.image;
+                    li.appendChild(img);
+                    const span = document.createElement('span');
+                    span.textContent = `${item.name} - $${item.price} CLP`;
+                    li.appendChild(span);
                     const removeButton = document.createElement('button');
                     removeButton.textContent = 'Eliminar';
                     removeButton.className = 'remove-item-button';
@@ -335,7 +347,8 @@
                 button.addEventListener('click', function () {
                     const name = this.getAttribute('data-name');
                     const price = this.getAttribute('data-price');
-                    cartContent.push({ name, price });
+                    const image = this.getAttribute('data-image');
+                    cartContent.push({ name, price, image });
                     updateCart();
                 });
             });
