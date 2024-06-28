@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=1024">
     <title>Tienda Online - BastardyGans</title>
     <style>
-        html,
-        body {
+        html, body {
             height: 100%;
             margin: 0;
             padding: 0;
@@ -33,7 +32,7 @@
 
         nav {
             background-color: rgba(0, 0, 0, 0.00);
-            padding: 20px 0; /* Ajustamos el padding */
+            padding: 20px 0;
             text-align: center;
             position: fixed;
             width: 100%;
@@ -46,46 +45,70 @@
             animation: fadeInDown 0.5s ease;
         }
 
-            nav a {
-                color: #ffffff;
-                margin: 0 10px;
-                text-decoration: none;
-                font-weight: bold;
-                border: 5px solid #ffffff;
-                padding: 10px 15px;
-                border-radius: 10px;
-                font-size: 1.2em;
-                display: inline-block;
-                transition: all 0.3s ease;
-            }
+        nav a {
+            color: #ffffff;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: bold;
+            border: 5px solid #ffffff;
+            padding: 10px 15px;
+            border-radius: 10px;
+            font-size: 1.2em;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
 
-                nav a:hover {
-                    background-color: #00BFFF;
-                    border-color: #00BFFF;
-                    transform: scale(1.1);
-                }
+        nav a:hover {
+            background-color: #00BFFF;
+            border-color: #00BFFF;
+            transform: scale(1.1);
+        }
+
+        .cart-link {
+            position: absolute;
+            right: 10px;
+            top: 25px;
+            background-color: #ff0000;
+            color: #ffffff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+        .cart-link:hover {
+            background-color: #cc0000;
+        }
 
         section {
             padding: 20px;
             background-color: rgba(0, 0, 0, 0.8);
             margin: 150px auto 0;
             border-radius: 10px;
-            max-width: 800px;
+            max-width: 1000px;
             font-size: 1.2em;
             text-align: center;
             animation: fadeInUp 1s ease;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row-reverse;
         }
 
-        .payment-method {
-            margin-bottom: 20px;
+        .product {
+            margin: 20px;
+            max-width: 45%;
         }
 
-            .payment-method img {
-                max-width: 100%;
-                height: auto;
-            }
+        .product img {
+            max-width: 100%;
+            height: auto;
+        }
 
-        .donation-button,
+        .product h2, .product p {
+            margin: 10px 0;
+        }
+
         .add-to-cart-button {
             display: inline-block;
             padding: 10px 20px;
@@ -93,32 +116,13 @@
             color: #ffffff;
             text-decoration: none;
             border-radius: 5px;
-            font-size: 1.5em;
-            margin-top: 20px;
+            font-size: 1em;
+            margin-top: 10px;
             transition: background-color 0.3s ease;
         }
 
-            .donation-button:hover,
-            .add-to-cart-button:hover {
-                background-color: #cc0000;
-            }
-
-        .bottom-image {
-            margin-top: 20px;
-        }
-
-        .product {
-            margin-bottom: 20px;
-        }
-
-            .product img {
-                max-width: 100%;
-                height: auto;
-            }
-
-        .product h2,
-        .product p {
-            margin: 10px 0;
+        .add-to-cart-button:hover {
+            background-color: #cc0000;
         }
 
         footer {
@@ -140,7 +144,6 @@
                 opacity: 0;
                 transform: translateY(-50px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -152,7 +155,6 @@
                 opacity: 0;
                 transform: translateY(50px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -172,11 +174,53 @@
             z-index: -1;
         }
 
-            #video-container video {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
+        #video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        #cart {
+            display: none;
+            position: fixed;
+            top: 100px;
+            right: 10px;
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            max-width: 300px;
+            z-index: 1001;
+        }
+
+        #cart h2 {
+            margin-top: 0;
+        }
+
+        #cart-items {
+            list-style: none;
+            padding: 0;
+        }
+
+        #cart-items li {
+            margin-bottom: 10px;
+        }
+
+        #cart button {
+            background-color: #ff0000;
+            color: #ffffff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        #cart button:hover {
+            background-color: #cc0000;
+        }
     </style>
 </head>
 
@@ -194,26 +238,31 @@
         <a href="sobre-nosotros.html">Sobre Nosotros</a>
         <a href="https://discord.gg/4m9Du4VMgr" target="_blank">Discord</a>
         <a href="#" id="contacto-btn">Contacto</a>
+        <a href="#" id="cart-link" class="cart-link">Carrito</a>
     </nav>
 
     <section>
-        <h2>Nuestra Tienda</h2>
         <div class="product">
-            <img src="ruta/a/imagen1.jpg" alt="Producto 1">
-            <h2>Producto 1</h2>
-            <p>Descripción del producto 1</p>
-            <p>Precio: $10.00</p>
-            <button class="add-to-cart-button">Añadir al Carrito</button>
+            <img src="ruta/a/imagen1.jpg" alt="SLOT BOOMGANG WARS">
+            <h2>SLOT BOOMGANG WARS</h2>
+            <p>Slot para unirse a la banda de los bastardygans.</p>
+            <p>Precio: $3000 CLP</p>
+            <button class="add-to-cart-button" data-name="SLOT BOOMGANG WARS" data-price="3000">Añadir al Carrito</button>
         </div>
         <div class="product">
-            <img src="ruta/a/imagen2.jpg" alt="Producto 2">
-            <h2>Producto 2</h2>
-            <p>Descripción del producto 2</p>
-            <p>Precio: $20.00</p>
-            <button class="add-to-cart-button">Añadir al Carrito</button>
+            <img src="ruta/a/imagen2.jpg" alt="SLOT RADIANT PVP">
+            <h2>SLOT RADIANT PVP</h2>
+            <p>Slot para unirse a la banda de los bastardygans.</p>
+            <p>Precio: $2500 CLP</p>
+            <button class="add-to-cart-button" data-name="SLOT RADIANT PVP" data-price="2500">Añadir al Carrito</button>
         </div>
-        <!-- Añade más productos aquí -->
     </section>
+
+    <div id="cart">
+        <h2>Carrito de Compras</h2>
+        <ul id="cart-items"></ul>
+        <button id="checkout-button">Pagar</button>
+    </div>
 
     <footer>
         <div class="footer-content">
@@ -229,6 +278,38 @@
         document.addEventListener('DOMContentLoaded', function () {
             const contactoBtn = document.getElementById('contacto-btn');
             const contactoMenu = document.getElementById('contacto-menu');
+            const cartLink = document.getElementById('cart-link');
+            const cart = document.getElementById('cart');
+            const cartItems = document.getElementById('cart-items');
+            const checkoutButton = document.getElementById('checkout-button');
+
+            let cartContent = [];
+
+            function updateCart() {
+                cartItems.innerHTML = '';
+                cartContent.forEach(item => {
+                    const li = document.createElement('li');
+                    li.textContent = `${item.name} - $${item.price} CLP`;
+                    cartItems.appendChild(li);
+                });
+            }
+
+            document.querySelectorAll('.add-to-cart-button').forEach(button => {
+                button.addEventListener('click', function () {
+                    const name = this.getAttribute('data-name');
+                    const price = this.getAttribute('data-price');
+                    cartContent.push({ name, price });
+                    updateCart();
+                });
+            });
+
+            cartLink.addEventListener('click', function () {
+                if (cart.style.display === 'none' || cart.style.display === '') {
+                    cart.style.display = 'block';
+                } else {
+                    cart.style.display = 'none';
+                }
+            });
 
             contactoBtn.addEventListener('click', function () {
                 if (contactoMenu.style.display === 'none' || contactoMenu.style.display === '') {
@@ -253,4 +334,5 @@
         });
     </script>
 </body>
+
 </html>
