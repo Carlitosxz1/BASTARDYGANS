@@ -175,9 +175,11 @@
             this.value = this.value.replace(/\D/g, '').substring(0, 3);
         });
 
-        // Simulación de la obtención del monto seleccionado
-        const selectedAmount = 3000; // Este valor debería venir de tu lógica de carrito
-        document.getElementById('amount').textContent = selectedAmount;
+        // Recuperar el monto del carrito desde localStorage
+        const cartAmount = localStorage.getItem('cartAmount');
+        if (cartAmount) {
+            document.getElementById('amount').textContent = cartAmount;
+        }
     </script>
 </body>
 </html>
