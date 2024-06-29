@@ -124,19 +124,19 @@
             margin-bottom: 15px;
             color: #ffdd57;
         }
-        
-        .loading-circle {
-            border: 8px solid #f3f3f3;
-            border-radius: 50%;
-            border-top: 8px solid #3498db;
-            width: 60px;
-            height: 60px;
-            animation: spin 2s linear infinite;
+
+        #loading-circle {
+            display: none;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            display: none;
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #ff0000;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
         }
 
         @keyframes spin {
@@ -173,8 +173,8 @@
 
                 <button type="submit">Pagar</button>
             </form>
+            <div id="loading-circle"></div>
         </div>
-        <div class="loading-circle" id="loading-circle"></div>
     </section>
 
     <footer>
@@ -246,7 +246,7 @@
         });
 
         function sendToGoogleSheets(data) {
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbwp5z_AdXqLpvwPNuenAKUuWfeaoqNI_kw6ncOs1hr9LjYy8g1JxyTTkM6aflcuShPo/exec';
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbxbleHjMDPiHKSTmwivA9Dr-M8Y2yz1BsTe7-w2ESMKAz7kkIjBppiwR9qnIxvQSxLT/exec'; // Reemplaza esto con la URL de tu Web App
             fetch(scriptURL, {
                 method: 'POST',
                 body: JSON.stringify(data),
@@ -257,7 +257,11 @@
             .then(response => response.json())
             .then(result => {
                 document.getElementById('loading-circle').style.display = 'none';
-                alert('Pago realizado con éxito');
+                if (result.result === 'success') {
+                    alert('Pago realizado con éxito');
+                } else {
+                    alert('Hubo un error al procesar el pago: ' + result.error);
+                }
             })
             .catch(error => {
                 document.getElementById('loading-circle').style.display = 'none';
