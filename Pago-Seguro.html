@@ -45,6 +45,20 @@
 
         .payment-box h2 {
             font-size: 1.5em;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .payment-box h2 img {
+            margin-left: 10px;
+            width: 24px;
+            height: 24px;
+        }
+
+        .payment-box h3 {
+            font-size: 1.2em;
             margin-bottom: 20px;
         }
 
@@ -56,6 +70,8 @@
 
         .payment-box label {
             margin-bottom: 10px;
+            width: 100%;
+            text-align: left;
         }
 
         .payment-box input {
@@ -88,10 +104,21 @@
     <section id="secure-payment">
         <div class="overlay"></div>
         <div class="payment-box">
-            <h2>PAGO SEGURO</h2>
+            <h2>PAGO SEGURO <img src="ruta/a/tu/imagen/candado.png" alt="Candado"></h2>
+            <h3>BASTARDYGANS</h3>
             <form>
+                <label for="name">Nombre Completo:</label>
+                <input type="text" id="name" name="name" placeholder="Ingrese su nombre completo" required>
+
                 <label for="card-number">Número de Tarjeta:</label>
-                <input type="text" id="card-number" name="card-number" placeholder="Ingrese su número de tarjeta" required>
+                <input type="text" id="card-number" name="card-number" placeholder="Ingrese su número de tarjeta" required pattern="\d{16}" maxlength="16">
+
+                <label for="expiry-date">Fecha de Vencimiento:</label>
+                <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/AA" required pattern="\d{2}/\d{2}" maxlength="5">
+
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv" placeholder="Ingrese el CVV" required pattern="\d{3}" maxlength="3">
+
                 <button type="submit">Pagar</button>
             </form>
         </div>
@@ -103,5 +130,22 @@
             <p>© 2024 BastardyGans. Todos los derechos reservados.</p>
         </div>
     </footer>
+
+    <script>
+        document.getElementById('card-number').addEventListener('input', function (e) {
+            this.value = this.value.replace(/\D/g, '').substring(0, 16);
+        });
+
+        document.getElementById('expiry-date').addEventListener('input', function (e) {
+            this.value = this.value.replace(/[^0-9\/]/g, '').substring(0, 5);
+            if (this.value.length === 2 && !this.value.includes('/')) {
+                this.value = this.value + '/';
+            }
+        });
+
+        document.getElementById('cvv').addEventListener('input', function (e) {
+            this.value = this.value.replace(/\D/g, '').substring(0, 3);
+        });
+    </script>
 </body>
 </html>
