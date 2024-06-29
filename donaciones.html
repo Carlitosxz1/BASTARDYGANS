@@ -402,6 +402,16 @@
                 });
             });
 
+            document.querySelectorAll('.buy-now-button').forEach(button => {
+                button.addEventListener('click', function () {
+                    window.location.href = 'Pago-Seguro.html';
+                });
+            });
+
+            checkoutButton.addEventListener('click', function () {
+                window.location.href = 'Pago-Seguro.html';
+            });
+
             cartLink.addEventListener('click', function () {
                 cart.style.display = cart.style.display === 'block' ? 'none' : 'block';
             });
