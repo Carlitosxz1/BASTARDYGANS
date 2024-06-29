@@ -88,18 +88,23 @@
             font-size: 1.2em;
             text-align: center;
             animation: fadeInUp 1s ease;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
         }
 
         .product {
             display: flex;
+            flex-direction: column;
             align-items: center;
             margin: 20px;
+            width: 300px; /* Ajustar el ancho del producto */
         }
 
         .product img {
             width: 100px;
             height: auto;
-            margin-right: 20px;
+            margin-bottom: 10px;
         }
 
         .product h2, .product p {
@@ -182,7 +187,7 @@
         #cart {
             display: none;
             position: fixed;
-            top: 100px;
+            top: 150px;
             right: 10px;
             background-color: #000;
             color: #fff;
