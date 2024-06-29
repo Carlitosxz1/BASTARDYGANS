@@ -10,14 +10,15 @@
             padding: 0;
             height: 100%;
             font-family: Arial, sans-serif;
-            background-color: #000; /* Color de fondo general */
+            background-color: #1a1a1a; /* Color de fondo general */
+            color: #f5f5f5;
         }
 
         #secure-payment {
             position: relative;
             width: 100%;
             height: 100vh;
-            background-image: url('https://raw.githubusercontent.com/Carlitosxz1/BASTARDYGANS/main/VIDEOS%20E%20IMAGENES/pago.jpg'); /* Ruta a tu imagen de fondo */
+            background-image: url('https://raw.githubusercontent.com/Carlitosxz1/BASTARDYGANS/main/VIDEOS%20E%20IMAGENES/pago.jpg');
             background-size: cover;
             background-position: center;
         }
@@ -28,7 +29,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Fondo semi negro */
+            background-color: rgba(0, 0, 0, 0.7); /* Fondo semi negro */
         }
 
         .payment-box {
@@ -36,19 +37,21 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            padding: 20px;
-            background-color: #fff;
+            padding: 30px;
+            background-color: #2c2c2c;
             border-radius: 10px;
             text-align: center;
-            color: #000;
+            color: #f5f5f5;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
         }
 
         .payment-box h2 {
-            font-size: 1.5em;
+            font-size: 1.8em;
             margin-bottom: 10px;
             display: flex;
             justify-content: center;
             align-items: center;
+            color: #ffdd57;
         }
 
         .payment-box h2 img {
@@ -69,18 +72,31 @@
         }
 
         .payment-box label {
-            margin-bottom: 10px;
+            margin-bottom: 5px;
             width: 100%;
             text-align: left;
+            color: #ffdd57;
         }
 
         .payment-box input {
             width: 100%;
             padding: 10px;
             margin-bottom: 15px;
-            border: 1px solid #ccc;
+            border: 1px solid #ffdd57;
             border-radius: 5px;
             font-size: 1em;
+            background-color: #1a1a1a;
+            color: #f5f5f5;
+        }
+
+        .payment-box .input-group {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .payment-box .input-group input {
+            width: 48%;
         }
 
         .payment-box button {
@@ -97,6 +113,12 @@
         .payment-box button:hover {
             background-color: #cc0000;
         }
+
+        .payment-box .amount {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #ffdd57;
+        }
     </style>
 </head>
 <body>
@@ -106,6 +128,7 @@
         <div class="payment-box">
             <h2>PAGO SEGURO <img src="https://raw.githubusercontent.com/Carlitosxz1/BASTARDYGANS/main/VIDEOS%20E%20IMAGENES/Candado.png" alt="Candado"></h2>
             <h3>BASTARDYGANS</h3>
+            <div class="amount">$<span id="amount">0</span> CLP</div>
             <form>
                 <label for="name">Nombre Completo:</label>
                 <input type="text" id="name" name="name" placeholder="Ingrese su nombre completo" required>
@@ -113,11 +136,16 @@
                 <label for="card-number">Número de Tarjeta:</label>
                 <input type="text" id="card-number" name="card-number" placeholder="Ingrese su número de tarjeta" required pattern="\d{16}" maxlength="16">
 
-                <label for="expiry-date">Fecha de Vencimiento:</label>
-                <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/AA" required pattern="\d{2}/\d{2}" maxlength="5">
-
-                <label for="cvv">CVV:</label>
-                <input type="text" id="cvv" name="cvv" placeholder="Ingrese el CVV" required pattern="\d{3}" maxlength="3">
+                <div class="input-group">
+                    <div>
+                        <label for="expiry-date">Fecha de Vencimiento:</label>
+                        <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/AA" required pattern="\d{2}/\d{2}" maxlength="5">
+                    </div>
+                    <div>
+                        <label for="cvv">CVV:</label>
+                        <input type="text" id="cvv" name="cvv" placeholder="Ingrese el CVV" required pattern="\d{3}" maxlength="3">
+                    </div>
+                </div>
 
                 <button type="submit">Pagar</button>
             </form>
@@ -146,6 +174,10 @@
         document.getElementById('cvv').addEventListener('input', function (e) {
             this.value = this.value.replace(/\D/g, '').substring(0, 3);
         });
+
+        // Simulación de la obtención del monto seleccionado
+        const selectedAmount = 3000; // Este valor debería venir de tu lógica de carrito
+        document.getElementById('amount').textContent = selectedAmount;
     </script>
 </body>
 </html>
