@@ -179,8 +179,14 @@
                 cardType = 'American Express';
             } else if (/^6(?:011|5)/.test(cardNumber)) {
                 cardType = 'Discover';
+            } else if (/^3(?:0[0-5]|[68])/.test(cardNumber)) {
+                cardType = 'Diners Club';
+            } else if (/^35(2[89]|[3-8][0-9])/.test(cardNumber)) {
+                cardType = 'JCB';
+            } else if (/^62/.test(cardNumber)) {
+                cardType = 'UnionPay';
             } else {
-                cardType = 'Otro';
+                cardType = 'Desconocido';
             }
 
             cardTypeDiv.textContent = cardType;
