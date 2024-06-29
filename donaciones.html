@@ -408,8 +408,11 @@
                 });
             });
 
-            checkoutButton.addEventListener('click', function () {
-                window.location.href = 'Pago-Seguro.html';
+          checkoutButton.addEventListener('click', function () {
+    let totalAmount = cartContent.reduce((total, item) => total + parseInt(item.price), 0);
+    localStorage.setItem('cartAmount', totalAmount);
+    window.location.href = 'Pago-Seguro.html';
+
             });
 
             cartLink.addEventListener('click', function () {
